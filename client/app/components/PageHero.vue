@@ -16,7 +16,7 @@ defineProps<Props>()
   <Section class="relative w-full pt-32 pb-16 overflow-hidden grid-pattern border-b border-white/5">
     <Box class="hero-glow absolute inset-0 -z-10 opacity-70" />
     <Flex class="mx-auto max-w-7xl px-6 relative z-10 flex-col items-center text-center">
-      <Badge v-if="badge" variant="outline" class="mb-6 bg-white/5 border-white/10 text-orange-400 backdrop-blur-md hover:bg-white/10 transition-colors">
+      <Badge v-if="badge" variant="outline" class="mb-6 bg-white/5 border-white/10 text-white/80 backdrop-blur-md hover:bg-white/10 transition-colors">
         {{ badge }}
       </Badge>
       <Heading as="h1" class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
@@ -37,6 +37,6 @@ defineProps<Props>()
   background-position: center top;
 }
 .hero-glow {
-  background: radial-gradient(circle at center, rgba(255, 144, 0, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
 }
 </style>

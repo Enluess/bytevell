@@ -42,7 +42,7 @@ const submitForm = async () => {
           type="text" 
           required
           placeholder="Adınız ve Soyadınız" 
-          class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+          class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
         />
       </Box>
       <Box class="space-y-2">
@@ -53,7 +53,7 @@ const submitForm = async () => {
           type="email" 
           required
           placeholder="E-posta adresiniz" 
-          class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+          class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
         />
       </Box>
     </Grid>
@@ -66,7 +66,7 @@ const submitForm = async () => {
         type="text" 
         required
         placeholder="Mesajınızın konusu" 
-        class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+        class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
       />
     </Box>
     
@@ -78,17 +78,17 @@ const submitForm = async () => {
         required
         rows="5"
         placeholder="Mesajınız..." 
-        class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all resize-y"
+        class="w-full px-4 py-3 bg-zinc-900/80 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all resize-y"
       />
     </Box>
     
     <Button 
       type="submit" 
       :disabled="isSubmitting"
-      class="w-full px-6 py-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-medium transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20"
+      class="w-full px-6 py-4 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-all focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-white/10"
     >
       <Send v-if="!isSubmitting" class="w-5 h-5" />
-      <Box as="span" v-if="isSubmitting" class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+      <Box as="span" v-if="isSubmitting" class="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
       <Text as="span">{{ isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder' }}</Text>
     </Button>
   </Box>

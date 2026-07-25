@@ -18,6 +18,6 @@ defineProps<Props>()
 
 <style scoped>
 .glow-shadow {
-  box-shadow: 0 0 40px -10px rgba(255, 144, 0, 0.1);
+  box-shadow: 0 0 40px -10px rgba(255, 255, 255, 0.05);
 }
 </style>

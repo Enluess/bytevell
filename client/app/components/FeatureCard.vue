@@ -9,27 +9,50 @@ interface Props {
   title: string
   description: string
   icon: Component
+  index?: number
 }
 
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  index: 0
+})
 </script>
 
 <template>
   <Flex 
     direction="col" 
-    gap="4" 
-    class="p-6 glass-card animate-in fade-in slide-in-from-bottom-4 duration-500 hover:-translate-y-1"
+    gap="5" 
+    class="feature-card group p-7 glass-card reveal-on-scroll cursor-default h-full"
+    :style="{ animationDelay: `${index * 120}ms` }"
   >
+    <!-- Icon container -->
     <Flex 
       align="center" 
       justify="center" 
-      class="w-12 h-12 rounded-xl bg-gradient-to-br from-white/10 to-transparent border border-white/5 text-primary"
+      class="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/[0.08] text-white/70 group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:border-white/15"
     >
-      <component :is="icon" class="w-6 h-6" />
+      <component :is="icon" class="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
     </Flex>
+
+    <!-- Content -->
     <Box>
-      <Heading as="h3" size="h4" class="text-white mb-2">{{ title }}</Heading>
-      <Text size="sm" variant="muted" class="leading-relaxed">{{ description }}</Text>
+      <Heading as="h3" size="h4" class="text-white mb-2.5 transition-all duration-300">{{ title }}</Heading>
+      <Text size="sm" variant="muted" class="leading-relaxed text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300">{{ description }}</Text>
     </Box>
+
+    <!-- Bottom accent line on hover - very subtle white -->
+    <Box class="h-px w-0 group-hover:w-full bg-gradient-to-r from-white/20 to-transparent transition-all duration-500 rounded-full mt-auto" />
   </Flex>
 </template>
+
+<style scoped>
+.feature-card {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 40px -10px rgba(255, 255, 255, 0.03);
+}
+</style>
