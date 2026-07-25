@@ -49,10 +49,10 @@ onUnmounted(() => {
     <!-- Split Layout Content -->
     <Section padding="xl" class="relative z-10 bg-black">
       <Container size="lg">
-        <Grid cols="1" class="lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <Grid cols="1" class="lg:grid-cols-2 gap-16 lg:gap-24">
           
           <!-- Left Side: Information -->
-          <Flex direction="col" gap="10" class="reveal-on-scroll">
+          <Flex direction="col" justify="between" class="reveal-on-scroll h-full py-2">
             <Box>
               <Heading as="h2" size="h2" class="text-white mb-6">Nasıl Yardımcı Olabiliriz?</Heading>
               <Text size="lg" class="text-zinc-400 leading-relaxed">

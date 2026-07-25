@@ -12,13 +12,15 @@ defineProps<{
 </script>
 
 <template>
-  <GlowCard class="h-full text-center">
-    <Flex class="p-8 flex-col items-center justify-center h-full gap-4">
-      <Flex v-if="icon" class="w-14 h-14 rounded-2xl bg-white/5 items-center justify-center text-white mb-2">
-        <component :is="icon" class="w-7 h-7" />
+  <GlowCard class="h-full">
+    <Flex class="p-5 items-center h-full gap-4">
+      <Flex v-if="icon" class="w-12 h-12 rounded-xl bg-white/5 items-center justify-center text-white flex-shrink-0">
+        <component :is="icon" class="w-5 h-5" />
       </Flex>
-      <Heading as="h3" class="text-zinc-400 font-medium">{{ title }}</Heading>
-      <Text as="p" class="text-white text-lg font-semibold">{{ value }}</Text>
+      <Flex direction="col" gap="1">
+        <Heading as="h3" class="text-zinc-400 text-sm font-medium">{{ title }}</Heading>
+        <Text as="p" class="text-white text-base font-semibold">{{ value }}</Text>
+      </Flex>
     </Flex>
   </GlowCard>
 </template>
