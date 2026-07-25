@@ -12,3 +12,18 @@ export const users = pgTable('User', {
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
+
+export const services = pgTable('Service', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('userId').references(() => users.id).notNull(),
+  type: varchar('type', { length: 50 }).notNull(),
+  name: varchar('name', { length: 255 }).notNull(),
+  status: varchar('status', { length: 50 }).notNull().default('active'),
+  ipAddress: varchar('ipAddress', { length: 50 }),
+  price: varchar('price', { length: 50 }),
+  createdAt: timestamp('createdAt', { withTimezone: true }).notNull().defaultNow(),
+  expiresAt: timestamp('expiresAt', { withTimezone: true }),
+});
+
+export type Service = typeof services.$inferSelect;
+export type NewService = typeof services.$inferInsert;

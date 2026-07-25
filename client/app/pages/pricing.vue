@@ -27,10 +27,10 @@
         <PricingPlanRow 
           v-for="plan in filteredPlans" 
           :key="plan.name" 
+          :type="plan.category"
           :name="plan.name" 
           :specs="plan.specs" 
           :price="plan.price" 
-          buy-link="/auth/register" 
         />
       </Flex>
 

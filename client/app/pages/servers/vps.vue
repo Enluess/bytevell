@@ -113,6 +113,7 @@ onUnmounted(() => {
       <Container size="lg">
         <Flex direction="col" gap="4" class="max-w-4xl mx-auto reveal-on-scroll">
           <PricingPlanRow 
+            type="vps"
             v-for="plan in plans" 
             :key="plan.name" 
             v-bind="plan" 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { Server } from 'lucide-vue-next'
+import { Server, Check } from 'lucide-vue-next'
+import { useCartStore } from '~/stores/cart'
 import { Flex } from '@/components/ui/layout'
 import { Heading, Text } from '@/components/ui/typography'
 import { Button } from '~/components/ui/button'
@@ -10,12 +11,24 @@ const props = withDefaults(defineProps<{
   name: string
   specs: string[]
   price: string
+  type?: string
   buyLink?: string
 }>(), {
-  buyLink: '/auth/register'
+  type: 'vps'
 })
 
 const router = useRouter()
+const cartStore = useCartStore()
+
+const added = ref(false)
+
+const addToCart = () => {
+  cartStore.addItem(props.type, props.name, props.price)
+  added.value = true
+  setTimeout(() => {
+    added.value = false
+  }, 2000)
+}
 </script>
 
 <template>
@@ -37,8 +50,13 @@ const router = useRouter()
       <Flex class="flex-col items-end">
         <Text as="span" class="text-2xl font-bold text-white">{{ price }}</Text>
       </Flex>
-      <Button class="px-6 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors focus:ring-2 focus:ring-white/50 shadow-lg shadow-white/10" @click="router.push(buyLink)">
-        Satın Al
+      <Button 
+        class="px-6 py-2.5 rounded-xl font-semibold transition-all focus:ring-2 focus:ring-white/50 shadow-lg shadow-white/10 w-32 justify-center"
+        :class="added ? 'bg-green-500 hover:bg-green-600 text-white' : 'bg-white text-black hover:bg-zinc-200'" 
+        @click="addToCart"
+      >
+        <span v-if="added" class="flex items-center gap-2"><Check class="w-4 h-4"/> Eklendi</span>
+        <span v-else>Sepete Ekle</span>
       </Button>
     </Flex>
   </Flex>

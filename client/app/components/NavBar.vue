@@ -2,8 +2,9 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { 
   ChevronDown, Menu, X, LogIn, LayoutDashboard, 
-  Server, HardDrive, Globe, Mail, Headphones, MessageCircle 
+  Server, HardDrive, Globe, Mail, Headphones, MessageCircle, ShoppingCart
 } from 'lucide-vue-next'
+import { useCartStore } from '~/stores/cart'
 
 import Box from '@/components/ui/layout/Box.vue'
 import Flex from '@/components/ui/layout/Flex.vue'
@@ -12,6 +13,11 @@ import Text from '@/components/ui/typography/Text.vue'
 import { Button } from '@/components/ui/button'
 
 const auth = { isAuthenticated: false }
+const cartStore = useCartStore()
+
+onMounted(() => {
+  cartStore.initCart()
+})
 
 const scrolled = ref(false)
 const mobileMenuOpen = ref(false)
@@ -163,6 +169,13 @@ const closeDropdown = () => {
 
         <!-- Right actions -->
         <Flex class="hidden md:flex items-center" gap="4">
+          <NuxtLink to="/checkout" class="relative text-zinc-400 hover:text-white transition-colors">
+            <ShoppingCart class="w-6 h-6" />
+            <span v-if="cartStore.totalItems > 0" class="absolute -top-2 -right-2 bg-primary text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+              {{ cartStore.totalItems }}
+            </span>
+          </NuxtLink>
+
           <Button v-if="!auth.isAuthenticated" variant="outline" asChild class="px-5 py-2.5 rounded-xl border-white/10 hover:bg-white/10">
             <NuxtLink to="/auth/login">
               <LogIn class="w-4 h-4 mr-2" />
@@ -211,6 +224,12 @@ const closeDropdown = () => {
             <NuxtLink to="/contact" class="block px-3 py-2 rounded-lg text-white hover:bg-white/5" @click="mobileMenuOpen = false">Bize Ulaşın</NuxtLink>
           </Box>
           <Box class="px-3 pt-2">
+            <Button asChild variant="outline" class="w-full justify-center px-4 py-3 rounded-xl border-white/10 bg-white/5 text-white mb-2" @click="mobileMenuOpen = false">
+              <NuxtLink to="/checkout" class="flex items-center gap-2">
+                <ShoppingCart class="w-4 h-4" /> 
+                Sepetim ({{ cartStore.totalItems }})
+              </NuxtLink>
+            </Button>
             <Button v-if="!auth.isAuthenticated" variant="outline" asChild class="w-full justify-center px-4 py-3 rounded-xl border-white/10 bg-white/5 text-white" @click="mobileMenuOpen = false">
               <NuxtLink to="/auth/login">Müşteri Paneli</NuxtLink>
             </Button>
