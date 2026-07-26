@@ -6,7 +6,7 @@ import servicesRoutes from './routes/services.js';
 import adminRoutes from './routes/admin.js';
 
 const fastify = Fastify({
-    logger: true,
+    logger: false,
 });
 
 const PORT = Number(process.env.PORT) || 5000;
@@ -27,7 +27,6 @@ async function start() {
 
     try {
         await fastify.listen({ port: PORT, host: '0.0.0.0' });
-        console.log(`Server is running on port ${PORT}`);
     } catch (err) {
         fastify.log.error(err);
         process.exit(1);

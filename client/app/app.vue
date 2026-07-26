@@ -8,7 +8,7 @@
 useHead({
   title: 'HostiHub - Premium Web Hosting',
   meta: [
-    { name: 'description', content: 'HostiHub - Hızlı, güvenli ve uygun fiyatlı web hosting çözümleri.' }
+    { name: 'description', content: 'HostiHub - Hızlı, güvenli ve uygun fiyatlı hosting çözümleri.' }
   ],
   link: [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
