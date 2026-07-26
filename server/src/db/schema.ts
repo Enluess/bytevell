@@ -6,6 +6,7 @@ export const users = pgTable('User', {
   password: varchar('password', { length: 255 }).notNull(),
   name: varchar('name', { length: 255 }),
   role: varchar('role', { length: 50 }).notNull().default('USER'),
+  balance: varchar('balance', { length: 50 }).notNull().default('0.00'), // Storing as varchar for decimal precision since Drizzle pg-core decimal is sometimes tricky without passing precise configs, or we can use decimal
   createdAt: timestamp('createdAt', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updatedAt', { withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date()),
 });

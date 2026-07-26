@@ -57,7 +57,7 @@ export const login = async (
         }
 
         const token = jwt.sign({ userId: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1d' });
-        reply.send({ token, user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+        reply.send({ token, user: { id: user.id, email: user.email, name: user.name, role: user.role, balance: user.balance } });
     } catch (error) {
         reply.status(500).send({ message: 'Server error', error });
     }
@@ -82,7 +82,7 @@ export const me = async (
             return reply.status(404).send({ message: 'User not found' });
         }
 
-        reply.send({ user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+        reply.send({ user: { id: user.id, email: user.email, name: user.name, role: user.role, balance: user.balance } });
     } catch (error) {
         reply.status(401).send({ message: 'Invalid token', error });
     }

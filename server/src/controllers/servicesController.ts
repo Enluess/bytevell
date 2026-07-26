@@ -19,6 +19,33 @@ export const purchaseService = async (request: FastifyRequest<{ Body: { type: st
         const userId = await getUserFromToken(request);
         const { type, name, price } = request.body;
 
+        // Verify user and balance
+        const user = await db.query.users.findFirst({
+            where: eq(users.id, userId)
+        });
+
+        if (!user) {
+            return reply.status(404).send({ message: 'User not found' });
+        }
+
+        const numericPrice = parseFloat(price);
+        const currentBalance = parseFloat(user.balance);
+
+        if (isNaN(numericPrice) || numericPrice < 0) {
+            return reply.status(400).send({ message: 'Invalid price format' });
+        }
+
+        if (currentBalance < numericPrice) {
+            return reply.status(400).send({ message: 'Yetersiz bakiye (Insufficient balance)' });
+        }
+
+        // Deduct balance and create service
+        const newBalance = (currentBalance - numericPrice).toFixed(2);
+        
+        await db.update(users)
+            .set({ balance: newBalance })
+            .where(eq(users.id, userId));
+
         const [service] = await db.insert(services).values({
             userId,
             type,
@@ -27,7 +54,7 @@ export const purchaseService = async (request: FastifyRequest<{ Body: { type: st
             ipAddress: type === 'web' ? null : `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`, // Mock IP
         }).returning();
 
-        reply.status(201).send({ message: 'Service purchased successfully', service });
+        reply.status(201).send({ message: 'Service purchased successfully', service, newBalance });
     } catch (error: any) {
         reply.status(error.message === 'No token provided' ? 401 : 500).send({ message: error.message || 'Server error', error });
     }

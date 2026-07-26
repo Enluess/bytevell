@@ -35,7 +35,11 @@
             </h2>
             <div v-if="authStore.isAuthenticated" class="text-sm">
               <p class="text-zinc-400 mb-1">Şu anki hesapla devam ediliyor:</p>
-              <p class="font-medium text-white">{{ authStore.user?.email }}</p>
+              <p class="font-medium text-white mb-2">{{ authStore.user?.email }}</p>
+              <div class="inline-flex items-center gap-2 bg-zinc-800/50 px-3 py-1.5 rounded-lg border border-zinc-700/50">
+                <span class="text-zinc-400 text-xs">Mevcut Bakiye:</span>
+                <span class="font-bold text-emerald-400">{{ authStore.user?.balance || '0.00' }}₺</span>
+              </div>
             </div>
             <div v-else class="text-sm">
               <p class="text-zinc-400 mb-4">Siparişi tamamlamak için giriş yapmalısınız.</p>
@@ -103,11 +107,12 @@
 
             <button 
               @click="handlePurchase" 
-              :disabled="loading || !authStore.isAuthenticated || success !== ''"
-              class="w-full bg-white hover:bg-zinc-200 text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-50 transition-all"
+              :disabled="loading || !authStore.isAuthenticated || success !== '' || !hasEnoughBalance"
+              class="w-full bg-white hover:bg-zinc-200 text-black py-3 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:bg-white transition-all mt-4"
             >
               <Loader2 v-if="loading" class="w-4 h-4 animate-spin" />
               <span v-if="success">Sipariş Alındı!</span>
+              <span v-else-if="!hasEnoughBalance && authStore.isAuthenticated">Yetersiz Bakiye</span>
               <span v-else>Siparişi Onayla</span>
             </button>
             <p class="text-center text-xs text-zinc-500 mt-4">
@@ -140,6 +145,16 @@ const formattedTotalPrice = computed(() => {
   return cartStore.totalPrice.toFixed(2)
 })
 
+const finalPrice = computed(() => {
+  return cartStore.totalPrice * 1.2
+})
+
+const hasEnoughBalance = computed(() => {
+  if (!authStore.isAuthenticated) return false
+  const balance = parseFloat(authStore.user?.balance || '0')
+  return balance >= finalPrice.value
+})
+
 async function handlePurchase() {
   if (!authStore.isAuthenticated) {
     router.push('/auth/login')
@@ -169,6 +184,7 @@ async function handlePurchase() {
 
     success.value = 'Tüm ürünler başarıyla satın alındı!'
     cartStore.clearCart()
+    await authStore.fetchUser() // Refresh balance
 
     setTimeout(() => {
       router.push('/dashboard')

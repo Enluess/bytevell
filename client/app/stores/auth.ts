@@ -5,6 +5,7 @@ interface User {
     email: string
     name: string | null
     role: string
+    balance: string
 }
 
 interface AuthState {

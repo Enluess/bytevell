@@ -5,6 +5,7 @@ import {
   Server, HardDrive, Globe, Mail, Headphones, MessageCircle, ShoppingCart
 } from 'lucide-vue-next'
 import { useCartStore } from '~/stores/cart'
+import { useAuthStore } from '~/stores/auth'
 
 import Box from '@/components/ui/layout/Box.vue'
 import Flex from '@/components/ui/layout/Flex.vue'
@@ -12,7 +13,7 @@ import Container from '@/components/ui/layout/Container.vue'
 import Text from '@/components/ui/typography/Text.vue'
 import { Button } from '@/components/ui/button'
 
-const auth = { isAuthenticated: false }
+const auth = useAuthStore()
 const cartStore = useCartStore()
 
 onMounted(() => {
@@ -182,12 +183,19 @@ const closeDropdown = () => {
               Müşteri Paneli
             </NuxtLink>
           </Button>
-          <Button v-else asChild class="px-5 py-2.5 rounded-xl shadow-lg shadow-primary/20">
-            <NuxtLink to="/dashboard">
-              <LayoutDashboard class="w-4 h-4 mr-2" />
-              Dashboard
-            </NuxtLink>
-          </Button>
+          <template v-else>
+            <Button v-if="auth.user?.role === 'ADMIN'" variant="outline" asChild class="px-5 py-2.5 rounded-xl border-white/10 hover:bg-white/10 mr-2">
+              <NuxtLink to="/admin">
+                Admin
+              </NuxtLink>
+            </Button>
+            <Button asChild class="px-5 py-2.5 rounded-xl shadow-lg shadow-primary/20">
+              <NuxtLink to="/dashboard">
+                <LayoutDashboard class="w-4 h-4 mr-2" />
+                Dashboard
+              </NuxtLink>
+            </Button>
+          </template>
         </Flex>
 
         <!-- Mobile Menu Button -->
@@ -233,9 +241,14 @@ const closeDropdown = () => {
             <Button v-if="!auth.isAuthenticated" variant="outline" asChild class="w-full justify-center px-4 py-3 rounded-xl border-white/10 bg-white/5 text-white" @click="mobileMenuOpen = false">
               <NuxtLink to="/auth/login">Müşteri Paneli</NuxtLink>
             </Button>
-            <Button v-else asChild class="w-full justify-center px-4 py-3 rounded-xl text-white" @click="mobileMenuOpen = false">
-              <NuxtLink to="/dashboard">Dashboard</NuxtLink>
-            </Button>
+            <template v-else>
+              <Button v-if="auth.user?.role === 'ADMIN'" variant="outline" asChild class="w-full justify-center px-4 py-3 rounded-xl border-white/10 bg-white/5 text-white mb-2" @click="mobileMenuOpen = false">
+                <NuxtLink to="/admin">Admin Panel</NuxtLink>
+              </Button>
+              <Button asChild class="w-full justify-center px-4 py-3 rounded-xl text-white" @click="mobileMenuOpen = false">
+                <NuxtLink to="/dashboard">Dashboard</NuxtLink>
+              </Button>
+            </template>
           </Box>
         </Box>
       </Box>
