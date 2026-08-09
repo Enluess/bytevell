@@ -6,9 +6,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 w-full border-t border-white/10 bg-transparent pt-24 pb-12">
+    <footer className="relative z-10 w-full border-t border-white/10 bg-transparent pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-8 mb-10 md:mb-16">
           
           {/* Brand Column */}
           <div className="lg:col-span-4 flex flex-col gap-6 pr-8">
@@ -82,13 +82,13 @@ export function Footer() {
 
         <div className="h-px w-full bg-white/10 mb-8" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[14px] text-foreground/60 text-center md:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[13px] sm:text-[14px] text-foreground/60 text-center sm:text-left">
             &copy; {currentYear} HostiHub LLC. Tüm hakları saklıdır.
           </p>
-          <div className="flex items-center gap-6 text-[14px] text-foreground/60">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[13px] sm:text-[14px] text-foreground/60">
             <span>Vergi No: 36-5138962</span>
-            <span className="w-1 h-1 rounded-full bg-white/20"></span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-white/20"></span>
             <a href="mailto:iletisim@hostihub.com" className="hover:text-white transition-colors duration-200">
               iletisim@hostihub.com
             </a>

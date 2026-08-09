@@ -26,7 +26,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative z-10 py-32 bg-transparent">
+    <section className="relative z-10 py-16 sm:py-24 md:py-32 bg-transparent">
       <div className="w-full text-center space-y-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export function Features() {
             </div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium font-sans text-white leading-[1.15] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-sans text-white leading-[1.15] tracking-tight">
             Neden HostiHub?
           </h2>
           
@@ -63,18 +63,18 @@ export function Features() {
               return (
                 <div 
                   key={index}
-                  className={`group min-h-[460px] flex flex-col justify-between border-b border-white/10 lg:border-b-0 ${
+                  className={`group min-h-[320px] sm:min-h-[380px] lg:min-h-[460px] flex flex-col justify-between border-b border-white/10 lg:border-b-0 ${
                     index !== features.length - 1 ? 'lg:border-r lg:border-white/10' : ''
                   }`}
                 >
-                  <div className="relative h-64 w-full flex items-center justify-center overflow-hidden py-8">
+                  <div className="relative h-44 sm:h-52 md:h-64 w-full flex items-center justify-center overflow-hidden py-6 sm:py-8">
                     {/* Background glow */}
                     <div 
                       className={`absolute w-48 h-48 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`}
                     />
                     
                     {/* Concentric rings */}
-                    <div className="relative w-40 h-40 flex items-center justify-center">
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center">
                       {/* Outer ring */}
                       <div className="absolute inset-0 rounded-full border border-white/[0.06] group-hover:border-primary/20 group-hover:scale-110 transition-all duration-700" />
                       {/* Middle ring */}
@@ -88,7 +88,7 @@ export function Features() {
                     </div>
                   </div>
                   
-                  <div className="px-10 pb-12 pt-6 text-left space-y-3">
+                  <div className="px-5 sm:px-8 md:px-10 pb-8 sm:pb-10 md:pb-12 pt-4 sm:pt-6 text-left space-y-2 sm:space-y-3">
                     <h3 className="text-2xl font-semibold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
                       {feature.title}
                     </h3>

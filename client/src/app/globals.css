@@ -57,3 +57,52 @@ body {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
+
+/* ─── Mobile Optimizations ─── */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ─── Hide scrollbar globally ─── */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* Prevent tap highlight on mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Reduce heavy effects on mobile for performance */
+  .hero-glow-enhanced {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 60%);
+  }
+  
+  /* Responsive grid pattern */
+  .grid-pattern {
+    background-size: 30px 30px;
+  }
+}
+
+/* Smooth scrolling for the mobile menu */
+@supports (-webkit-overflow-scrolling: touch) {
+  .overscroll-contain {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

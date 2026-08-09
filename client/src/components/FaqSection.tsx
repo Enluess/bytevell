@@ -39,7 +39,7 @@ function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick:
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-8 pr-12">
+            <div className="pb-6 sm:pb-8 pr-4 sm:pr-12">
               <p className="text-foreground/70 text-base md:text-[17px] leading-relaxed font-normal">
                 {faq.answer}
               </p>
@@ -55,9 +55,9 @@ export function FaqSection({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-32 relative bg-transparent z-10">
+    <section className="py-16 sm:py-24 md:py-32 relative bg-transparent z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-24">
           
           <div className="lg:col-span-5">
             <div className="sticky top-32">
@@ -70,7 +70,7 @@ export function FaqSection({ faqs }: Props) {
                 <div className="w-fit rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-xs font-medium tracking-wide mb-6">
                   Sıkça Sorulan Sorular
                 </div>
-                <h2 className="text-4xl md:text-5xl font-medium font-sans text-white leading-[1.1] tracking-tight mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium font-sans text-white leading-[1.1] tracking-tight mb-4 sm:mb-6">
                   Aklınızda soru işareti kalmasın.
                 </h2>
                 <p className="text-foreground/70 text-base md:text-lg leading-relaxed">

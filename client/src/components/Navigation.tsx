@@ -119,7 +119,11 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-6">
       <div 
-        className="pointer-events-auto flex items-center justify-between overflow-visible w-[95%] xl:w-[1200px] max-w-full mx-auto rounded-full bg-black/80 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-6 md:px-10 py-3"
+        className={`pointer-events-auto flex items-center justify-between overflow-visible w-[95%] xl:w-[1200px] max-w-full mx-auto rounded-full transition-all duration-500 ease-out px-6 md:px-10 py-3 ${
+          scrolled 
+            ? 'bg-black/80 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
+            : 'bg-transparent backdrop-blur-none border border-white/[0.04] shadow-none'
+        }`}
       >
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
@@ -274,56 +278,96 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#050505]/95 backdrop-blur-xl z-[60] overflow-y-auto"
+            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#030303]/98 backdrop-blur-2xl z-[60] overflow-y-auto overscroll-contain"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
           >
-            <div className="p-6 pt-24 flex flex-col gap-6 pb-32">
-              <Link className="w-full text-foreground/80 hover:text-white hover:bg-white/5 rounded-xl px-4 py-4 font-medium transition-colors" href="/">
+            {/* Mobile Menu Header */}
+            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#030303]/90 backdrop-blur-xl border-b border-white/5">
+              <Link href="/" onClick={() => setIsMenuOpen(false)} className="font-bold text-xl font-heading text-white tracking-tight">
+                Hosti<span className="text-primary">Hub</span>
+              </Link>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-foreground/80 hover:text-white p-2.5 rounded-full hover:bg-white/5 transition-colors active:bg-white/10"
+                aria-label="Menüyü Kapat"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="px-5 pt-4 pb-8 flex flex-col gap-2">
+              <Link 
+                onClick={() => setIsMenuOpen(false)} 
+                className="w-full text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]" 
+                href="/"
+              >
                 Ana Sayfa
               </Link>
               
-              <div>
-                <div className="text-xs font-semibold text-primary uppercase tracking-widest mb-4 px-2">Hosting</div>
-                <div className="flex flex-col gap-2">
+              <div className="mt-3">
+                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Hosting</div>
+                <div className="flex flex-col gap-0.5">
                   {hostingItems.map((item, i) => (
-                    <Link key={i} className="w-full text-foreground/80 hover:text-white hover:bg-white/5 rounded-xl px-4 py-4 font-medium transition-colors flex items-center gap-4 border border-transparent hover:border-white/5" href={item.href}>
-                      <div className="text-primary bg-primary/10 p-2 rounded-lg">{item.icon}</div>
-                      {item.title}
+                    <Link 
+                      key={i} 
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
+                      href={item.href}
+                    >
+                      <div className="text-primary bg-primary/10 p-2 rounded-lg flex-shrink-0">{item.icon}</div>
+                      <div>
+                        <div>{item.title}</div>
+                        {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
               
-              <div>
-                <div className="text-xs font-semibold text-primary uppercase tracking-widest mb-4 px-2">Sunucular</div>
-                <div className="flex flex-col gap-2">
+              <div className="mt-3">
+                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Sunucular</div>
+                <div className="flex flex-col gap-0.5">
                   {serverItems.map((item, i) => (
-                    <Link key={i} className="w-full text-foreground/80 hover:text-white hover:bg-white/5 rounded-xl px-4 py-4 font-medium transition-colors flex items-center gap-4 border border-transparent hover:border-white/5" href={item.href}>
-                      <div className="text-primary bg-primary/10 p-2 rounded-lg">{item.icon}</div>
-                      {item.title}
+                    <Link 
+                      key={i} 
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
+                      href={item.href}
+                    >
+                      <div className="text-primary bg-primary/10 p-2 rounded-lg flex-shrink-0">{item.icon}</div>
+                      <div>
+                        <div>{item.title}</div>
+                        {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <div className="text-xs font-semibold text-primary uppercase tracking-widest mb-4 px-2">Destek</div>
-                <div className="flex flex-col gap-2">
+              <div className="mt-3">
+                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Destek & Bilgi</div>
+                <div className="grid grid-cols-2 gap-0.5">
                   {supportItems.map((item, i) => (
-                    <Link key={i} className="w-full text-foreground/80 hover:text-white hover:bg-white/5 rounded-xl px-4 py-4 font-medium transition-colors flex items-center gap-4 border border-transparent hover:border-white/5" href={item.href}>
-                      <div className="text-primary bg-primary/10 p-2 rounded-lg">{item.icon}</div>
-                      {item.title}
+                    <Link 
+                      key={i} 
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]" 
+                      href={item.href}
+                    >
+                      <div className="text-primary/80 flex-shrink-0">{item.icon}</div>
+                      <span className="truncate">{item.title}</span>
                     </Link>
                   ))}
                 </div>
               </div>
               
-              <div className="pt-4 mt-4">
+              <div className="pt-4 mt-3 border-t border-white/5">
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
                     router.push("/auth/login");
                   }} 
-                  className="w-full h-14 bg-white text-black hover:bg-white/90 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2"
+                  className="w-full h-[52px] bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                 >
                   <LogIn className="w-5 h-5" />
                   Müşteri Paneli

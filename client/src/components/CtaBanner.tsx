@@ -14,7 +14,7 @@ interface Props {
 
 export function CtaBanner({ title, description, primaryText, primaryLink, secondaryText, secondaryLink }: Props) {
   return (
-    <section className="relative z-10 overflow-hidden bg-transparent pt-32 pb-0 mb-32 border-t border-white/10">
+    <section className="relative z-10 overflow-hidden bg-transparent pt-16 sm:pt-24 md:pt-32 pb-0 mb-16 sm:mb-24 md:mb-32 border-t border-white/10">
       <div className="relative z-20 mx-auto max-w-4xl w-full px-6 text-center space-y-8">
         
         {/* Optimized giant indigo glow using radial-gradient */}
@@ -28,7 +28,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-5xl lg:text-7xl font-medium font-sans text-white tracking-tight leading-[1.1]"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-medium font-sans text-white tracking-tight leading-[1.1]"
         >
           {title}
         </motion.h2>
@@ -54,7 +54,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
         >
           <Link 
             href={primaryLink}
-            className="rounded-xl px-8 py-3 bg-white text-black font-semibold hover:bg-white/80 transition-all active:scale-95 duration-200"
+            className="rounded-xl px-8 py-3.5 sm:py-3 bg-white text-black font-semibold hover:bg-white/80 transition-all active:scale-95 duration-200 w-full sm:w-auto text-center"
           >
             {primaryText}
           </Link>
