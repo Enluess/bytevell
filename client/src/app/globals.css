@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "@heroui/styles";
+
+/* Configure HeroUI to be scanned by Tailwind */
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #000000; /* Nodesty Pure Black */
+  --foreground: #ffffff; /* Nodesty Pure White */
+  --primary: #646bf2;    /* Nodesty Signature Indigo */
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.1); /* Subtle borders */
+}
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Nodesty-style grid pattern background ─── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.hero-glow-enhanced {
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 30% 20%, rgba(255, 255, 255, 0.02), transparent 60%),
+    radial-gradient(ellipse 80% 30% at 50% 100%, rgba(255, 255, 255, 0.03), transparent 70%);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

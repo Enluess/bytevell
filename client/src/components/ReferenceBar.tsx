@@ -1,0 +1,52 @@
+'use client'
+
+import { motion } from "framer-motion";
+
+interface Reference {
+  name: string;
+  count: string;
+}
+
+const references: Reference[] = [
+  { name: 'Mutlu Müşteri', count: '10K+' },
+  { name: 'Aktif Sunucu', count: '50K+' },
+  { name: 'Uptime', count: '%99.9' },
+  { name: 'Destek', count: '7/24' }
+];
+
+export function ReferenceBar() {
+  return (
+    <div className="relative z-10 w-full bg-white/[0.01] border-y border-white/10">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {references.map((ref, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              className={`group relative flex flex-col items-center justify-center text-center py-16 px-8 border-b border-white/10 lg:border-b-0 ${
+                index !== references.length - 1 ? 'lg:border-r lg:border-white/10' : ''
+              } ${
+                index % 2 !== 1 ? 'border-r border-white/10 lg:border-r-0' : ''
+              }`}
+            >
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: 'radial-gradient(circle at center, rgba(100,107,242,0.1) 0%, transparent 60%)' }}
+              />
+
+              <div className="text-5xl md:text-6xl font-bold tracking-tighter text-white mb-2 relative z-10 group-hover:text-primary transition-colors duration-300">
+                {ref.count}
+              </div>
+              <div className="text-sm font-medium text-foreground/60 uppercase tracking-widest relative z-10 group-hover:text-foreground/90 transition-colors duration-300">
+                {ref.name}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
