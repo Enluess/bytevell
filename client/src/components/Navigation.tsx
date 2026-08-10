@@ -267,13 +267,13 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#030303]/98 backdrop-blur-2xl z-60 overflow-y-auto overscroll-contain"
+            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#030303]/98 backdrop-blur-2xl z-60 overflow-y-auto overscroll-contain pointer-events-auto"
             style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
           >
             <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#030303]/90 backdrop-blur-xl border-b border-white/5">
-              <Link href="/" onClick={() => setIsMenuOpen(false)} className="font-bold text-xl font-heading text-white tracking-tight">
+              <button onClick={() => { setIsMenuOpen(false); router.push("/"); }} className="font-bold text-xl font-heading text-white tracking-tight">
                 Hosti<span className="text-primary">Hub</span>
-              </Link>
+              </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="text-foreground/80 hover:text-white p-2.5 rounded-full hover:bg-white/5 transition-colors active:bg-white/10"
@@ -284,30 +284,28 @@ export function Navigation() {
             </div>
 
             <div className="px-5 pt-4 pb-8 flex flex-col gap-2">
-              <Link 
-                onClick={() => setIsMenuOpen(false)} 
-                className="w-full text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]" 
-                href="/"
+              <button 
+                onClick={() => { setIsMenuOpen(false); router.push("/"); }} 
+                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]" 
               >
                 Ana Sayfa
-              </Link>
+              </button>
               
               <div className="mt-3">
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Hosting</div>
                 <div className="flex flex-col gap-0.5">
                   {hostingItems.map((item, i) => (
-                    <Link 
+                    <button 
                       key={i} 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="w-full text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
-                      href={item.href}
+                      onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
                     >
                       <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
                       <div>
                         <div>{item.title}</div>
                         {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
                       </div>
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -316,18 +314,17 @@ export function Navigation() {
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Sunucular</div>
                 <div className="flex flex-col gap-0.5">
                   {serverItems.map((item, i) => (
-                    <Link 
+                    <button 
                       key={i} 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="w-full text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
-                      href={item.href}
+                      onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
                     >
                       <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
                       <div>
                         <div>{item.title}</div>
                         {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
                       </div>
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -336,15 +333,21 @@ export function Navigation() {
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Destek & Bilgi</div>
                 <div className="grid grid-cols-2 gap-0.5">
                   {supportItems.map((item, i) => (
-                    <Link 
+                    <button 
                       key={i} 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]" 
-                      href={item.href}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        if (item.href.startsWith("http")) {
+                          window.open(item.href, "_blank");
+                        } else {
+                          router.push(item.href);
+                        }
+                      }}
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]" 
                     >
                       <div className="text-primary/80 shrink-0">{item.icon}</div>
                       <span className="truncate">{item.title}</span>
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
