@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ReferenceBar } from "@/components/ReferenceBar";
 import dynamic from 'next/dynamic';
@@ -17,13 +16,11 @@ export default function Home() {
 
   return (
     <>
-      <Navigation />
       <main className="flex-1">
         <Hero />
         <ReferenceBar />
         <Features />
         
-        {/* Gradient Separator */}
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full" />
         
         <FaqSection faqs={faqs} />

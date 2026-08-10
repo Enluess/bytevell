@@ -10,7 +10,6 @@ function ThreeBackground() {
       <div className="absolute inset-0 grid-pattern opacity-50" style={{ backgroundSize: 'clamp(30px, 8vw, 50px) clamp(30px, 8vw, 50px)' }} />
 
       
-      {/* Optimized ambient glow using radial-gradient instead of heavy blur */}
       <div 
         className="absolute w-48 h-48 sm:w-80 sm:h-80 md:w-125 md:h-125 rounded-full" 
         style={{
@@ -37,13 +36,11 @@ export function Hero() {
     <>
       <ThreeBackground />
       <section className="relative flex items-center justify-center pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
-        {/* Full-coverage glow background */}
         <div 
           className="absolute inset-0 pointer-events-none opacity-60 mix-blend-screen" 
           style={{ background: 'radial-gradient(ellipse 100% 100% at center 45%, rgba(100,107,242,0.25) 0%, transparent 80%)' }}
         />
         
-        {/* Decorative gradient orbs */}
         <div 
           className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-80 sm:h-80 md:w-125 md:h-125 rounded-full blur-3xl animate-float pointer-events-none" 
           style={{ background: 'radial-gradient(circle, rgba(100,107,242,0.20) 0%, transparent 70%)' }}
@@ -52,7 +49,6 @@ export function Hero() {
           className="absolute bottom-[15%] right-1/4 w-48 h-48 sm:w-80 sm:h-80 md:w-125 md:h-125 rounded-full blur-3xl animate-float pointer-events-none" 
           style={{ background: 'radial-gradient(circle, rgba(100,107,242,0.15) 0%, transparent 70%)', animationDelay: '-3s' }} 
         />
-        {/* Bottom area glow to fill the void */}
         <div 
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full sm:w-200 h-48 sm:h-100 pointer-events-none" 
           style={{ background: 'radial-gradient(ellipse at center top, rgba(100,107,242,0.12) 0%, transparent 70%)' }}
@@ -60,7 +56,6 @@ export function Hero() {
         
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-4xl relative z-10 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-8">
           
-          {/* Animated badge */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

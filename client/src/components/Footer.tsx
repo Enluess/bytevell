@@ -9,8 +9,7 @@ export function Footer() {
     <footer className="relative z-10 w-full border-t border-white/10 bg-transparent pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-8 mb-10 md:mb-16">
-          
-          {/* Brand Column */}
+
           <div className="lg:col-span-4 flex flex-col gap-6 pr-8">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold font-heading text-white tracking-tight">
@@ -20,7 +19,7 @@ export function Footer() {
             <p className="text-[15px] text-foreground/70 leading-relaxed font-normal">
               Yüksek performanslı, güvenilir ve yenilikçi hosting çözümleri. Dijital dünyadaki en sağlam altyapınız.
             </p>
-            
+
             <div className="flex gap-4 mt-2">
               <a href="#" className="text-foreground/50 hover:text-white transition-colors duration-200" aria-label="Twitter">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -40,7 +39,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links Columns */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div className="flex flex-col gap-6">
               <h3 className="whitespace-nowrap text-sm font-semibold tracking-wide text-white uppercase">
@@ -49,7 +47,7 @@ export function Footer() {
               <ul className="flex flex-col gap-4">
                 <li><Link href="/hosting/web" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Web Hosting</Link></li>
                 <li><Link href="/hosting/mail" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Mail Hosting</Link></li>
-                <li><Link href="/servers/vps" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">VDS Sunucu</Link></li>
+                <li><Link href="/servers/vps" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Sanal Sunucu</Link></li>
                 <li><Link href="/servers/dedicated" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Dedicated Sunucu</Link></li>
               </ul>
             </div>
@@ -87,8 +85,6 @@ export function Footer() {
             &copy; {currentYear} HostiHub LLC. Tüm hakları saklıdır.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[13px] sm:text-[14px] text-foreground/60">
-            <span>Vergi No: 36-5138962</span>
-            <span className="hidden sm:block w-1 h-1 rounded-full bg-white/20"></span>
             <a href="mailto:iletisim@hostihub.com" className="hover:text-white transition-colors duration-200">
               iletisim@hostihub.com
             </a>

@@ -10,7 +10,6 @@ import ScrollSmoother from "gsap/ScrollSmoother";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Lenis fallback (kept for wheel smoothness)
     const lenis = new Lenis({
       autoRaf: true,
       smoothWheel: true,
@@ -20,7 +19,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       touchMultiplier: 1.5,
     });
 
-    // GSAP ScrollSmoother init
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     const smoother = ScrollSmoother.create({
       wrapper: ".smooth-wrapper",

@@ -17,7 +17,6 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
     <section className="relative z-10 overflow-hidden bg-transparent pt-16 sm:pt-24 md:pt-32 pb-0 mb-16 sm:mb-24 md:mb-32 border-t border-white/10">
       <div className="relative z-20 mx-auto max-w-4xl w-full px-6 text-center space-y-8">
         
-        {/* Optimized giant indigo glow using radial-gradient */}
         <div 
           className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-full -translate-x-1/2 -translate-y-1/2"
           style={{ background: 'radial-gradient(ellipse at center, rgba(100,107,242,0.15) 0%, transparent 60%)' }}

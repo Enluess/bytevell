@@ -68,20 +68,14 @@ export function Features() {
                   }`}
                 >
                   <div className="relative h-44 sm:h-52 md:h-64 w-full flex items-center justify-center overflow-hidden py-6 sm:py-8">
-                    {/* Background glow */}
                     <div 
                       className={`absolute w-48 h-48 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`}
                     />
                     
-                    {/* Concentric rings */}
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center">
-                      {/* Outer ring */}
                       <div className="absolute inset-0 rounded-full border border-white/[0.06] group-hover:border-primary/20 group-hover:scale-110 transition-all duration-700" />
-                      {/* Middle ring */}
                       <div className="absolute inset-4 rounded-full border border-white/[0.08] group-hover:border-primary/30 group-hover:scale-105 transition-all duration-500" />
-                      {/* Inner ring */}
                       <div className="absolute inset-8 rounded-full border border-white/10 group-hover:border-primary/40 transition-all duration-300" />
-                      {/* Icon container */}
                       <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(100,107,242,0.2)]">
                         <Icon className="w-7 h-7 text-white/70 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} />
                       </div>
