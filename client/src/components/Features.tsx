@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cpu, Headset, TrendingUp } from "lucide-react";
+import { Flex, Grid, Container, Section, Heading, Text, Badge } from "@/components/ui";
 
 const features = [
   {
@@ -26,8 +27,8 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative z-10 py-16 sm:py-24 md:py-32 bg-transparent">
-      <div className="w-full text-center space-y-12">
+    <Section className="relative z-10 bg-transparent">
+      <Flex col items="center" gap="12" className="w-full text-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,13 +42,13 @@ export function Features() {
             </div>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-sans text-white leading-[1.15] tracking-tight">
+          <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
             Neden HostiHub?
-          </h2>
+          </Heading>
           
-          <p className="mx-auto max-w-2xl text-base md:text-[17px] text-foreground/70 font-normal leading-relaxed">
+          <Text className="mx-auto max-w-2xl text-base md:text-[17px]">
             Mühendisler tarafından, geliştiriciler ve oyuncular için inşa edildi. Kurumsal seviye DDoS koruması, premium donanımlar ve dünya çapında düşük gecikmeli ağ yönlendirmesi sağlıyoruz.
-          </p>
+          </Text>
         </motion.div>
 
         <motion.div 
@@ -55,47 +56,39 @@ export function Features() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mt-16 bg-white/[0.01] border-y border-white/10"
+          className="relative mt-16 bg-white/[0.01] border-y border-white/10 w-full"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-3 max-w-7xl mx-auto">
+          <Grid cols={1} className="lg:grid-cols-3 max-w-7xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div 
-                  key={index}
-                  className={`group min-h-[320px] sm:min-h-[380px] lg:min-h-[460px] flex flex-col justify-between border-b border-white/10 lg:border-b-0 ${
-                    index !== features.length - 1 ? 'lg:border-r lg:border-white/10' : ''
-                  }`}
-                >
-                  <div className="relative h-44 sm:h-52 md:h-64 w-full flex items-center justify-center overflow-hidden py-6 sm:py-8">
-                    <div 
-                      className={`absolute w-48 h-48 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`}
-                    />
-                    
-                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center">
+                <Flex col justify="between" key={index} className={`group min-h-[320px] sm:min-h-[380px] lg:min-h-[460px] border-b border-white/10 lg:border-b-0 ${index !== features.length - 1 ? 'lg:border-r lg:border-white/10' : ''}`}>
+                  <Flex items="center" justify="center" className="relative h-44 sm:h-52 md:h-64 w-full overflow-hidden py-6 sm:py-8">
+                    <div className={`absolute w-48 h-48 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`} />
+                    <Flex items="center" justify="center" className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40">
                       <div className="absolute inset-0 rounded-full border border-white/[0.06] group-hover:border-primary/20 group-hover:scale-110 transition-all duration-700" />
                       <div className="absolute inset-4 rounded-full border border-white/[0.08] group-hover:border-primary/30 group-hover:scale-105 transition-all duration-500" />
                       <div className="absolute inset-8 rounded-full border border-white/10 group-hover:border-primary/40 transition-all duration-300" />
-                      <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(100,107,242,0.2)]">
+                      <Flex items="center" justify="center" className="relative z-10 w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(100,107,242,0.2)]">
                         <Icon className="w-7 h-7 text-white/70 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} />
-                      </div>
-                    </div>
-                  </div>
+                      </Flex>
+                    </Flex>
+                  </Flex>
                   
                   <div className="px-5 sm:px-8 md:px-10 pb-8 sm:pb-10 md:pb-12 pt-4 sm:pt-6 text-left space-y-2 sm:space-y-3">
-                    <h3 className="text-2xl font-semibold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
+                    <Heading level={3} className="text-2xl font-semibold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
                       {feature.title}
-                    </h3>
-                    <p className="text-[15px] text-foreground/70 font-normal leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                    </Heading>
+                    <Text className="text-[15px] group-hover:text-white/90 transition-colors duration-300">
                       {feature.description}
-                    </p>
+                    </Text>
                   </div>
-                </div>
+                </Flex>
               );
             })}
-          </div>
+          </Grid>
         </motion.div>
-      </div>
-    </section>
+      </Flex>
+    </Section>
   );
 }

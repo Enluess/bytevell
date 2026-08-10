@@ -26,7 +26,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col relative bg-background scrollbar-hide">
         <div className="pointer-events-none fixed bottom-0 left-6 top-0 z-1 w-px bg-white/5 2xl:left-[calc(50%-(1400px/2)+24px)] lg:left-[calc(50%-(1024px/2)+24px)] xl:left-[calc(50%-(1152px/2)+24px)] hidden lg:block"></div>
         <div className="pointer-events-none fixed bottom-0 right-6 top-0 z-1 w-px bg-white/5 2xl:right-[calc(50%-(1400px/2)+24px)] lg:right-[calc(50%-(1024px/2)+24px)] xl:right-[calc(50%-(1152px/2)+24px)] hidden lg:block"></div>
-        <div className="fixed inset-0 grid-pattern opacity-30 z-0 pointer-events-none"></div>
         
         <InitialLoader />
         <Navigation />

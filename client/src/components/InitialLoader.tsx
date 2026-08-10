@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
 export function InitialLoader() {
   const [show, setShow] = useState(true);
@@ -12,10 +13,11 @@ export function InitialLoader() {
 
     document.body.style.overflow = 'hidden';
 
+    // Reduced loading time so it doesn't block the user unnecessarily
     const timer = setTimeout(() => {
       setShow(false);
       document.body.style.overflow = '';
-    }, 2800);
+    }, 1200);
 
     return () => {
       clearTimeout(timer);
@@ -30,71 +32,24 @@ export function InitialLoader() {
       {show && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+          exit={{ opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
           className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center overflow-hidden"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(100,107,242,0.15),_transparent_60%)] pointer-events-none" />
-
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="flex flex-col items-center gap-4"
           >
-            <div className="relative flex items-center justify-center mb-8 w-32 h-32">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-t-[3px] border-primary border-r-[3px] border-r-transparent opacity-80"
-              />
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-3 rounded-full border-b-[3px] border-primary/60 border-l-[3px] border-l-transparent opacity-80"
-              />
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 1, 0.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="font-heading font-black text-5xl text-white tracking-wider"
-              >
-                H
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-bold text-4xl font-heading text-white tracking-tight"
+            <motion.div 
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="font-bold text-3xl md:text-4xl font-heading text-white tracking-tight"
             >
               Hosti<span className="text-primary">Hub</span>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="mt-6 text-white/50 tracking-[0.3em] text-xs font-medium uppercase flex items-center justify-center min-w-[120px]"
-            >
-              <span>Yükleniyor</span>
-              <span className="flex w-4 ml-1">
-                <motion.span
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
-                >.</motion.span>
-                <motion.span
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
-                >.</motion.span>
-                <motion.span
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
-                >.</motion.span>
-              </span>
-            </motion.div>
+            
+            <Loader2 className="w-5 h-5 text-white/50 animate-spin" />
           </motion.div>
         </motion.div>
       )}

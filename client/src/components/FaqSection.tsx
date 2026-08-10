@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+import { Flex, Grid, Container, Section, Heading, Text } from "@/components/ui";
 
 interface Faq {
   question: string;
@@ -16,19 +17,19 @@ interface Props {
 function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick: () => void }) {
   return (
     <div className="border-b border-white/10 last:border-0 group cursor-pointer" onClick={onClick}>
-      <div className="py-6 flex items-center justify-between">
+      <Flex items="center" justify="between" className="py-6">
         <h3 className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-white group-hover:text-white/80'}`}>
           {faq.question}
         </h3>
-        <div className="flex-shrink-0 ml-4 relative flex items-center justify-center w-8 h-8 rounded-full border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
+        <Flex items="center" justify="center" className="flex-shrink-0 ml-4 relative w-8 h-8 rounded-full border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <Plus className={`w-4 h-4 transition-colors ${isOpen ? 'text-primary' : 'text-white'}`} />
           </motion.div>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
       
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -40,9 +41,9 @@ function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick:
             className="overflow-hidden"
           >
             <div className="pb-6 sm:pb-8 pr-4 sm:pr-12">
-              <p className="text-foreground/70 text-base md:text-[17px] leading-relaxed font-normal">
+              <Text className="text-base md:text-[17px]">
                 {faq.answer}
-              </p>
+              </Text>
             </div>
           </motion.div>
         )}
@@ -55,9 +56,9 @@ export function FaqSection({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-24 md:py-32 relative bg-transparent z-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-24">
+    <Section className="py-16 sm:py-24 md:py-32 relative bg-transparent z-10">
+      <Container size="6xl">
+        <Grid cols={1} className="lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-24">
           
           <div className="lg:col-span-5">
             <div className="sticky top-32">
@@ -70,12 +71,12 @@ export function FaqSection({ faqs }: Props) {
                 <div className="w-fit rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-xs font-medium tracking-wide mb-6">
                   Sıkça Sorulan Sorular
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium font-sans text-white leading-[1.1] tracking-tight mb-4 sm:mb-6">
+                <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl leading-[1.1] mb-4 sm:mb-6">
                   Aklınızda soru işareti kalmasın.
-                </h2>
-                <p className="text-foreground/70 text-base md:text-lg leading-relaxed">
+                </Heading>
+                <Text className="text-base md:text-lg">
                   Platformumuz hakkında en çok merak edilen soruları ve cevapları sizin için derledik.
-                </p>
+                </Text>
               </motion.div>
             </div>
           </div>
@@ -99,8 +100,8 @@ export function FaqSection({ faqs }: Props) {
             </motion.div>
           </div>
 
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Section>
   );
 }
