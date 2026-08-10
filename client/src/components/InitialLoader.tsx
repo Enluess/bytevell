@@ -9,24 +9,18 @@ export function InitialLoader() {
 
   useEffect(() => {
     setMounted(true);
-    const hasSeenLoader = sessionStorage.getItem("hostihub_has_seen_loader");
 
-    if (hasSeenLoader) {
+    document.body.style.overflow = 'hidden';
+
+    const timer = setTimeout(() => {
       setShow(false);
-    } else {
-      sessionStorage.setItem("hostihub_has_seen_loader", "true");
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = '';
+    }, 2800);
 
-      const timer = setTimeout(() => {
-        setShow(false);
-        document.body.style.overflow = '';
-      }, 2800);
-
-      return () => {
-        clearTimeout(timer);
-        document.body.style.overflow = '';
-      };
-    }
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = '';
+    };
   }, []);
 
   if (!mounted) return null;
@@ -85,7 +79,7 @@ export function InitialLoader() {
               transition={{ delay: 1, duration: 0.8 }}
               className="mt-6 text-white/50 tracking-[0.3em] text-xs font-medium uppercase flex items-center justify-center min-w-[120px]"
             >
-              <span>Başlatılıyor</span>
+              <span>Yükleniyor</span>
               <span className="flex w-4 ml-1">
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
