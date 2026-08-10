@@ -46,7 +46,6 @@ export default function DedicatedServersPage() {
   return (
     <Flex col className="flex-1 min-h-screen">
       
-      {/* Hero Section */}
       <Flex col items="center" justify="center" className="relative px-6 pb-20 pt-32 text-center overflow-hidden">
         <BackgroundEffects />
         
@@ -63,7 +62,6 @@ export default function DedicatedServersPage() {
         </motion.div>
       </Flex>
 
-      {/* Pricing Section */}
       <Section id="pricing" className="pt-12 md:pt-16">
         <Container>
           <Flex col gap="3">
@@ -72,9 +70,7 @@ export default function DedicatedServersPage() {
                 <Card className="p-4 md:p-5 group">
                   <Flex col className="md:flex-row md:items-center justify-between gap-5">
                     
-                    {/* Left Side: Specs */}
                     <Flex className="flex-wrap md:flex-nowrap items-center w-full md:w-auto" gap="4 md:gap-6">
-                      {/* Logo & Model */}
                       <Flex items="center" gap="4" className="w-48 shrink-0">
                         <Flex items="center" justify="center" className="p-2.5 rounded-xl bg-white/5 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-colors">
                           <Cpu className="w-6 h-6" strokeWidth={1.5} />
@@ -85,7 +81,6 @@ export default function DedicatedServersPage() {
                         </Flex>
                       </Flex>
 
-                      {/* Specs Pills */}
                       <Flex items="center" gap="2" className="flex-wrap">
                         <Badge>{plan.ram} RAM</Badge>
                         <Badge>{plan.cpuInfo}</Badge>
@@ -94,7 +89,6 @@ export default function DedicatedServersPage() {
                       </Flex>
                     </Flex>
 
-                    {/* Right Side: Price & Buy */}
                     <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
                       <Flex items="baseline" gap="1" className="shrink-0">
                         <span className="text-xl font-black text-white tracking-tight">₺{plan.price}</span>

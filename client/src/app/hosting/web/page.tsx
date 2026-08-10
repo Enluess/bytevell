@@ -42,7 +42,6 @@ export default function WebHostingPage() {
   return (
     <main className="flex-1 text-white min-h-screen">
 
-      {/* Hero Section */}
       <section className="relative px-6 pb-20 pt-32 text-center flex flex-col items-center justify-center overflow-hidden">
         <BackgroundEffects />
 
@@ -73,9 +72,7 @@ export default function WebHostingPage() {
         </motion.div>
       </section>
 
-      {/* Pricing Section */}
       <section id="pricing" className="container mx-auto px-6 pb-20 space-y-6 max-w-7xl">
-        {/* Pricing Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-8">
           {plans.map((plan, idx) => (
             <motion.div

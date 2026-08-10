@@ -13,7 +13,6 @@ export function InitialLoader() {
 
     document.body.style.overflow = 'hidden';
 
-    // Reduced loading time so it doesn't block the user unnecessarily
     const timer = setTimeout(() => {
       setShow(false);
       document.body.style.overflow = '';
