@@ -7,17 +7,17 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #000000; /* Nodesty Pure Black */
-  --foreground: #ffffff; /* Nodesty Pure White */
-  --primary: #646bf2;    /* Nodesty Signature Indigo */
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #646bf2;
   --primary-foreground: #ffffff;
-  --secondary: rgba(255, 255, 255, 0.1); /* Subtle borders */
+  --secondary: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
-  
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -48,37 +48,49 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
 html {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
+
 html::-webkit-scrollbar {
-  display: none; /* Chrome/Safari/Opera */
+  display: none;
+  /* Chrome/Safari/Opera */
 }
 
 @media (max-width: 768px) {
   * {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   .hero-glow-enhanced {
     background:
       radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 60%);
   }
-  
+
   .grid-pattern {
     background-size: 30px 30px;
   }
@@ -93,6 +105,7 @@ html::-webkit-scrollbar {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

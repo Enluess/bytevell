@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     const lenis = new Lenis({
       autoRaf: true,
       smoothWheel: true,
-      lerp: 0.1,
+      lerp: 0.12,
       duration: 1.0,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
@@ -23,7 +23,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     const smoother = ScrollSmoother.create({
       wrapper: ".smooth-wrapper",
       content: ".smooth-content",
-      smooth: 1.5,
+      smooth: 0.8,
       effects: true,
     });
 
