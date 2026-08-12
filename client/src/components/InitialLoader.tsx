@@ -33,7 +33,7 @@ export function InitialLoader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
-          className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-9999 bg-background flex flex-col items-center justify-center overflow-hidden"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

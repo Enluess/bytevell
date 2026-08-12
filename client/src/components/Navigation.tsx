@@ -180,7 +180,7 @@ export function Navigation() {
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-500 ease-out w-[380px] border backdrop-blur-3xl ${scrolled
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-500 ease-out w-95 border backdrop-blur-3xl ${scrolled
                   ? 'bg-black/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
                   : 'bg-black/40 border-white/5 shadow-[0_16px_40px_-15px_rgba(0,0,0,0.5)]'
                   }`}

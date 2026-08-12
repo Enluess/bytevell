@@ -36,7 +36,7 @@ export function Features() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl px-6 space-y-4"
         >
-          <div className="mx-auto w-fit rounded-full bg-gradient-to-r from-primary/50 via-purple-500/50 to-primary/50 p-px">
+          <div className="mx-auto w-fit rounded-full bg-linear-to-r from-primary/50 via-purple-500/50 to-primary/50 p-px">
             <div className="rounded-full bg-background px-4 py-1.5 text-xs text-white font-medium tracking-wide">
               Maksimum Güç İçin Tasarlandı
             </div>
@@ -56,20 +56,20 @@ export function Features() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mt-16 bg-white/[0.01] border-y border-white/10 w-full"
+          className="relative mt-16 bg-white/1 border-y border-white/10 w-full"
         >
           <Grid cols={1} className="lg:grid-cols-3 max-w-7xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Flex col justify="between" key={index} className={`group min-h-[320px] sm:min-h-[380px] lg:min-h-[460px] border-b border-white/10 lg:border-b-0 ${index !== features.length - 1 ? 'lg:border-r lg:border-white/10' : ''}`}>
+                <Flex col justify="between" key={index} className={`group min-h-80 sm:min-h-95 lg:min-h-115 border-b border-white/10 lg:border-b-0 ${index !== features.length - 1 ? 'lg:border-r lg:border-white/10' : ''}`}>
                   <Flex items="center" justify="center" className="relative h-44 sm:h-52 md:h-64 w-full overflow-hidden py-6 sm:py-8">
-                    <div className={`absolute w-48 h-48 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`} />
+                    <div className={`absolute w-48 h-48 rounded-full bg-linear-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl`} />
                     <Flex items="center" justify="center" className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40">
-                      <div className="absolute inset-0 rounded-full border border-white/[0.06] group-hover:border-primary/20 group-hover:scale-110 transition-all duration-700" />
-                      <div className="absolute inset-4 rounded-full border border-white/[0.08] group-hover:border-primary/30 group-hover:scale-105 transition-all duration-500" />
+                      <div className="absolute inset-0 rounded-full border border-white/6 group-hover:border-primary/20 group-hover:scale-110 transition-all duration-700" />
+                      <div className="absolute inset-4 rounded-full border border-white/8 group-hover:border-primary/30 group-hover:scale-105 transition-all duration-500" />
                       <div className="absolute inset-8 rounded-full border border-white/10 group-hover:border-primary/40 transition-all duration-300" />
-                      <Flex items="center" justify="center" className="relative z-10 w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(100,107,242,0.2)]">
+                      <Flex items="center" justify="center" className="relative z-10 w-16 h-16 rounded-2xl bg-white/3 border border-white/10 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(100,107,242,0.2)]">
                         <Icon className="w-7 h-7 text-white/70 group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} />
                       </Flex>
                     </Flex>

@@ -81,7 +81,7 @@ export default function WebHostingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col relative overflow-hidden rounded-xl bg-white/[0.01] border border-white/10 p-8 hover:bg-white/[0.02] transition-colors"
+              className="flex flex-col relative overflow-hidden rounded-xl bg-white/1 border border-white/10 p-8 hover:bg-white/2 transition-colors"
             >
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
