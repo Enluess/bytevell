@@ -41,14 +41,14 @@ export function InitialLoader() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="flex flex-col items-center gap-4"
           >
-            <motion.div 
+            <motion.div
               animate={{ opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               className="font-bold text-3xl md:text-4xl font-heading text-white tracking-tight"
             >
-              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={160} height={42} className="object-contain" />
+              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={280} height={83} className="object-contain" />
             </motion.div>
-            
+
             <Loader2 className="w-5 h-5 text-white/50 animate-spin" />
           </motion.div>
         </motion.div>
