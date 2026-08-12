@@ -11,20 +11,19 @@ export function Hero() {
     <>
       <section className="relative flex items-center justify-center pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
         <BackgroundEffects />
-        
+
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-4xl relative z-10 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-8">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_15px_rgba(100,107,242,0.15)] will-change-transform"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-xs font-medium text-foreground tracking-wide">Yüksek Performanslı Altyapı</span>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
@@ -32,8 +31,8 @@ export function Hero() {
           >
             Kesintisiz sunucu <br className="hidden sm:block" />performansını keşfedin.
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -41,18 +40,18 @@ export function Hero() {
           >
             Yüksek performanslı sanal sunucular, DDoS korumalı dedicated altyapısı ve benzersiz çalışma süresi ile projelerinizi özgürce büyütün.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45, ease: "easeOut" }}
             className="flex items-center gap-4 mt-4 sm:mt-6 relative z-20 will-change-transform w-full sm:w-auto justify-center"
           >
-            <div 
+            <div
               className="absolute left-1/2 top-1/2 h-40 w-72 rounded-full -z-1 -translate-x-1/2 -translate-y-1/2"
               style={{ background: 'radial-gradient(circle, rgba(100,107,242,0.3) 0%, transparent 70%)' }}
             ></div>
-            <Link 
+            <Link
               href="/pricing"
               className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-xl px-8 py-3.5 sm:py-3 text-base shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             >
