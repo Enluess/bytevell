@@ -29,7 +29,7 @@ export function Features() {
   return (
     <Section className="relative z-10 bg-transparent">
       <Flex col items="center" gap="12" className="w-full text-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -41,17 +41,17 @@ export function Features() {
               Maksimum Güç İçin Tasarlandı
             </div>
           </div>
-          
+
           <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
             Neden HostiHub?
           </Heading>
-          
+
           <Text className="mx-auto max-w-2xl text-base md:text-[17px]">
-            Mühendisler tarafından, geliştiriciler ve oyuncular için inşa edildi. Kurumsal seviye DDoS koruması, premium donanımlar ve dünya çapında düşük gecikmeli ağ yönlendirmesi sağlıyoruz.
+            Deneyimli ekibimiz tarafından, geliştiriciler ve oyuncular için inşa edildi. Kurumsal seviye DDoS koruması, premium donanımlar ve dünya çapında düşük gecikmeli ağ yönlendirmesi sağlıyoruz.
           </Text>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -74,7 +74,7 @@ export function Features() {
                       </Flex>
                     </Flex>
                   </Flex>
-                  
+
                   <div className="px-5 sm:px-8 md:px-10 pb-8 sm:pb-10 md:pb-12 pt-4 sm:pt-6 text-left space-y-2 sm:space-y-3">
                     <Heading level={3} className="text-2xl font-semibold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
                       {feature.title}
