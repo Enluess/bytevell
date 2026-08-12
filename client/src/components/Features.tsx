@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: 'Sınır Tanımayan Büyüme',
-    description: 'Küçük projelerden devasa enterprise altyapılara kadar, HostiHub sizinle birlikte efor sarf etmeden kolayca ölçeklenir.',
+    description: 'Küçük projelerden devasa enterprise altyapılara kadar, Bytevell sizinle birlikte efor sarf etmeden kolayca ölçeklenir.',
     icon: TrendingUp,
     gradient: 'from-purple-500/20 to-pink-500/20',
   }
@@ -43,7 +43,7 @@ export function Features() {
           </div>
 
           <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
-            Neden HostiHub?
+            Neden Bytevell?
           </Heading>
 
           <Text className="mx-auto max-w-2xl text-base md:text-[17px]">

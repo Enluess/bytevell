@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export function InitialLoader() {
   const [show, setShow] = useState(true);
@@ -45,7 +46,7 @@ export function InitialLoader() {
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               className="font-bold text-3xl md:text-4xl font-heading text-white tracking-tight"
             >
-              Hosti<span className="text-primary">Hub</span>
+              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={160} height={42} className="object-contain" />
             </motion.div>
             
             <Loader2 className="w-5 h-5 text-white/50 animate-spin" />

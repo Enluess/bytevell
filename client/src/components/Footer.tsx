@@ -1,8 +1,7 @@
 'use client'
 
 import Link from "next/link";
-
-export function Footer() {
+import Image from "next/image";export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -13,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-4 flex flex-col gap-6 pr-8">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold font-heading text-white tracking-tight">
-                Hosti<span className="text-primary">Hub</span>
+                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={135} height={36} className="object-contain" />
               </span>
             </Link>
             <p className="text-[15px] text-foreground/70 leading-relaxed font-normal">
@@ -60,7 +59,7 @@ export function Footer() {
                 <li><Link href="/about" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Hakkımızda</Link></li>
                 <li><Link href="/contact" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">İletişim</Link></li>
                 <li><Link href="/blog" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Blog</Link></li>
-                <li><a href="https://status.hostihub.com" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Ağ Durumu</a></li>
+                <li><a href="https://status.bytevell.com" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Ağ Durumu</a></li>
               </ul>
             </div>
 
@@ -82,11 +81,11 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[13px] sm:text-[14px] text-foreground/60 text-center sm:text-left">
-            &copy; {currentYear} HostiHub LLC. Tüm hakları saklıdır.
+            &copy; {currentYear} Bytevell LLC. Tüm hakları saklıdır.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[13px] sm:text-[14px] text-foreground/60">
-            <a href="mailto:iletisim@hostihub.com" className="hover:text-white transition-colors duration-200">
-              iletisim@hostihub.com
+            <a href="mailto:iletisim@bytevell.com" className="hover:text-white transition-colors duration-200">
+              iletisim@bytevell.com
             </a>
           </div>
         </div>

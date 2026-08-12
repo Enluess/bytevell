@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,7 +77,7 @@ export function Navigation() {
     { title: "Adil Kullanım Politikası", icon: <Users className="w-5 h-5" />, href: "/legal/fair-use" },
     { title: "Genel Destek Politikası", icon: <LifeBuoy className="w-5 h-5" />, href: "/legal/support" },
     { title: "Hakkımızda", icon: <Info className="w-5 h-5" />, href: "/about" },
-    { title: "Ağ Durumu", icon: <Activity className="w-5 h-5" />, href: "https://status.hostihub.com" }
+    { title: "Ağ Durumu", icon: <Activity className="w-5 h-5" />, href: "https://status.bytevell.com" }
   ];
 
   const navItems = [
@@ -92,13 +93,13 @@ export function Navigation() {
 
   const handleMouseEnter = (id: string) => {
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
-    
+
     if (activeItem && activeItem !== id) {
       const prevIndex = navItems.findIndex(i => i.id === activeItem);
       const newIndex = navItems.findIndex(i => i.id === id);
       directionRef.current = newIndex > prevIndex ? 1 : -1;
     }
-    
+
     setActiveItem(id);
   };
 
@@ -112,41 +113,39 @@ export function Navigation() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-6">
-      <div 
+      <div
         className="pointer-events-auto relative flex items-center justify-between overflow-visible w-[95%] xl:w-300 max-w-full mx-auto px-6 md:px-10 py-3"
       >
-        <div 
-          className={`absolute inset-0 rounded-full -z-10 transition-all duration-500 ease-out ${
-            scrolled 
-              ? 'bg-black/80 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
-              : 'bg-transparent backdrop-blur-none border border-white/4 shadow-none'
-          }`}
+        <div
+          className={`absolute inset-0 rounded-full -z-10 transition-all duration-500 ease-out ${scrolled
+            ? 'bg-black/80 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+            : 'bg-transparent backdrop-blur-none border border-white/4 shadow-none'
+            }`}
         />
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
-            Hosti<span className="text-primary">Hub</span>
+            <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" />
           </Link>
         </div>
 
-        <nav 
+        <nav
           className="hidden md:flex items-center gap-2 relative"
           onMouseLeave={handleMouseLeave}
         >
           {navItems.map((item) => {
             const isActive = activeItem === item.id;
-            
+
             return (
-              <div 
+              <div
                 key={item.id}
                 ref={(el) => { navRefs.current[item.id] = el; }}
                 onMouseEnter={() => handleMouseEnter(item.id)}
                 className="relative z-10"
               >
-                <Link 
-                  href={item.href || "#"} 
-                  className={`relative flex items-center px-4 py-2.5 text-[14px] font-medium transition-colors duration-200 ${
-                    isActive ? "text-white" : "text-foreground/80 hover:text-white"
-                  }`}
+                <Link
+                  href={item.href || "#"}
+                  className={`relative flex items-center px-4 py-2.5 text-[14px] font-medium transition-colors duration-200 ${isActive ? "text-white" : "text-foreground/80 hover:text-white"
+                    }`}
                 >
                   {item.label}
                   {item.dropdown && (
@@ -160,7 +159,7 @@ export function Navigation() {
                 </Link>
 
                 {isActive && (
-                  <motion.div 
+                  <motion.div
                     layoutId="nav-pill"
                     className="absolute inset-0 bg-white/10 rounded-xl -z-10"
                     transition={{ type: "spring", bounce: 0, duration: 0.25 }}
@@ -176,16 +175,15 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -4, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -4, scale: 0.98 }}
-                transition={{ 
+                transition={{
                   opacity: { duration: 0.2, ease: "easeOut" },
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-500 ease-out w-[380px] border backdrop-blur-3xl ${
-                  scrolled
-                    ? 'bg-black/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-                    : 'bg-black/40 border-white/5 shadow-[0_16px_40px_-15px_rgba(0,0,0,0.5)]'
-                }`}
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-500 ease-out w-[380px] border backdrop-blur-3xl ${scrolled
+                  ? 'bg-black/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+                  : 'bg-black/40 border-white/5 shadow-[0_16px_40px_-15px_rgba(0,0,0,0.5)]'
+                  }`}
                 onMouseEnter={() => {
                   if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
                 }}
@@ -236,9 +234,9 @@ export function Navigation() {
             <ShoppingCart className="w-5 h-5" strokeWidth={1.5} />
             <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
           </Link>
-          
-          <button 
-            onClick={() => router.push("/auth/login")} 
+
+          <button
+            onClick={() => router.push("/auth/login")}
             className="bg-white text-black hover:bg-white/90 active:scale-95 px-6 py-2.5 rounded-full font-semibold transition-all duration-200 flex items-center gap-2 text-[14px]"
           >
             <LogIn className="w-4 h-4" strokeWidth={2} />
@@ -246,23 +244,23 @@ export function Navigation() {
           </button>
         </div>
 
-          <div className="md:hidden flex items-center gap-4">
-            <Link href="/checkout" className="text-foreground/80 hover:text-white transition-colors">
-              <ShoppingCart className="w-5.5 h-5.5" strokeWidth={1.5} />
-            </Link>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground/80 hover:text-white p-2 rounded-full hover:bg-white/5 transition-colors"
-              aria-label="Menu"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-            </button>
-          </div>
+        <div className="md:hidden flex items-center gap-4">
+          <Link href="/checkout" className="text-foreground/80 hover:text-white transition-colors">
+            <ShoppingCart className="w-5.5 h-5.5" strokeWidth={1.5} />
+          </Link>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-foreground/80 hover:text-white p-2 rounded-full hover:bg-white/5 transition-colors"
+            aria-label="Menu"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -272,7 +270,7 @@ export function Navigation() {
           >
             <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#030303]/90 backdrop-blur-xl border-b border-white/5">
               <button onClick={() => { setIsMenuOpen(false); router.push("/"); }} className="font-bold text-xl font-heading text-white tracking-tight">
-                Hosti<span className="text-primary">Hub</span>
+                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" />
               </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -284,21 +282,21 @@ export function Navigation() {
             </div>
 
             <div className="px-5 pt-4 pb-8 flex flex-col gap-2">
-              <button 
-                onClick={() => { setIsMenuOpen(false); router.push("/"); }} 
-                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]" 
+              <button
+                onClick={() => { setIsMenuOpen(false); router.push("/"); }}
+                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]"
               >
                 Ana Sayfa
               </button>
-              
+
               <div className="mt-3">
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Hosting</div>
                 <div className="flex flex-col gap-0.5">
                   {hostingItems.map((item, i) => (
-                    <button 
-                      key={i} 
+                    <button
+                      key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
                     >
                       <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
                       <div>
@@ -309,15 +307,15 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-              
+
               <div className="mt-3">
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Sunucular</div>
                 <div className="flex flex-col gap-0.5">
                   {serverItems.map((item, i) => (
-                    <button 
-                      key={i} 
+                    <button
+                      key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]" 
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
                     >
                       <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
                       <div>
@@ -333,8 +331,8 @@ export function Navigation() {
                 <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Destek & Bilgi</div>
                 <div className="grid grid-cols-2 gap-0.5">
                   {supportItems.map((item, i) => (
-                    <button 
-                      key={i} 
+                    <button
+                      key={i}
                       onClick={() => {
                         setIsMenuOpen(false);
                         if (item.href.startsWith("http")) {
@@ -343,7 +341,7 @@ export function Navigation() {
                           router.push(item.href);
                         }
                       }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]" 
+                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]"
                     >
                       <div className="text-primary/80 shrink-0">{item.icon}</div>
                       <span className="truncate">{item.title}</span>
@@ -351,13 +349,13 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-              
+
               <div className="pt-4 mt-3 border-t border-white/5">
-                <button 
+                <button
                   onClick={() => {
                     setIsMenuOpen(false);
                     router.push("/auth/login");
-                  }} 
+                  }}
                   className="w-full h-13 bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                 >
                   <LogIn className="w-5 h-5" />

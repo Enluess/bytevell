@@ -4,7 +4,7 @@ export default function SupportPolicyPage() {
   return (
     <LegalPageLayout title="Genel Destek Politikası" lastUpdated="Ağustos 2026">
       <h2>1. Destek Kapsamı</h2>
-      <p>Teknik destek ekibimiz, sunucu altyapısı, ağ bağlantısı, donanım arızaları ve Hostihub tarafından sağlanan kontrol panelleriyle ilgili sorunlarda 7/24 hizmet vermektedir.</p>
+      <p>Teknik destek ekibimiz, sunucu altyapısı, ağ bağlantısı, donanım arızaları ve Bytevell tarafından sağlanan kontrol panelleriyle ilgili sorunlarda 7/24 hizmet vermektedir.</p>
       
       <h2>2. Kapsam Dışı Konular</h2>
       <p>Unmanaged (Yönetimsiz) sunucularda işletim sistemi içi yapılandırmalar, üçüncü parti yazılım kurulumları, web sitesi yazılım hataları ve SEO/tasarım düzenlemeleri standart destek kapsamı dışındadır.</p>

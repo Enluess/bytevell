@@ -4,7 +4,7 @@ export default function TermsPage() {
   return (
     <LegalPageLayout title="Hizmet Şartları" lastUpdated="Ağustos 2026">
       <h2>1. Sözleşmenin Kabulü</h2>
-      <p>HostiHub ("biz", "bize" veya "bizim") tarafından sunulan hizmetleri kullanarak, bu Hizmet Şartları'nı ("Şartlar") kabul etmiş sayılırsınız. Hizmetlerimizi kullanmadan önce lütfen bu Şartları dikkatlice okuyun.</p>
+      <p>Bytevell ("biz", "bize" veya "bizim") tarafından sunulan hizmetleri kullanarak, bu Hizmet Şartları'nı ("Şartlar") kabul etmiş sayılırsınız. Hizmetlerimizi kullanmadan önce lütfen bu Şartları dikkatlice okuyun.</p>
       
       <h2>2. Hizmetlerin Kullanımı</h2>
       <p>Sağladığımız hosting ve sunucu hizmetlerini yasal amaçlar doğrultusunda kullanmayı kabul edersiniz. Sunucularımız üzerinde yasadışı içerik barındırmak, spam yapmak veya ağımıza zarar verecek herhangi bir aktivitede bulunmak kesinlikle yasaktır.</p>

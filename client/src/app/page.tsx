@@ -15,7 +15,7 @@ export default function Home() {
     },
     {
       question: 'Satın aldığım sunucu ne zaman aktif olur?',
-      answer: 'HostiHub altyapısında tam otomasyon sistemi kullanmaktayız. Ödemeniz sistem tarafından başarıyla onaylandığı andan itibaren, sanal sunucunuz veya hosting paketiniz saniyeler içerisinde otomatik olarak kurulur. Kurulum tamamlanır tamamlanmaz tüm erişim bilgileriniz (IP, şifre vs.) kayıtlı e-posta adresinize anında gönderilir ve müşteri panelinize yansır.'
+      answer: 'Bytevell altyapısında tam otomasyon sistemi kullanmaktayız. Ödemeniz sistem tarafından başarıyla onaylandığı andan itibaren, sanal sunucunuz veya hosting paketiniz saniyeler içerisinde otomatik olarak kurulur. Kurulum tamamlanır tamamlanmaz tüm erişim bilgileriniz (IP, şifre vs.) kayıtlı e-posta adresinize anında gönderilir ve müşteri panelinize yansır.'
     },
     {
       question: 'Memnun kalmazsam iade garantiniz var mı?',

@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "HostiHub - Premium Hosting",
+  title: "Bytevell - Premium Hosting",
   description: "Türkiye'nin Premium Hosting Platformu",
 };
 
