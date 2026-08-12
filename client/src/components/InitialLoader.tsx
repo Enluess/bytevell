@@ -6,12 +6,18 @@ import { Loader2 } from "lucide-react";
 import Image from "next/image";
 
 export function InitialLoader() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
 
+    if (sessionStorage.getItem('hasSeenLoader')) {
+      return;
+    }
+
+    setShow(true);
+    sessionStorage.setItem('hasSeenLoader', 'true');
     document.body.style.overflow = 'hidden';
 
     const timer = setTimeout(() => {
