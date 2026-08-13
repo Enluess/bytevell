@@ -1,12 +1,15 @@
 'use client'
 
 import { ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
+import { useTranslations } from "next-intl";
 
 
 export function Hero() {
+  const t = useTranslations('Hero');
+
   return (
     <>
       <section className="relative flex items-center justify-center pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
@@ -20,7 +23,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_15px_rgba(100,107,242,0.15)] will-change-transform"
           >
-            <span className="text-xs font-medium text-foreground tracking-wide">Yüksek Performanslı Altyapı</span>
+            <span className="text-xs font-medium text-foreground tracking-wide">{t('badge')}</span>
           </motion.div>
 
           <motion.h1
@@ -29,7 +32,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
             className="text-[28px] leading-[1.15] sm:text-4xl md:text-5xl lg:text-[72px] font-medium font-sans text-white md:leading-[1.05] tracking-tight will-change-transform"
           >
-            Kesintisiz sunucu <br className="hidden sm:block" />performansını keşfedin.
+            {t('title1')} <br className="hidden sm:block" />{t('title2')}
           </motion.h1>
 
           <motion.p
@@ -38,7 +41,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="text-sm sm:text-base md:text-[17px] text-foreground/70 max-w-2xl font-normal leading-relaxed tracking-wide will-change-transform px-2 sm:px-0"
           >
-            Yüksek performanslı sanal sunucular, DDoS korumalı dedicated altyapısı ve benzersiz çalışma süresi ile projelerinizi özgürce büyütün.
+            {t('description')}
           </motion.p>
 
           <motion.div
@@ -55,7 +58,7 @@ export function Hero() {
               href="/pricing"
               className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-xl px-8 py-3.5 sm:py-3 text-base shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             >
-              Sunucuları Keşfedin
+              {t('button')}
             </Link>
           </motion.div>
         </div>

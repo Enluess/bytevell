@@ -1,13 +1,16 @@
 'use client'
 
-import { ChevronDown, Globe, Mail, Server, HardDrive, ShoppingCart, LogIn, Menu as MenuIcon, X, FileText, Package, Users, LifeBuoy, Info, Tag, Activity, BookOpen } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { ChevronDown, Globe, Mail, Server, HardDrive, LogIn, Menu as MenuIcon, X, FileText, Package, Users, LifeBuoy, Info, Tag, Activity, BookOpen } from "lucide-react";
+import { useState, useRef, useEffect, Suspense } from "react";
+import { useTranslations } from "next-intl";
+import { LanguageFlags } from "./LanguageFlags";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 
 export function Navigation() {
+  const t = useTranslations('Navigation');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
@@ -42,14 +45,14 @@ export function Navigation() {
 
   const hostingItems: DropdownItem[] = [
     {
-      title: "Web Hosting",
-      description: "Hızlı ve güvenilir paylaşımlı hosting",
+      title: t('hosting_web_title'),
+      description: t('hosting_web_desc'),
       icon: <Globe className="w-5 h-5" />,
       href: "/hosting/web"
     },
     {
-      title: "Mail Hosting",
-      description: "Kurumsal e-posta çözümleri",
+      title: t('hosting_mail_title'),
+      description: t('hosting_mail_desc'),
       icon: <Mail className="w-5 h-5" />,
       href: "/hosting/mail"
     }
@@ -57,34 +60,34 @@ export function Navigation() {
 
   const serverItems: DropdownItem[] = [
     {
-      title: "Sanal Sunucu",
-      description: "Yüksek performanslı sanal sunucular",
+      title: t('server_vds_title'),
+      description: t('server_vds_desc'),
       icon: <Server className="w-5 h-5" />,
       href: "/servers/vds"
     },
     {
-      title: "Dedicated Sunucu",
-      description: "Tamamen size ait fiziksel sunucular",
+      title: t('server_dedi_title'),
+      description: t('server_dedi_desc'),
       icon: <HardDrive className="w-5 h-5" />,
       href: "/servers/dedicated"
     }
   ];
 
   const supportItems: DropdownItem[] = [
-    { title: "Hizmet Şartları", icon: <FileText className="w-5 h-5" />, href: "/legal/terms" },
-    { title: "Gizlilik Politikası", icon: <FileText className="w-5 h-5" />, href: "/legal/privacy" },
-    { title: "Teslimat ve İade Politikası", icon: <Package className="w-5 h-5" />, href: "/legal/refund" },
-    { title: "Adil Kullanım Politikası", icon: <Users className="w-5 h-5" />, href: "/legal/fair-use" },
-    { title: "Genel Destek Politikası", icon: <LifeBuoy className="w-5 h-5" />, href: "/legal/support" },
-    { title: "Hakkımızda", icon: <Info className="w-5 h-5" />, href: "/about" },
-    { title: "Ağ Durumu", icon: <Activity className="w-5 h-5" />, href: "https://status.bytevell.com" }
+    { title: t('support_terms'), icon: <FileText className="w-5 h-5" />, href: "/legal/terms" },
+    { title: t('support_privacy'), icon: <FileText className="w-5 h-5" />, href: "/legal/privacy" },
+    { title: t('support_refund'), icon: <Package className="w-5 h-5" />, href: "/legal/refund" },
+    { title: t('support_fair'), icon: <Users className="w-5 h-5" />, href: "/legal/fair-use" },
+    { title: t('support_support'), icon: <LifeBuoy className="w-5 h-5" />, href: "/legal/support" },
+    { title: t('support_about'), icon: <Info className="w-5 h-5" />, href: "/about" },
+    { title: t('support_status'), icon: <Activity className="w-5 h-5" />, href: "https://status.bytevell.com" }
   ];
 
   const navItems = [
-    { id: "home", label: "Ana Sayfa", href: "/", dropdown: null as DropdownItem[] | null },
-    { id: "hosting", label: "Hosting", dropdown: hostingItems },
-    { id: "servers", label: "Sunucular", dropdown: serverItems },
-    { id: "support", label: "Destek", dropdown: supportItems },
+    { id: "home", label: t('home'), href: "/", dropdown: null as DropdownItem[] | null },
+    { id: "hosting", label: t('hosting'), dropdown: hostingItems },
+    { id: "servers", label: t('servers'), dropdown: serverItems },
+    { id: "support", label: t('support'), dropdown: supportItems },
   ];
 
   const FIXED_DROPDOWN_WIDTH = 560;
@@ -230,24 +233,23 @@ export function Navigation() {
         </nav>
 
         <div className="hidden md:flex items-center gap-6 ml-4">
-          <Link href="/checkout" className="text-foreground/70 hover:text-white transition-colors duration-200 relative group">
-            <ShoppingCart className="w-5 h-5" strokeWidth={1.5} />
-            <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
-          </Link>
+          <Suspense fallback={<div className="w-8 h-8 rounded-full bg-white/5 animate-pulse" />}>
+            <LanguageFlags />
+          </Suspense>
 
           <button
             onClick={() => router.push("/auth/login")}
             className="bg-white text-black hover:bg-white/90 active:scale-95 px-6 py-2.5 rounded-full font-semibold transition-all duration-200 flex items-center gap-2 text-[14px]"
           >
             <LogIn className="w-4 h-4" strokeWidth={2} />
-            Müşteri Paneli
+            {t('customerPanel')}
           </button>
         </div>
 
         <div className="md:hidden flex items-center gap-4">
-          <Link href="/checkout" className="text-foreground/80 hover:text-white transition-colors">
-            <ShoppingCart className="w-5.5 h-5.5" strokeWidth={1.5} />
-          </Link>
+          <Suspense fallback={<div className="w-8 h-8 rounded-full bg-white/5 animate-pulse" />}>
+            <LanguageFlags />
+          </Suspense>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-foreground/80 hover:text-white p-2 rounded-full hover:bg-white/5 transition-colors"
@@ -359,7 +361,7 @@ export function Navigation() {
                   className="w-full h-13 bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                 >
                   <LogIn className="w-5 h-5" />
-                  Müşteri Paneli
+                  {t('customerPanel')}
                 </button>
               </div>
             </div>

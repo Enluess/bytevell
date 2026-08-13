@@ -2,19 +2,17 @@
 
 import { motion } from "framer-motion";
 
-interface Reference {
-  name: string;
-  count: string;
-}
-
-const references: Reference[] = [
-  { name: 'Mutlu Müşteri', count: '100+' },
-  { name: 'Aktif Sunucu', count: '250+' },
-  { name: 'Uptime', count: '%99.9' },
-  { name: 'Destek', count: '7/24' }
-];
+import { useTranslations } from "next-intl";
 
 export function ReferenceBar() {
+  const t = useTranslations('ReferenceBar');
+  
+  const references = [
+    { name: t('r1_name'), count: t('r1_count') },
+    { name: t('r2_name'), count: t('r2_count') },
+    { name: t('r3_name'), count: t('r3_count') },
+    { name: t('r4_name'), count: t('r4_count') }
+  ];
   return (
     <div className="relative z-10 w-full bg-white/1 border-y border-white/10">
       <div className="max-w-7xl mx-auto">

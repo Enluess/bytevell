@@ -1,0 +1,308 @@
+{
+  "Navigation": {
+    "home": "Ana Sayfa",
+    "hosting": "Hosting",
+    "servers": "Sunucular",
+    "support": "Destek & Bilgi",
+    "customerPanel": "Müşteri Paneli",
+    "hosting_web_title": "Web Hosting",
+    "hosting_web_desc": "Hızlı ve güvenilir paylaşımlı hosting",
+    "hosting_mail_title": "Mail Hosting",
+    "hosting_mail_desc": "Kurumsal e-posta çözümleri",
+    "server_vds_title": "Sanal Sunucu",
+    "server_vds_desc": "Yüksek performanslı sanal sunucular",
+    "server_dedi_title": "Dedicated Sunucu",
+    "server_dedi_desc": "Tamamen size ait fiziksel sunucular",
+    "support_terms": "Hizmet Şartları",
+    "support_privacy": "Gizlilik Politikası",
+    "support_refund": "Teslimat ve İade Politikası",
+    "support_fair": "Adil Kullanım Politikası",
+    "support_support": "Genel Destek Politikası",
+    "support_about": "Hakkımızda",
+    "support_status": "Ağ Durumu"
+  },
+  "Hero": {
+    "badge": "Yüksek Performanslı Altyapı",
+    "title1": "Kesintisiz sunucu",
+    "title2": "performansını keşfedin.",
+    "description": "Yüksek performanslı sanal sunucular, DDoS korumalı dedicated altyapısı ve benzersiz çalışma süresi ile projelerinizi özgürce büyütün.",
+    "button": "Sunucuları Keşfedin"
+  },
+  "Features": {
+    "badge": "Maksimum Güç İçin Tasarlandı",
+    "title": "Neden Bytevell?",
+    "description": "Deneyimli ekibimiz tarafından, geliştiriciler ve oyuncular için inşa edildi. Kurumsal seviye DDoS koruması, premium donanımlar ve dünya çapında düşük gecikmeli ağ yönlendirmesi sağlıyoruz.",
+    "f1_title": "Geleceğe Hazır Platform",
+    "f1_desc": "Web'in geleceğine uyum sağlamak için sürekli gelişiyoruz. En güncel donanımlar ve optimize edilmiş ağ altyapısı.",
+    "f2_title": "Gerçek İnsan Desteği",
+    "f2_desc": "Çünkü projeleriniz ve sorunlarınız, otomatik bot yanıtlarından çok daha fazlasını hak ediyor. Uzman teknik ekibimiz 7/24 yanınızda.",
+    "f3_title": "Sınır Tanımayan Büyüme",
+    "f3_desc": "Küçük projelerden devasa enterprise altyapılara kadar, Bytevell sizinle birlikte efor sarf etmeden kolayca ölçeklenir."
+  },
+  "Home": {
+    "faq_q1": "Nasıl hizmet satın alabilirim?",
+    "faq_a1": "Hizmet satın almak için öncelikle müşteri paneli üzerinden sitemize ücretsiz üye olmanız gerekmektedir. Üyeliğinizi tamamladıktan sonra, projenize en uygun hosting veya sunucu paketini seçip sepetinize ekleyebilir ve 3D Secure güvencesiyle (Kredi Kartı veya Havale/EFT) siparişinizi anında tamamlayabilirsiniz. Sipariş sonrası tüm süreç otomasyonla ilerler.",
+    "faq_q2": "Satın aldığım sunucu ne zaman aktif olur?",
+    "faq_a2": "Bytevell altyapısında tam otomasyon sistemi kullanmaktayız. Ödemeniz sistem tarafından başarıyla onaylandığı andan itibaren, sanal sunucunuz veya hosting paketiniz saniyeler içerisinde otomatik olarak kurulur. Kurulum tamamlanır tamamlanmaz tüm erişim bilgileriniz (IP, şifre vs.) kayıtlı e-posta adresinize anında gönderilir ve müşteri panelinize yansır.",
+    "faq_q3": "Memnun kalmazsam iade garantiniz var mı?",
+    "faq_a3": "Kesinlikle evet. Müşteri memnuniyeti bizim için her şeyden önce gelir. Eğer aldığınız hizmetten herhangi bir sebepten ötürü memnun kalmazsanız, sipariş tarihinizden itibaren ilk 7 gün içerisinde hiçbir koşul veya mazeret bildirmeksizin ödemenizi kesintisiz olarak iade alabilirsiniz. İade süreci için destek talebi açmanız yeterlidir.",
+    "faq_q4": "Teknik destek hizmetiniz nasıl çalışıyor?",
+    "faq_a4": "Uzman teknik ekibimiz, yılın 365 günü 7/24 kesintisiz olarak size yardımcı olmak için aktif çalışmaktadır. Müşteri paneliniz üzerinden oluşturacağınız destek bildirimleri (ticket) ortalama 15 dakika içerisinde yanıtlanır. Karşılaştığınız her türlü donanımsal veya sistemsel sorunda ekibimiz daima yanınızdadır.",
+    "cta_title": "Sunucunuzu barındırmaya bugünden başlayın.",
+    "cta_desc": "Premium altyapımızda sınırları aşarak projelerinizi inşa edin, ölçekleyin ve büyütün.",
+    "cta_btn1": "Hemen Başlayın",
+    "cta_btn2": "Bize Ulaşın",
+    "faq_badge": "Sıkça Sorulan Sorular",
+    "faq_title": "Aklınızda soru işareti kalmasın.",
+    "faq_desc": "Platformumuz hakkında en çok merak edilen soruları ve cevapları sizin için derledik."
+  },
+  "Footer": {
+    "desc": "Yüksek performanslı, güvenilir ve yenilikçi hosting çözümleri. Dijital dünyadaki en sağlam altyapınız.",
+    "col1": "Hizmetler",
+    "l1_1": "Web Hosting",
+    "l1_2": "Mail Hosting",
+    "l1_3": "Sanal Sunucu",
+    "l1_4": "Dedicated Sunucu",
+    "col2": "Bağlantılar",
+    "l2_1": "Hakkımızda",
+    "l2_2": "İletişim",
+    "l2_3": "Blog",
+    "l2_4": "Ağ Durumu",
+    "col3": "Yasal",
+    "l3_1": "Kullanım Şartları",
+    "l3_2": "Gizlilik Politikası",
+    "l3_3": "İade Koşulları",
+    "l3_4": "KVKK Aydınlatma",
+    "copyright": "Bytevell LLC. Tüm hakları saklıdır."
+  },
+  "About": {
+    "title": "Hakkımızda",
+    "lastUpdated": "Ağustos 2026",
+    "whoAreWe": "Biz Kimiz?",
+    "whoAreWeDesc": "Bytevell, yenilikçi altyapısı ve müşteri odaklı vizyonuyla kurumsal ve bireysel kullanıcılara yüksek performanslı barındırma hizmetleri sunan bir teknoloji şirketidir.",
+    "mission": "Misyonumuz",
+    "missionDesc": "Müşterilerimizin dijital dünyada kesintisiz, hızlı ve güvenli bir şekilde var olmalarını sağlamak. En yeni teknolojileri ulaşılabilir fiyatlarla sunarak, her boyuttaki projenin büyümesine katkıda bulunmak.",
+    "infrastructure": "Altyapımız",
+    "infrastructureDesc": "Hizmetlerimizi donanım seviyesinde %100 yedekli ağ mimarisi, en yeni nesil AMD Ryzen ve EPYC işlemciler, ve kurumsal NVMe diskler ile güçlendiriyoruz. Güvenliği asla şansa bırakmıyor, gelişmiş Layer 4/7 DDoS korumasıyla sistemlerinizi koruma altında tutuyoruz.",
+    "whyBytevell": "Neden Bytevell?",
+    "featurePerformanceTitle": "Performans:",
+    "featurePerformanceDesc": "Sektördeki en iyi donanım bileşenlerini kullanıyoruz.",
+    "featureReliabilityTitle": "Güvenilirlik:",
+    "featureReliabilityDesc": "%99.9 Uptime garantisi ve kesintisiz hizmet.",
+    "featureSupportTitle": "Destek:",
+    "featureSupportDesc": "İhtiyaç duyduğunuz her an yanınızda olan uzman teknik ekip.",
+    "featureTransparencyTitle": "Şeffaflık:",
+    "featureTransparencyDesc": "Gizli ücretler yok, net ve anlaşılır hizmet sözleşmeleri."
+  },
+  "WebHosting": {
+    "title": "cPanel <br /> Web Hosting",
+    "subtitle": "Yüksek performanslı, güvenli ve yeni nesil donanımlarla donatılmış Web Hosting çözümleri.",
+    "perMonth": "/ay",
+    "orderBtn": "Sipariş Ver",
+    "faqs": {
+      "q1": "Sitemi ücretsiz taşıyor musunuz?",
+      "a1": "Evet, mevcut sitenizi uzman ekibimiz hiçbir kesinti yaşatmadan ücretsiz olarak taşıyor. Sadece destek talebi oluşturmanız yeterlidir.",
+      "q2": "Yedekleme hizmeti ücrete dahil mi?",
+      "a2": "Tüm web hosting paketlerimizde günlük yedekleme ücretsiz olarak sunulmaktadır. Verileriniz güvenle saklanır.",
+      "q3": "Ücretsiz SSL sertifikası veriyor musunuz?",
+      "a3": "Evet, barındırdığınız tüm alan adları için ömür boyu ücretsiz Let's Encrypt SSL sertifikası otomatik olarak kurulur ve yenilenir."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "desc": "Kişisel bloglar ve portfolyolar için.",
+        "f1": "1 Adet Web Sitesi",
+        "f2": "10 GB NVMe Depolama",
+        "f3": "Limitsiz Trafik",
+        "f4": "Ücretsiz SSL",
+        "f5": "5 Adet E-Posta"
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "Orta ölçekli işletmeler ve KOBİ'ler için.",
+        "f1": "5 Adet Web Sitesi",
+        "f2": "50 GB NVMe Depolama",
+        "f3": "Limitsiz Trafik",
+        "f4": "Ücretsiz SSL",
+        "f5": "Limitsiz E-Posta",
+        "f6": "Günlük Yedekleme"
+      },
+      "ultra": {
+        "name": "Ultra",
+        "desc": "Yüksek trafikli projeler için.",
+        "f1": "Limitsiz Web Sitesi",
+        "f2": "100 GB NVMe Depolama",
+        "f3": "Limitsiz Trafik",
+        "f4": "Ücretsiz SSL",
+        "f5": "Limitsiz E-Posta",
+        "f6": "Özel IP Adresi"
+      }
+    }
+  },
+  "MailHosting": {
+    "title": "Kurumsal <br /> Mail Hosting",
+    "subtitle": "İşletmeniz için özel olarak tasarlanmış yüksek spam filtreli, hiçbir zaman çakılmayan premium e-posta barındırma hizmeti.",
+    "perMonth": "/ay",
+    "orderBtn": "Sipariş Ver",
+    "faqs": {
+      "q1": "Kendi alan adım (domain) ile e-posta kullanabilir miyim?",
+      "a1": "Kesinlikle. Sahip olduğunuz mevcut alan adınızı (örn: adiniz@sirketiniz.com) sistemlerimize bağlayarak dakikalar içinde profesyonel e-posta gönderip almaya başlayabilirsiniz.",
+      "q2": "Outlook veya akıllı telefonumdan e-postalarımı kontrol edebilir miyim?",
+      "a2": "Tüm mail hosting sunucularımız POP3, IMAP ve SMTP protokollerini tam olarak destekler. Outlook, Apple Mail, Gmail uygulaması veya herhangi bir mobil cihazdan e-postalarınızı senkronize edebilirsiniz.",
+      "q3": "Anti-Spam (Gereksiz e-posta) koruması var mı?",
+      "a3": "Evet, kurumsal mail sunucularımızda yapay zeka destekli gelişmiş Anti-Spam ve Anti-Virüs koruması bulunmaktadır. Gelen kutunuz gereksiz ve zararlı yazılımlardan %99 oranında temizlenir.",
+      "q4": "Eski maillerimi size taşıyabilir miyim?",
+      "a4": "Taşıma uzmanlarımız, eski e-posta sunucunuzdaki veya standart hostinginizdeki tüm mailleri klasör yapıları bozulmadan yeni kurumsal mail servisine ücretsiz olarak taşımaktadır."
+    },
+    "plans": {
+      "kurumsal10": {
+        "name": "Kurumsal 10",
+        "desc": "Giriş seviyesi işletmeler ve startup'lar için.",
+        "f1": "10 GB E-Posta Kotası",
+        "f2": "5 Adet Mail Hesabı",
+        "f3": "Gelişmiş Anti-Spam",
+        "f4": "IMAP/POP3 Desteği",
+        "f5": "Mobil & Webmail Uyumlu"
+      },
+      "kurumsal50": {
+        "name": "Kurumsal 50",
+        "desc": "Yoğun mail trafiği olan orta ölçekli şirketler için.",
+        "f1": "50 GB E-Posta Kotası",
+        "f2": "25 Adet Mail Hesabı",
+        "f3": "Gelişmiş Anti-Spam",
+        "f4": "Ortak Takvim & Ajanda",
+        "f5": "Ücretsiz Mail Taşıma",
+        "f6": "Öncelikli Destek"
+      },
+      "kurumsallimitsiz": {
+        "name": "Kurumsal Limitsiz",
+        "desc": "Kurumsal büyük markalar ve ajanslar için.",
+        "f1": "Limitsiz E-Posta Kotası",
+        "f2": "Limitsiz Mail Hesabı",
+        "f3": "Özel IP Adresi",
+        "f4": "Gelişmiş Anti-Spam",
+        "f5": "Ortak Takvim & Ajanda",
+        "f6": "Sınırsız Arşivleme"
+      }
+    }
+  },
+  "VDSServers": {
+    "title": "Ryzen 9 9950X <br /> Sanal Sunucular",
+    "subtitle": "AMD Ryzen 9 9950X işlemcili NVMe VDS sunucu paketleriyle projelerinizi uçuşa geçirin. DDR5 RAM, root erişimi ve üst düzey koruma dahildir.",
+    "perMonth": "/aylık",
+    "orderBtn": "Satın Al",
+    "faqs": {
+      "q1": "Sanal sunucularda yedekleme hizmeti veriyor musunuz?",
+      "a1": "Sanal sunucularımızda otomatik günlük yedekleme ücretsiz olarak sağlanmaktadır, ancak verilerinizin güvenliği için sizin de farklı bir yerde yedek bulundurmanızı tavsiye ederiz.",
+      "q2": "Sanal sunucumun RAM/CPU özelliklerini sonradan yükseltebilir miyim?",
+      "a2": "Evet, dilediğiniz zaman sunucunuzun kaynaklarını (RAM, CPU vb.) panel üzerinden bir üst pakete geçiş yaparak anında yükseltebilirsiniz.",
+      "q3": "Teslimat ne kadar sürüyor?",
+      "a3": "Sanal sunucu siparişleriniz ödeme onayından hemen sonra otomatik olarak kurularak saniyeler içerisinde teslim edilir.",
+      "q4": "Oyun sunucusu barındırmak için uygun mu?",
+      "a4": "Kesinlikle. Ryzen 9 9950X serisi işlemcilerimiz, yüksek çekirdek performansı sayesinde Minecraft ve FiveM gibi oyun sunucuları için rakipsiz bir performans sağlar.",
+      "q5": "SSH veya uzak masaüstü bağlantısı sağlıyor musunuz?",
+      "a5": "Evet, Linux işletim sistemleri için SSH, Windows işletim sistemleri için RDP (Uzak Masaüstü) erişimi tam root/yönetici yetkileri ile tarafınıza iletilmektedir."
+    }
+  },
+  "DedicatedServers": {
+    "title": "Fiziksel Sunucular <br /> (Dedicated)",
+    "subtitle": "%100 donanım izolasyonu, saf NVMe depolama ve en yeni nesil AMD işlemcilerle kurumsal projeleriniz için maksimum güç ve güvenlik.",
+    "perMonth": "/aylık",
+    "orderBtn": "Sipariş Ver",
+    "faqs": {
+      "q1": "Fiziksel (Dedicated) sunucuların kurulum süresi nedir?",
+      "a1": "Stokta olan donanımlarımız için kurulum süremiz ortalama 1-4 saat arasındadır. Özel donanım taleplerinde bu süre 24-48 saate kadar çıkabilmektedir.",
+      "q2": "Sunucu yönetimini siz mi yapıyorsunuz?",
+      "a2": "Dedicated sunucularımız varsayılan olarak \"Unmanaged\" (Yönetimsiz) olarak teslim edilir. Tüm root/yönetici erişimi sizdedir. İhtiyaç halinde ek ücret karşılığında yönetim (Managed) hizmeti sunmaktayız.",
+      "q3": "DDoS koruması dahil mi?",
+      "a3": "Evet, tüm fiziksel sunucularımızda kurumsal seviye Layer 4/7 DDoS koruması standart ve ücretsiz olarak sunulmaktadır.",
+      "q4": "İşletim sistemini kendim kurabilir miyim?",
+      "a4": "Evet, sağladığımız tam yetkili KVM/IPMI paneli üzerinden kendi ISO dosyanızı bağlayarak dilediğiniz işletim sistemini sıfırdan kurabilirsiniz.",
+      "q5": "Ek IP adresi alabiliyor muyuz?",
+      "a5": "Sunucunuza RIPE standartlarına uygun olarak ek IPv4 blokları tahsis edilebilir (/29, /28, /27 vb.). Taleplerinizi sipariş esnasında veya sonrasında iletebilirsiniz."
+    }
+  },
+  "Legal": {
+    "Terms": {
+      "title": "Hizmet Şartları",
+      "lastUpdated": "Ağustos 2026",
+      "h1": "1. Sözleşmenin Kabulü",
+      "p1": "Bytevell (\"biz\", \"bize\" veya \"bizim\") tarafından sunulan hizmetleri kullanarak, bu Hizmet Şartları'nı (\"Şartlar\") kabul etmiş sayılırsınız. Hizmetlerimizi kullanmadan önce lütfen bu Şartları dikkatlice okuyun.",
+      "h2": "2. Hizmetlerin Kullanımı",
+      "p2": "Sağladığımız hosting ve sunucu hizmetlerini yasal amaçlar doğrultusunda kullanmayı kabul edersiniz. Sunucularımız üzerinde yasadışı içerik barındırmak, spam yapmak veya ağımıza zarar verecek herhangi bir aktivitede bulunmak kesinlikle yasaktır.",
+      "h3": "3. Hesap Güvenliği",
+      "p3": "Hesabınızın ve şifrenizin gizliliğini korumaktan siz sorumlusunuz. Hesabınız altında gerçekleşen tüm aktivitelerden tamamen siz sorumlu tutulacaksınız.",
+      "h4": "4. Ücretler ve Ödemeler",
+      "p4": "Tüm hizmetler ön ödemeli olarak sunulmaktadır. Yenileme dönemi gelen hizmetlerin ödemesinin yapılmaması durumunda, hizmetleriniz askıya alınabilir veya sonlandırılabilir.",
+      "h5": "5. Sorumluluk Reddi",
+      "p5": "Hizmetlerimiz \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sunulmaktadır. Veri kaybı veya iş kesintilerinden kaynaklanan dolaylı zararlardan dolayı herhangi bir sorumluluk kabul etmiyoruz."
+    },
+    "Privacy": {
+      "title": "Gizlilik Politikası",
+      "lastUpdated": "Ağustos 2026",
+      "h1": "1. Toplanan Bilgiler",
+      "p1": "Hesap oluştururken, hizmet satın alırken veya destek talebi açarken bize sağladığınız isim, e-posta adresi, fatura adresi gibi kişisel bilgileri topluyoruz.",
+      "h2": "2. Bilgilerin Kullanımı",
+      "p2": "Topladığımız bilgileri; hizmet sağlamak, ödemeleri işlemek, destek sağlamak ve önemli hesap güncellemelerini bildirmek amacıyla kullanıyoruz.",
+      "h3": "3. Veri Güvenliği",
+      "p3": "Kişisel bilgilerinizin güvenliğini ciddiye alıyoruz. Verilerinizi yetkisiz erişime, değiştirilmeye veya ifşa edilmeye karşı korumak için sektör standardı güvenlik önlemleri uyguluyoruz.",
+      "h4": "4. Çerezler (Cookies)",
+      "p4": "Sitemizin işlevselliğini artırmak ve oturum yönetimini sağlamak için çerezler kullanmaktayız. Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz.",
+      "h5": "5. Üçüncü Taraflarla Paylaşım",
+      "p5": "Kişisel bilgilerinizi, ödeme sağlayıcıları gibi hizmetleri yürütebilmek için zorunlu olan üçüncü taraflar dışında, pazarlama amacıyla asla satmıyor veya paylaşmıyoruz."
+    },
+    "Refund": {
+      "title": "Teslimat ve İade Politikası",
+      "lastUpdated": "Ağustos 2026",
+      "h1": "1. Hizmet Teslimatı",
+      "p1": "Ödemesi onaylanan Sanal Sunucu (VDS) ve Web Hosting paketlerimiz genellikle saniyeler içerisinde otomatik olarak kurulur ve teslim edilir. Fiziksel (Dedicated) sunucuların kurulum süresi donanıma göre 1 ile 48 saat arasında değişebilir.",
+      "h2": "2. İade Koşulları",
+      "p2": "Yeni müşterilerimiz için ilk satın alımlarda (Fiziksel sunucular ve alan adları hariç) 3 gün içerisinde koşulsuz şartsız iade garantisi sunuyoruz.",
+      "h3": "3. İade Edilemeyen Hizmetler",
+      "l1": "Alan adı (Domain) kayıt, yenileme ve transfer işlemleri",
+      "l2": "Fiziksel (Dedicated) Sunucular",
+      "l3": "SSL Sertifikaları",
+      "l4": "Özel yazılım lisansları (cPanel, LiteSpeed vb.)",
+      "h4": "4. İade Süreci",
+      "p4": "İade talebinizi müşteri panelinizden destek talebi (ticket) açarak bize iletebilirsiniz. İadeniz onaylandıktan sonra, ödeme yönteminize bağlı olarak 3-7 iş günü içerisinde tarafınıza yansıtılacaktır."
+    },
+    "FairUse": {
+      "title": "Adil Kullanım Politikası",
+      "lastUpdated": "Ağustos 2026",
+      "h1": "1. Amacımız",
+      "p1": "Adil Kullanım Politikamız (AKP), tüm müşterilerimize yüksek kalitede ve kesintisiz hizmet sunabilmemizi sağlamak için tasarlanmıştır. \"Limitsiz\" olarak sunulan hizmetlerin suistimal edilmesini önlemeyi amaçlar.",
+      "h2": "2. Limitsiz Trafik ve Bant Genişliği",
+      "p2": "VDS ve Dedicated sunucularda sunulan limitsiz trafik, normal ve meşru kullanım standartlarına tabidir. Sunucu hatlarını sürekli ve aralıksız olarak %100 kapasitede kullanarak ağ altyapısına zarar veren kullanımlar bu kapsama girmez.",
+      "h3": "3. Kaynak Kullanımı",
+      "p3": "Paylaşımlı web hosting hizmetlerinde CPU, RAM ve I/O kaynaklarının diğer kullanıcıları olumsuz etkileyecek düzeyde ve sürekli olarak yüksek kullanılması durumunda hesabınız sınırlandırılabilir.",
+      "h4": "4. Depolama Sınırları",
+      "p4": "Hosting paketlerindeki disk alanları, sadece web sitesi dosyalarının barındırılması içindir. Kişisel yedekleme arşivi, dosya paylaşım merkezi veya bulut disk olarak kullanılamaz."
+    },
+    "Support": {
+      "title": "Genel Destek Politikası",
+      "lastUpdated": "Ağustos 2026",
+      "h1": "1. Destek Kapsamı",
+      "p1": "Teknik destek ekibimiz, sunucu altyapısı, ağ bağlantısı, donanım arızaları ve Bytevell tarafından sağlanan kontrol panelleriyle ilgili sorunlarda 7/24 hizmet vermektedir.",
+      "h2": "2. Kapsam Dışı Konular",
+      "p2": "Unmanaged (Yönetimsiz) sunucularda işletim sistemi içi yapılandırmalar, üçüncü parti yazılım kurulumları, web sitesi yazılım hataları ve SEO/tasarım düzenlemeleri standart destek kapsamı dışındadır.",
+      "h3": "3. Yanıt Süreleri",
+      "p3": "Destek taleplerinize öncelik sırasına göre en hızlı şekilde yanıt verilmektedir. Ortalama ilk yanıt süremiz 15 dakikadır.",
+      "h4": "4. İletişim Kanalları",
+      "p4": "Destek taleplerinizi müşteri panelinizdeki bilet (ticket) sistemi üzerinden iletmeniz gerekmektedir. Canlı destek hattımız sadece satış öncesi bilgi ve acil durumlar için hizmet vermektedir."
+    },
+    "lastUpdatedLabel": "Son Güncelleme"
+  },
+  "ReferenceBar": {
+    "r1_name": "Mutlu Müşteri",
+    "r1_count": "100+",
+    "r2_name": "Aktif Sunucu",
+    "r2_count": "250+",
+    "r3_name": "Uptime",
+    "r3_count": "%99.9",
+    "r4_name": "Destek",
+    "r4_count": "7/24"
+  },
+  "Metadata": {
+    "description": "Türkiye'nin Premium Hosting Platformu"
+  }
+}

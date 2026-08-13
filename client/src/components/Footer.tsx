@@ -1,7 +1,11 @@
 'use client'
 
-import Link from "next/link";
-import Image from "next/image"; export function Footer() {
+import { Link } from "@/i18n/routing";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+
+export function Footer() {
+  const t = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +20,7 @@ import Image from "next/image"; export function Footer() {
               </span>
             </Link>
             <p className="text-[15px] text-foreground/70 leading-relaxed font-normal">
-              Yüksek performanslı, güvenilir ve yenilikçi hosting çözümleri. Dijital dünyadaki en sağlam altyapınız.
+              {t('desc')}
             </p>
 
             <div className="flex gap-4 mt-2">
@@ -31,37 +35,37 @@ import Image from "next/image"; export function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div className="flex flex-col gap-6">
               <h3 className="whitespace-nowrap text-sm font-semibold tracking-wide text-white uppercase">
-                Hizmetler
+                {t('col1')}
               </h3>
               <ul className="flex flex-col gap-4">
-                <li><Link href="/hosting/web" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Web Hosting</Link></li>
-                <li><Link href="/hosting/mail" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Mail Hosting</Link></li>
-                <li><Link href="/servers/vps" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Sanal Sunucu</Link></li>
-                <li><Link href="/servers/dedicated" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Dedicated Sunucu</Link></li>
+                <li><Link href="/hosting/web" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l1_1')}</Link></li>
+                <li><Link href="/hosting/mail" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l1_2')}</Link></li>
+                <li><Link href="/servers/vps" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l1_3')}</Link></li>
+                <li><Link href="/servers/dedicated" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l1_4')}</Link></li>
               </ul>
             </div>
 
             <div className="flex flex-col gap-6">
               <h3 className="whitespace-nowrap text-sm font-semibold tracking-wide text-white uppercase">
-                Bağlantılar
+                {t('col2')}
               </h3>
               <ul className="flex flex-col gap-4">
-                <li><Link href="/about" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Hakkımızda</Link></li>
-                <li><Link href="/contact" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">İletişim</Link></li>
-                <li><Link href="/blog" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Blog</Link></li>
-                <li><a href="https://status.bytevell.com" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Ağ Durumu</a></li>
+                <li><Link href="/about" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l2_1')}</Link></li>
+                <li><Link href="/contact" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l2_2')}</Link></li>
+                <li><Link href="/blog" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l2_3')}</Link></li>
+                <li><a href="https://status.bytevell.com" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l2_4')}</a></li>
               </ul>
             </div>
 
             <div className="flex flex-col gap-6">
               <h3 className="whitespace-nowrap text-sm font-semibold tracking-wide text-white uppercase">
-                Yasal
+                {t('col3')}
               </h3>
               <ul className="flex flex-col gap-4">
-                <li><Link href="/legal/terms" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Kullanım Şartları</Link></li>
-                <li><Link href="/legal/privacy" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">Gizlilik Politikası</Link></li>
-                <li><Link href="/legal/refund" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">İade Koşulları</Link></li>
-                <li><Link href="/legal/kvkk" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">KVKK Aydınlatma</Link></li>
+                <li><Link href="/legal/terms" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l3_1')}</Link></li>
+                <li><Link href="/legal/privacy" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l3_2')}</Link></li>
+                <li><Link href="/legal/refund" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l3_3')}</Link></li>
+                <li><Link href="/legal/kvkk" className="whitespace-nowrap text-[15px] text-foreground/70 hover:text-white transition-colors duration-200">{t('l3_4')}</Link></li>
               </ul>
             </div>
           </div>
@@ -71,7 +75,7 @@ import Image from "next/image"; export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[13px] sm:text-[14px] text-foreground/60 text-center sm:text-left">
-            &copy; {currentYear} Bytevell LLC. Tüm hakları saklıdır.
+            &copy; {currentYear} {t('copyright')}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[13px] sm:text-[14px] text-foreground/60">
             <a href="mailto:iletisim@bytevell.com" className="hover:text-white transition-colors duration-200">

@@ -1,0 +1,308 @@
+{
+  "Navigation": {
+    "home": "Startseite",
+    "hosting": "Hosting",
+    "servers": "Server",
+    "support": "Support & Info",
+    "customerPanel": "Kundenbereich",
+    "hosting_web_title": "Webhosting",
+    "hosting_web_desc": "Schnelles und zuverlässiges Shared Hosting",
+    "hosting_mail_title": "Mail-Hosting",
+    "hosting_mail_desc": "Lösungen für Unternehmens-E-Mails",
+    "server_vds_title": "Virtueller Server",
+    "server_vds_desc": "Leistungsstarke virtuelle Server",
+    "server_dedi_title": "Dedizierter Server",
+    "server_dedi_desc": "Physische Server komplett für Sie",
+    "support_terms": "Nutzungsbedingungen",
+    "support_privacy": "Datenschutzrichtlinie",
+    "support_refund": "Liefer- und Rückerstattungsrichtlinie",
+    "support_fair": "Fair-Use-Richtlinie",
+    "support_support": "Allgemeine Support-Richtlinie",
+    "support_about": "Über uns",
+    "support_status": "Netzwerkstatus"
+  },
+  "Hero": {
+    "badge": "Hochleistungsinfrastruktur",
+    "title1": "Entdecken Sie unterbrechungsfreie",
+    "title2": "Server-Performance.",
+    "description": "Skalieren Sie Ihre Projekte frei mit leistungsstarken virtuellen Servern, DDoS-geschützter dedizierter Infrastruktur und unübertroffener Verfügbarkeit.",
+    "button": "Server Entdecken"
+  },
+  "Features": {
+    "badge": "Entwickelt für maximale Leistung",
+    "title": "Warum Bytevell?",
+    "description": "Von unserem erfahrenen Team für Entwickler und Gamer entwickelt. Wir bieten DDoS-Schutz auf Unternehmensniveau, Premium-Hardware und weltweites Netzwerk-Routing mit geringer Latenz.",
+    "f1_title": "Zukunftssichere Plattform",
+    "f1_desc": "Wir entwickeln uns ständig weiter, um uns an die Zukunft des Internets anzupassen. Modernste Hardware und eine optimierte Netzwerkinfrastruktur.",
+    "f2_title": "Echter menschlicher Support",
+    "f2_desc": "Weil Ihre Projekte und Probleme viel mehr verdienen als automatisierte Bot-Antworten. Unser kompetentes technisches Team steht Ihnen rund um die Uhr zur Verfügung.",
+    "f3_title": "Grenzenloses Wachstum",
+    "f3_desc": "Von kleinen Projekten bis hin zu massiven Unternehmens-Infrastrukturen skaliert Bytevell mühelos mit Ihnen."
+  },
+  "Home": {
+    "faq_q1": "Wie kann ich einen Dienst erwerben?",
+    "faq_a1": "Um einen Dienst zu erwerben, müssen Sie sich zunächst kostenlos über das Kunden-Panel registrieren. Danach können Sie das für Ihr Projekt am besten geeignete Hosting- oder Serverpaket auswählen, in den Warenkorb legen und Ihre Bestellung mit 3D Secure-Schutz sofort abschließen. Der gesamte Prozess nach der Bestellung ist automatisiert.",
+    "faq_q2": "Wann wird mein gekaufter Server aktiv?",
+    "faq_a2": "Wir nutzen eine vollautomatisierte Infrastruktur. Ab dem Moment der Zahlungsbestätigung wird Ihr Server innerhalb von Sekunden installiert. Die Zugangsdaten erhalten Sie sofort per E-Mail.",
+    "faq_q3": "Gibt es eine Geld-zurück-Garantie?",
+    "faq_a3": "Absolut ja. Kundenzufriedenheit steht an erster Stelle. Wenn Sie nicht zufrieden sind, können Sie innerhalb der ersten 7 Tage bedingungslos eine vollständige Rückerstattung erhalten.",
+    "faq_q4": "Wie funktioniert der technische Support?",
+    "faq_a4": "Unser technisches Expertenteam arbeitet rund um die Uhr, 365 Tage im Jahr. Support-Tickets werden im Durchschnitt innerhalb von 15 Minuten beantwortet.",
+    "cta_title": "Beginnen Sie noch heute mit dem Hosting.",
+    "cta_desc": "Überschreiten Sie Grenzen und skalieren Sie Ihre Projekte auf unserer Premium-Infrastruktur.",
+    "cta_btn1": "Jetzt starten",
+    "cta_btn2": "Kontaktiere uns",
+    "faq_badge": "Häufig gestellte Fragen",
+    "faq_title": "Lassen Sie keine Fragen offen.",
+    "faq_desc": "Wir haben die am häufigsten gestellten Fragen und Antworten zu unserer Plattform für Sie zusammengestellt."
+  },
+  "Footer": {
+    "desc": "Leistungsstarke, zuverlässige und innovative Hosting-Lösungen. Ihre stabilste Infrastruktur in der digitalen Welt.",
+    "col1": "Dienste",
+    "l1_1": "Webhosting",
+    "l1_2": "Mail-Hosting",
+    "l1_3": "Virtueller Server",
+    "l1_4": "Dedizierter Server",
+    "col2": "Links",
+    "l2_1": "Über uns",
+    "l2_2": "Kontakt",
+    "l2_3": "Blog",
+    "l2_4": "Netzwerkstatus",
+    "col3": "Rechtliches",
+    "l3_1": "Nutzungsbedingungen",
+    "l3_2": "Datenschutzerklärung",
+    "l3_3": "Rückerstattungsrichtlinie",
+    "l3_4": "Datenschutz",
+    "copyright": "Bytevell LLC. Alle Rechte vorbehalten."
+  },
+  "About": {
+    "title": "Über Uns",
+    "lastUpdated": "August 2026",
+    "whoAreWe": "Wer sind wir?",
+    "whoAreWeDesc": "Bytevell ist ein Technologieunternehmen, das mit seiner innovativen Infrastruktur und kundenorientierten Vision leistungsstarke Hosting-Dienste für Geschäfts- und Privatkunden anbietet.",
+    "mission": "Unsere Mission",
+    "missionDesc": "Um sicherzustellen, dass unsere Kunden nahtlos, schnell und sicher in der digitalen Welt präsent sind. Durch das Angebot der neuesten Technologien zu zugänglichen Preisen zum Wachstum von Projekten jeder Größe beizutragen.",
+    "infrastructure": "Unsere Infrastruktur",
+    "infrastructureDesc": "Wir betreiben unsere Dienste mit einer zu 100 % redundanten Netzwerkarchitektur auf Hardwareebene, AMD Ryzen- und EPYC-Prozessoren der neuesten Generation sowie Enterprise-NVMe-Festplatten. Wir überlassen die Sicherheit nie dem Zufall und schützen Ihre Systeme mit erweitertem Layer-4/7-DDoS-Schutz.",
+    "whyBytevell": "Warum Bytevell?",
+    "featurePerformanceTitle": "Leistung:",
+    "featurePerformanceDesc": "Wir verwenden die besten Hardwarekomponenten der Branche.",
+    "featureReliabilityTitle": "Zuverlässigkeit:",
+    "featureReliabilityDesc": "99,9 % Uptime-Garantie und unterbrechungsfreier Service.",
+    "featureSupportTitle": "Support:",
+    "featureSupportDesc": "Ein fachkundiges Technikerteam steht Ihnen jederzeit zur Seite.",
+    "featureTransparencyTitle": "Transparenz:",
+    "featureTransparencyDesc": "Keine versteckten Gebühren, klare und verständliche Serviceverträge."
+  },
+  "WebHosting": {
+    "title": "cPanel <br /> Webhosting",
+    "subtitle": "Leistungsstarke, sichere und mit Hardware der neuen Generation ausgestattete Webhosting-Lösungen.",
+    "perMonth": "/mon",
+    "orderBtn": "Jetzt Bestellen",
+    "faqs": {
+      "q1": "Migrieren Sie meine Website kostenlos?",
+      "a1": "Ja, unser Expertenteam migriert Ihre bestehende Website kostenlos und ohne Ausfallzeiten. Erstellen Sie einfach ein Support-Ticket.",
+      "q2": "Ist der Backup-Service in der Gebühr enthalten?",
+      "a2": "In all unseren Webhosting-Paketen werden täglich kostenlose Backups durchgeführt. Ihre Daten sind sicher gespeichert.",
+      "q3": "Bieten Sie ein kostenloses SSL-Zertifikat an?",
+      "a3": "Ja, für alle Ihre gehosteten Domains wird automatisch ein lebenslanges, kostenloses Let's Encrypt SSL-Zertifikat installiert und verlängert."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "desc": "Für persönliche Blogs und Portfolios.",
+        "f1": "1 Website",
+        "f2": "10 GB NVMe-Speicher",
+        "f3": "Unbegrenzter Traffic",
+        "f4": "Kostenloses SSL",
+        "f5": "5 E-Mails"
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "Für mittelständische Unternehmen und KMU.",
+        "f1": "5 Websites",
+        "f2": "50 GB NVMe-Speicher",
+        "f3": "Unbegrenzter Traffic",
+        "f4": "Kostenloses SSL",
+        "f5": "Unbegrenzte E-Mails",
+        "f6": "Tägliches Backup"
+      },
+      "ultra": {
+        "name": "Ultra",
+        "desc": "Für Projekte mit hohem Traffic.",
+        "f1": "Unbegrenzte Websites",
+        "f2": "100 GB NVMe-Speicher",
+        "f3": "Unbegrenzter Traffic",
+        "f4": "Kostenloses SSL",
+        "f5": "Unbegrenzte E-Mails",
+        "f6": "Dedizierte IP-Adresse"
+      }
+    }
+  },
+  "MailHosting": {
+    "title": "Corporate <br /> E-Mail Hosting",
+    "subtitle": "Speziell für Ihr Unternehmen entwickelter Premium-E-Mail-Hosting-Service mit hoher Spam-Filterung und ohne Abstürze.",
+    "perMonth": "/mon",
+    "orderBtn": "Jetzt Bestellen",
+    "faqs": {
+      "q1": "Kann ich E-Mail mit meiner eigenen Domain verwenden?",
+      "a1": "Absolut. Sie können innerhalb von Minuten professionelle E-Mails senden und empfangen, indem Sie Ihre bestehende Domain (z. B. name@firma.com) mit unseren Systemen verbinden.",
+      "q2": "Kann ich meine E-Mails über Outlook oder mein Smartphone abrufen?",
+      "a2": "Alle unsere Mailhosting-Server unterstützen POP3, IMAP und SMTP-Protokolle vollständig. Sie können Ihre E-Mails von Outlook, Apple Mail, Gmail oder jedem mobilen Gerät aus synchronisieren.",
+      "q3": "Gibt es einen Anti-Spam-Schutz?",
+      "a3": "Ja, unsere Firmen-Mailserver verfügen über einen fortschrittlichen KI-gestützten Anti-Spam- und Anti-Virus-Schutz. Ihr Posteingang wird zu 99 % von Spam und Malware befreit.",
+      "q4": "Kann ich meine alten E-Mails zu Ihnen migrieren?",
+      "a4": "Unsere Migrationsexperten übertragen alle E-Mails von Ihrem alten E-Mail-Server oder Standard-Hosting kostenlos auf den neuen Firmen-E-Mail-Dienst, ohne die Ordnerstrukturen zu beeinträchtigen."
+    },
+    "plans": {
+      "kurumsal10": {
+        "name": "Corporate 10",
+        "desc": "Für Einstiegsunternehmen und Startups.",
+        "f1": "10 GB E-Mail-Kontingent",
+        "f2": "5 E-Mail-Konten",
+        "f3": "Erweiterter Anti-Spam",
+        "f4": "IMAP/POP3-Unterstützung",
+        "f5": "Mobil- & Webmail-kompatibel"
+      },
+      "kurumsal50": {
+        "name": "Corporate 50",
+        "desc": "Für mittelständische Unternehmen mit hohem E-Mail-Aufkommen.",
+        "f1": "50 GB E-Mail-Kontingent",
+        "f2": "25 E-Mail-Konten",
+        "f3": "Erweiterter Anti-Spam",
+        "f4": "Gemeinsamer Kalender & Agenda",
+        "f5": "Kostenlose E-Mail-Migration",
+        "f6": "Bevorzugter Support"
+      },
+      "kurumsallimitsiz": {
+        "name": "Corporate Unlimited",
+        "desc": "Für große Unternehmensmarken und Agenturen.",
+        "f1": "Unbegrenztes E-Mail-Kontingent",
+        "f2": "Unbegrenzte E-Mail-Konten",
+        "f3": "Dedizierte IP-Adresse",
+        "f4": "Erweiterter Anti-Spam",
+        "f5": "Gemeinsamer Kalender & Agenda",
+        "f6": "Unbegrenzte Archivierung"
+      }
+    }
+  },
+  "VDSServers": {
+    "title": "Ryzen 9 9950X <br /> Virtuelle Server",
+    "subtitle": "Bringen Sie Ihre Projekte mit NVMe VDS-Serverpaketen mit AMD Ryzen 9 9950X-Prozessoren zum Abheben. DDR5-RAM, Root-Zugriff und erstklassiger Schutz sind inbegriffen.",
+    "perMonth": "/mon",
+    "orderBtn": "Jetzt Kaufen",
+    "faqs": {
+      "q1": "Bieten Sie einen Backup-Service für virtuelle Server an?",
+      "a1": "Für unsere virtuellen Server werden kostenlose automatische tägliche Backups bereitgestellt, wir empfehlen Ihnen jedoch, für Ihre Datensicherheit auch woanders ein Backup aufzubewahren.",
+      "q2": "Kann ich die RAM/CPU-Funktionen meines virtuellen Servers später aktualisieren?",
+      "a2": "Ja, Sie können Ihre Serverressourcen (RAM, CPU usw.) jederzeit sofort aktualisieren, indem Sie über das Panel zu einem höheren Paket wechseln.",
+      "q3": "Wie lange dauert die Lieferung?",
+      "a3": "Ihre Bestellungen für virtuelle Server werden unmittelbar nach Zahlungsbestätigung automatisch installiert und innerhalb von Sekunden geliefert.",
+      "q4": "Ist es für das Hosting eines Gameservers geeignet?",
+      "a4": "Absolut. Unsere Prozessoren der Ryzen 9 9950X-Serie bieten dank ihrer hohen Kernleistung eine unübertroffene Leistung für Gameserver wie Minecraft und FiveM.",
+      "q5": "Bieten Sie SSH oder Remote Desktop Verbindung an?",
+      "a5": "Ja, SSH-Zugriff für Linux-Betriebssysteme und RDP-Zugriff (Remote Desktop) für Windows-Betriebssysteme werden Ihnen mit vollständigen Root-/Administratorrechten bereitgestellt."
+    }
+  },
+  "DedicatedServers": {
+    "title": "Dedizierte Server <br /> (Bare Metal)",
+    "subtitle": "Maximale Leistung und Sicherheit für Ihre Unternehmensprojekte mit 100 % Hardware-Isolation, reinem NVMe-Speicher und AMD-Prozessoren der neuesten Generation.",
+    "perMonth": "/mon",
+    "orderBtn": "Jetzt Bestellen",
+    "faqs": {
+      "q1": "Wie lange ist die Einrichtungszeit für dedizierte Server?",
+      "a1": "Unsere Einrichtungszeit für vorrätige Hardware beträgt im Durchschnitt zwischen 1 und 4 Stunden. Bei speziellen Hardware-Anfragen kann diese Zeit bis zu 24–48 Stunden betragen.",
+      "q2": "Verwalten Sie den Server?",
+      "a2": "Unsere dedizierten Server werden standardmäßig als „Unmanaged“ ausgeliefert. Sie haben vollen Root-/Administrator-Zugriff. Bei Bedarf bieten wir gegen Aufpreis auch Management-Services an.",
+      "q3": "Ist DDoS-Schutz inbegriffen?",
+      "a3": "Ja, auf allen unseren dedizierten Servern wird standardmäßig und kostenlos ein Layer-4/7-DDoS-Schutz auf Unternehmensebene angeboten.",
+      "q4": "Kann ich das Betriebssystem selbst installieren?",
+      "a4": "Ja, Sie können das Betriebssystem Ihrer Wahl von Grund auf neu installieren, indem Sie Ihre eigene ISO-Datei über das von uns bereitgestellte vollständig autorisierte KVM/IPMI-Panel mounten.",
+      "q5": "Können wir zusätzliche IP-Adressen bekommen?",
+      "a5": "Ihrem Server können gemäß RIPE-Standards (/29, /28, /27 usw.) zusätzliche IPv4-Blöcke zugewiesen werden. Sie können Ihre Wünsche während oder nach der Bestellung einreichen."
+    }
+  },
+  "Legal": {
+    "Terms": {
+      "title": "Nutzungsbedingungen",
+      "lastUpdated": "August 2026",
+      "h1": "1. Annahme der Bedingungen",
+      "p1": "Durch die Nutzung der von Bytevell („wir“, „uns“ oder „unser“) angebotenen Dienste stimmen Sie diesen Nutzungsbedingungen („Bedingungen“) zu. Bitte lesen Sie diese Bedingungen sorgfältig durch, bevor Sie unsere Dienste nutzen.",
+      "h2": "2. Nutzung der Dienste",
+      "p2": "Sie erklären sich damit einverstanden, unsere Hosting- und Serverdienste für rechtmäßige Zwecke zu nutzen. Das Hosten illegaler Inhalte, Spamming oder die Beteiligung an Aktivitäten, die unserem Netzwerk auf unseren Servern schaden, ist strengstens untersagt.",
+      "h3": "3. Kontosicherheit",
+      "p3": "Sie sind für die Wahrung der Vertraulichkeit Ihres Kontos und Ihres Passworts verantwortlich. Sie sind voll und ganz für alle Aktivitäten verantwortlich, die unter Ihrem Konto stattfinden.",
+      "h4": "4. Gebühren und Zahlungen",
+      "p4": "Alle Dienstleistungen werden im Voraus bezahlt. Erfolgt keine Zahlung für Dienstleistungen, deren Verlängerungsfrist erreicht ist, können Ihre Dienstleistungen ausgesetzt oder beendet werden.",
+      "h5": "5. Haftungsausschluss",
+      "p5": "Unsere Dienste werden „wie besehen“ und „wie verfügbar“ bereitgestellt. Wir übernehmen keine Haftung für indirekte Schäden, die aus Datenverlust oder Betriebsunterbrechungen entstehen."
+    },
+    "Privacy": {
+      "title": "Datenschutzrichtlinie",
+      "lastUpdated": "August 2026",
+      "h1": "1. Erhobene Informationen",
+      "p1": "Wir erfassen personenbezogene Daten wie Name, E-Mail-Adresse und Rechnungsadresse, die Sie uns bei der Erstellung eines Kontos, beim Kauf eines Dienstes oder bei der Eröffnung eines Support-Tickets angeben.",
+      "h2": "2. Verwendung von Informationen",
+      "p2": "Wir verwenden die gesammelten Informationen, um Dienstleistungen bereitzustellen, Zahlungen zu verarbeiten, Support zu leisten und Sie über wichtige Kontoaktualisierungen zu informieren.",
+      "h3": "3. Datensicherheit",
+      "p3": "Wir nehmen die Sicherheit Ihrer persönlichen Daten ernst. Wir implementieren branchenübliche Sicherheitsmaßnahmen, um Ihre Daten vor unbefugtem Zugriff, Änderung oder Offenlegung zu schützen.",
+      "h4": "4. Cookies",
+      "p4": "Wir verwenden Cookies, um die Funktionalität unserer Website zu verbessern und Sitzungen zu verwalten. Sie können Cookies in Ihren Browsereinstellungen verwalten.",
+      "h5": "5. Weitergabe an Dritte",
+      "p5": "Wir verkaufen oder geben Ihre persönlichen Daten niemals zu Marketingzwecken weiter, mit Ausnahme an Dritte, die für die Erbringung der Dienstleistungen erforderlich sind, wie z. B. Zahlungsanbieter."
+    },
+    "Refund": {
+      "title": "Liefer- und Rückerstattungsrichtlinie",
+      "lastUpdated": "August 2026",
+      "h1": "1. Leistungserbringung",
+      "p1": "Unsere Virtual Server (VDS)- und Webhosting-Pakete werden nach Zahlungsbestätigung in der Regel automatisch installiert und innerhalb von Sekunden geliefert. Die Einrichtungszeit für dedizierte Server kann je nach Hardware zwischen 1 und 48 Stunden variieren.",
+      "h2": "2. Rückerstattungsbedingungen",
+      "p2": "Für unsere Neukunden bieten wir für den ersten Einkauf innerhalb von 3 Tagen eine bedingungslose Rückerstattungsgarantie (ausgenommen Dedicated Server und Domainnamen).",
+      "h3": "3. Von der Rückerstattung ausgeschlossene Dienste",
+      "l1": "Domainregistrierungs-, -verlängerungs- und -transferprozesse",
+      "l2": "Dedizierte Server",
+      "l3": "SSL-Zertifikate",
+      "l4": "Benutzerdefinierte Softwarelizenzen (cPanel, LiteSpeed usw.)",
+      "h4": "4. Rückerstattungsprozess",
+      "p4": "Sie können Ihre Rückerstattungsanfrage einreichen, indem Sie in Ihrem Kundenpanel ein Support-Ticket öffnen. Sobald Ihre Rückerstattung genehmigt wurde, wird sie je nach Zahlungsmethode innerhalb von 3–7 Werktagen auf Ihrem Konto gutgeschrieben."
+    },
+    "FairUse": {
+      "title": "Fair-Use-Richtlinie",
+      "lastUpdated": "August 2026",
+      "h1": "1. Unser Ziel",
+      "p1": "Unsere Fair-Use-Richtlinie (FUP) soll sicherstellen, dass wir allen unseren Kunden einen hochwertigen und unterbrechungsfreien Service bieten können. Es zielt darauf ab, den Missbrauch von als „unbegrenzt“ angebotenen Diensten zu verhindern.",
+      "h2": "2. Unbegrenzter Traffic und Bandbreite",
+      "p2": "Der auf VDS und dedizierten Servern angebotene unbegrenzte Datenverkehr unterliegt den normalen und legitimen Nutzungsstandards. Nutzungen, die die Netzwerkinfrastruktur schädigen, indem sie Serverleitungen kontinuierlich und ununterbrochen zu 100 % auslasten, sind nicht abgedeckt.",
+      "h3": "3. Ressourcennutzung",
+      "p3": "Bei Shared-Webhosting-Diensten kann Ihr Konto eingeschränkt werden, wenn CPU-, RAM- und I/O-Ressourcen kontinuierlich auf einem hohen Niveau genutzt werden, was sich negativ auf andere Benutzer auswirkt.",
+      "h4": "4. Speicherlimits",
+      "p4": "Speicherplätze in Hosting-Paketen dienen ausschließlich dem Hosting von Website-Dateien. Sie können nicht als persönliches Backup-Archiv, Dateifreigabezentrum oder Cloud-Laufwerk verwendet werden."
+    },
+    "Support": {
+      "title": "Allgemeine Supportrichtlinie",
+      "lastUpdated": "August 2026",
+      "h1": "1. Support-Umfang",
+      "p1": "Unser technisches Support-Team bietet rund um die Uhr Hilfe bei Problemen im Zusammenhang mit der Serverinfrastruktur, Netzwerkverbindungen, Hardwareausfällen und von Bytevell bereitgestellten Kontrollpanels.",
+      "h2": "2. Themen außerhalb des Geltungsbereichs",
+      "p2": "Bei nicht verwalteten Servern fallen betriebssysteminterne Konfigurationen, Softwareinstallationen von Drittanbietern, Website-Softwarefehler sowie SEO-/Design-Anpassungen nicht in den Rahmen des Standard-Supports.",
+      "h3": "3. Reaktionszeiten",
+      "p3": "Ihre Supportanfragen werden je nach Priorität so schnell wie möglich beantwortet. Unsere durchschnittliche anfängliche Reaktionszeit beträgt 15 Minuten.",
+      "h4": "4. Kommunikationskanäle",
+      "p4": "Ihre Supportanfragen müssen Sie über das Ticket-System in Ihrem Kundenpanel übermitteln. Unsere Live-Support-Hotline steht nur für Pre-Sales-Informationen und Notfälle zur Verfügung."
+    },
+    "lastUpdatedLabel": "Zuletzt aktualisiert"
+  },
+  "ReferenceBar": {
+    "r1_name": "Glückliche Kunden",
+    "r1_count": "100+",
+    "r2_name": "Aktive Server",
+    "r2_count": "250+",
+    "r3_name": "Betriebszeit",
+    "r3_count": "99,9%",
+    "r4_name": "Support",
+    "r4_count": "24/7"
+  },
+  "Metadata": {
+    "description": "Premium-Hosting-Plattform der Türkei"
+  }
+}

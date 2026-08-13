@@ -1,0 +1,308 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "hosting": "Hosting",
+    "servers": "Servers",
+    "support": "Support & Info",
+    "customerPanel": "Customer Panel",
+    "hosting_web_title": "Web Hosting",
+    "hosting_web_desc": "Fast and reliable shared hosting",
+    "hosting_mail_title": "Mail Hosting",
+    "hosting_mail_desc": "Corporate email solutions",
+    "server_vds_title": "Virtual Server",
+    "server_vds_desc": "High-performance virtual servers",
+    "server_dedi_title": "Dedicated Server",
+    "server_dedi_desc": "Physical servers dedicated entirely to you",
+    "support_terms": "Terms of Service",
+    "support_privacy": "Privacy Policy",
+    "support_refund": "Delivery and Refund Policy",
+    "support_fair": "Fair Use Policy",
+    "support_support": "General Support Policy",
+    "support_about": "About Us",
+    "support_status": "Network Status"
+  },
+  "Hero": {
+    "badge": "High Performance Infrastructure",
+    "title1": "Discover uninterrupted",
+    "title2": "server performance.",
+    "description": "Scale your projects freely with high-performance virtual servers, DDoS-protected dedicated infrastructure, and unmatched uptime.",
+    "button": "Explore Servers"
+  },
+  "Features": {
+    "badge": "Designed for Maximum Power",
+    "title": "Why Bytevell?",
+    "description": "Built by our experienced team for developers and gamers. We provide enterprise-grade DDoS protection, premium hardware, and worldwide low-latency network routing.",
+    "f1_title": "Future-Ready Platform",
+    "f1_desc": "We continuously evolve to adapt to the future of the web. The latest hardware and an optimized network infrastructure.",
+    "f2_title": "Real Human Support",
+    "f2_desc": "Because your projects and issues deserve much more than automated bot responses. Our expert technical team is with you 24/7.",
+    "f3_title": "Boundless Growth",
+    "f3_desc": "From small projects to massive enterprise infrastructures, Bytevell scales effortlessly along with you."
+  },
+  "Home": {
+    "faq_q1": "How can I purchase a service?",
+    "faq_a1": "To purchase a service, you must first register for free via the customer panel. Once registered, you can choose the most suitable hosting or server package for your project, add it to your cart, and instantly complete your order with 3D Secure protection (Credit Card or Bank Transfer). The entire process is automated after the order.",
+    "faq_q2": "When will my purchased server become active?",
+    "faq_a2": "We use a fully automated system on the Bytevell infrastructure. From the moment your payment is successfully approved, your virtual server or hosting package is automatically installed within seconds. Once the installation is complete, all access details (IP, password, etc.) are instantly sent to your registered email address and reflected in your customer panel.",
+    "faq_q3": "Do you have a money-back guarantee if I'm not satisfied?",
+    "faq_a3": "Absolutely yes. Customer satisfaction comes first for us. If for any reason you are not satisfied with the service you received, you can get a full refund within the first 7 days from the order date without providing any condition or excuse. You just need to open a support ticket for the return process.",
+    "faq_q4": "How does your technical support service work?",
+    "faq_a4": "Our expert technical team actively works 24/7, 365 days a year to help you uninterruptedly. Support tickets you create via your customer panel are answered within an average of 15 minutes. Our team is always by your side for any hardware or system issues you may encounter.",
+    "cta_title": "Start hosting your server today.",
+    "cta_desc": "Push boundaries, build, scale, and grow your projects on our premium infrastructure.",
+    "cta_btn1": "Get Started Now",
+    "cta_btn2": "Contact Us",
+    "faq_badge": "Frequently Asked Questions",
+    "faq_title": "Leave no questions unanswered.",
+    "faq_desc": "We have compiled the most frequently asked questions and answers about our platform for you."
+  },
+  "Footer": {
+    "desc": "High-performance, reliable, and innovative hosting solutions. Your most solid infrastructure in the digital world.",
+    "col1": "Services",
+    "l1_1": "Web Hosting",
+    "l1_2": "Mail Hosting",
+    "l1_3": "Virtual Server",
+    "l1_4": "Dedicated Server",
+    "col2": "Links",
+    "l2_1": "About Us",
+    "l2_2": "Contact",
+    "l2_3": "Blog",
+    "l2_4": "Network Status",
+    "col3": "Legal",
+    "l3_1": "Terms of Use",
+    "l3_2": "Privacy Policy",
+    "l3_3": "Refund Policy",
+    "l3_4": "Data Protection",
+    "copyright": "Bytevell LLC. All rights reserved."
+  },
+  "About": {
+    "title": "About Us",
+    "lastUpdated": "August 2026",
+    "whoAreWe": "Who Are We?",
+    "whoAreWeDesc": "Bytevell is a technology company that offers high-performance hosting services to corporate and individual users with its innovative infrastructure and customer-oriented vision.",
+    "mission": "Our Mission",
+    "missionDesc": "To ensure our customers exist in the digital world seamlessly, quickly, and securely. To contribute to the growth of projects of all sizes by offering the latest technologies at accessible prices.",
+    "infrastructure": "Our Infrastructure",
+    "infrastructureDesc": "We power our services with 100% redundant network architecture at the hardware level, the latest generation AMD Ryzen and EPYC processors, and enterprise NVMe disks. We never leave security to chance and keep your systems protected with advanced Layer 4/7 DDoS protection.",
+    "whyBytevell": "Why Bytevell?",
+    "featurePerformanceTitle": "Performance:",
+    "featurePerformanceDesc": "We use the best hardware components in the industry.",
+    "featureReliabilityTitle": "Reliability:",
+    "featureReliabilityDesc": "99.9% Uptime guarantee and uninterrupted service.",
+    "featureSupportTitle": "Support:",
+    "featureSupportDesc": "Expert technical team by your side whenever you need them.",
+    "featureTransparencyTitle": "Transparency:",
+    "featureTransparencyDesc": "No hidden fees, clear and understandable service agreements."
+  },
+  "WebHosting": {
+    "title": "cPanel <br /> Web Hosting",
+    "subtitle": "High-performance, secure, and new generation hardware-equipped Web Hosting solutions.",
+    "perMonth": "/mo",
+    "orderBtn": "Order Now",
+    "faqs": {
+      "q1": "Do you migrate my site for free?",
+      "a1": "Yes, our expert team migrates your existing site for free without any downtime. Just create a support ticket.",
+      "q2": "Is the backup service included in the fee?",
+      "a2": "Daily backups are provided free of charge in all our web hosting packages. Your data is safely stored.",
+      "q3": "Do you provide a free SSL certificate?",
+      "a3": "Yes, a lifetime free Let's Encrypt SSL certificate is automatically installed and renewed for all your hosted domains."
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "desc": "For personal blogs and portfolios.",
+        "f1": "1 Website",
+        "f2": "10 GB NVMe Storage",
+        "f3": "Unlimited Traffic",
+        "f4": "Free SSL",
+        "f5": "5 Emails"
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "For medium-sized businesses and SMEs.",
+        "f1": "5 Websites",
+        "f2": "50 GB NVMe Storage",
+        "f3": "Unlimited Traffic",
+        "f4": "Free SSL",
+        "f5": "Unlimited Emails",
+        "f6": "Daily Backup"
+      },
+      "ultra": {
+        "name": "Ultra",
+        "desc": "For high-traffic projects.",
+        "f1": "Unlimited Websites",
+        "f2": "100 GB NVMe Storage",
+        "f3": "Unlimited Traffic",
+        "f4": "Free SSL",
+        "f5": "Unlimited Emails",
+        "f6": "Dedicated IP Address"
+      }
+    }
+  },
+  "MailHosting": {
+    "title": "Corporate <br /> Mail Hosting",
+    "subtitle": "Premium email hosting service designed specifically for your business with high spam filtering and never crashing.",
+    "perMonth": "/mo",
+    "orderBtn": "Order Now",
+    "faqs": {
+      "q1": "Can I use email with my own domain name?",
+      "a1": "Absolutely. You can start sending and receiving professional emails in minutes by connecting your existing domain name (e.g. name@company.com) to our systems.",
+      "q2": "Can I check my emails from Outlook or my smartphone?",
+      "a2": "All our mail hosting servers fully support POP3, IMAP, and SMTP protocols. You can sync your emails from Outlook, Apple Mail, Gmail app, or any mobile device.",
+      "q3": "Is there Anti-Spam protection?",
+      "a3": "Yes, our corporate mail servers have advanced AI-supported Anti-Spam and Anti-Virus protection. Your inbox is cleared of junk and malware by 99%.",
+      "q4": "Can I migrate my old emails to you?",
+      "a4": "Our migration experts move all emails from your old email server or standard hosting to the new corporate mail service for free without breaking the folder structures."
+    },
+    "plans": {
+      "kurumsal10": {
+        "name": "Corporate 10",
+        "desc": "For entry-level businesses and startups.",
+        "f1": "10 GB Email Quota",
+        "f2": "5 Email Accounts",
+        "f3": "Advanced Anti-Spam",
+        "f4": "IMAP/POP3 Support",
+        "f5": "Mobile & Webmail Compatible"
+      },
+      "kurumsal50": {
+        "name": "Corporate 50",
+        "desc": "For mid-sized companies with heavy email traffic.",
+        "f1": "50 GB Email Quota",
+        "f2": "25 Email Accounts",
+        "f3": "Advanced Anti-Spam",
+        "f4": "Shared Calendar & Agenda",
+        "f5": "Free Mail Migration",
+        "f6": "Priority Support"
+      },
+      "kurumsallimitsiz": {
+        "name": "Corporate Unlimited",
+        "desc": "For large corporate brands and agencies.",
+        "f1": "Unlimited Email Quota",
+        "f2": "Unlimited Email Accounts",
+        "f3": "Dedicated IP Address",
+        "f4": "Advanced Anti-Spam",
+        "f5": "Shared Calendar & Agenda",
+        "f6": "Unlimited Archiving"
+      }
+    }
+  },
+  "VDSServers": {
+    "title": "Ryzen 9 9950X <br /> Virtual Servers",
+    "subtitle": "Make your projects take off with NVMe VDS server packages featuring AMD Ryzen 9 9950X processors. DDR5 RAM, root access, and top-level protection are included.",
+    "perMonth": "/mo",
+    "orderBtn": "Buy Now",
+    "faqs": {
+      "q1": "Do you provide backup service for virtual servers?",
+      "a1": "Automatic daily backups are provided free of charge for our virtual servers, but we also recommend you keep a backup elsewhere for your data security.",
+      "q2": "Can I upgrade my virtual server's RAM/CPU features later?",
+      "a2": "Yes, you can instantly upgrade your server resources (RAM, CPU, etc.) at any time by switching to a higher package via the panel.",
+      "q3": "How long does delivery take?",
+      "a3": "Your virtual server orders are automatically installed and delivered within seconds right after payment confirmation.",
+      "q4": "Is it suitable for hosting a game server?",
+      "a4": "Absolutely. Our Ryzen 9 9950X series processors provide unmatched performance for game servers like Minecraft and FiveM thanks to their high core performance.",
+      "q5": "Do you provide SSH or remote desktop connection?",
+      "a5": "Yes, SSH access for Linux operating systems and RDP (Remote Desktop) access for Windows operating systems are provided to you with full root/administrator privileges."
+    }
+  },
+  "DedicatedServers": {
+    "title": "Dedicated Servers <br /> (Bare Metal)",
+    "subtitle": "Maximum power and security for your corporate projects with 100% hardware isolation, pure NVMe storage, and the latest generation AMD processors.",
+    "perMonth": "/mo",
+    "orderBtn": "Order Now",
+    "faqs": {
+      "q1": "What is the setup time for dedicated servers?",
+      "a1": "Our setup time for hardware in stock is between 1-4 hours on average. For custom hardware requests, this time can go up to 24-48 hours.",
+      "q2": "Do you manage the server?",
+      "a2": "Our dedicated servers are delivered as \"Unmanaged\" by default. You have full root/administrator access. If needed, we offer management (Managed) services for an additional fee.",
+      "q3": "Is DDoS protection included?",
+      "a3": "Yes, corporate-level Layer 4/7 DDoS protection is offered as standard and free of charge on all our dedicated servers.",
+      "q4": "Can I install the operating system myself?",
+      "a4": "Yes, you can install the operating system of your choice from scratch by mounting your own ISO file via the fully authorized KVM/IPMI panel we provide.",
+      "q5": "Can we get additional IP addresses?",
+      "a5": "Additional IPv4 blocks can be allocated to your server in accordance with RIPE standards (/29, /28, /27, etc.). You can submit your requests during or after the order."
+    }
+  },
+  "Legal": {
+    "Terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "August 2026",
+      "h1": "1. Acceptance of Terms",
+      "p1": "By using the services offered by Bytevell (\"we\", \"us\" or \"our\"), you agree to these Terms of Service (\"Terms\"). Please read these Terms carefully before using our services.",
+      "h2": "2. Use of Services",
+      "p2": "You agree to use our hosting and server services for lawful purposes. Hosting illegal content, spamming, or engaging in any activity that harms our network on our servers is strictly prohibited.",
+      "h3": "3. Account Security",
+      "p3": "You are responsible for maintaining the confidentiality of your account and password. You will be held entirely responsible for all activities that occur under your account.",
+      "h4": "4. Fees and Payments",
+      "p4": "All services are provided prepaid. If payment for services whose renewal period has arrived is not made, your services may be suspended or terminated.",
+      "h5": "5. Disclaimer of Liability",
+      "p5": "Our services are provided on an \"as is\" and \"as available\" basis. We accept no liability for indirect damages arising from data loss or business interruptions."
+    },
+    "Privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "August 2026",
+      "h1": "1. Information Collected",
+      "p1": "We collect personal information such as name, email address, and billing address that you provide to us when creating an account, purchasing a service, or opening a support ticket.",
+      "h2": "2. Use of Information",
+      "p2": "We use the information we collect to provide services, process payments, provide support, and notify you of important account updates.",
+      "h3": "3. Data Security",
+      "p3": "We take the security of your personal information seriously. We implement industry-standard security measures to protect your data against unauthorized access, alteration, or disclosure.",
+      "h4": "4. Cookies",
+      "p4": "We use cookies to enhance the functionality of our site and to manage sessions. You can manage cookies from your browser settings.",
+      "h5": "5. Sharing with Third Parties",
+      "p5": "We never sell or share your personal information for marketing purposes, except for third parties that are mandatory to carry out services, such as payment providers."
+    },
+    "Refund": {
+      "title": "Delivery and Refund Policy",
+      "lastUpdated": "August 2026",
+      "h1": "1. Service Delivery",
+      "p1": "Our Virtual Server (VDS) and Web Hosting packages, once payment is confirmed, are generally automatically installed and delivered within seconds. The setup time for Dedicated servers may vary between 1 and 48 hours depending on the hardware.",
+      "h2": "2. Refund Conditions",
+      "p2": "For our new customers, we offer an unconditional refund guarantee within 3 days for their first purchases (excluding Dedicated servers and domain names).",
+      "h3": "3. Non-Refundable Services",
+      "l1": "Domain registration, renewal, and transfer processes",
+      "l2": "Dedicated Servers",
+      "l3": "SSL Certificates",
+      "l4": "Custom software licenses (cPanel, LiteSpeed, etc.)",
+      "h4": "4. Refund Process",
+      "p4": "You can submit your refund request by opening a support ticket from your customer panel. Once your refund is approved, it will be reflected in your account within 3-7 business days depending on your payment method."
+    },
+    "FairUse": {
+      "title": "Fair Use Policy",
+      "lastUpdated": "August 2026",
+      "h1": "1. Our Purpose",
+      "p1": "Our Fair Use Policy (FUP) is designed to ensure that we can provide high-quality and uninterrupted service to all our customers. It aims to prevent the abuse of services offered as \"unlimited\".",
+      "h2": "2. Unlimited Traffic and Bandwidth",
+      "p2": "Unlimited traffic offered on VDS and Dedicated servers is subject to normal and legitimate usage standards. Uses that harm the network infrastructure by using server lines continuously and uninterruptedly at 100% capacity are not covered.",
+      "h3": "3. Resource Usage",
+      "p3": "In shared web hosting services, if CPU, RAM, and I/O resources are continuously used at a high level that negatively affects other users, your account may be limited.",
+      "h4": "4. Storage Limits",
+      "p4": "Disk spaces in hosting packages are only for hosting website files. It cannot be used as a personal backup archive, file sharing center, or cloud disk."
+    },
+    "Support": {
+      "title": "General Support Policy",
+      "lastUpdated": "August 2026",
+      "h1": "1. Support Scope",
+      "p1": "Our technical support team provides 24/7 service for issues related to server infrastructure, network connection, hardware failures, and control panels provided by Bytevell.",
+      "h2": "2. Out of Scope Topics",
+      "p2": "On Unmanaged servers, in-operating system configurations, third-party software installations, website software errors, and SEO/design arrangements are outside the scope of standard support.",
+      "h3": "3. Response Times",
+      "p3": "Your support requests are responded to as quickly as possible based on priority. Our average initial response time is 15 minutes.",
+      "h4": "4. Communication Channels",
+      "p4": "You must submit your support requests via the ticket system in your customer panel. Our live support line is only available for pre-sales information and emergencies."
+    },
+    "lastUpdatedLabel": "Last Updated"
+  },
+  "ReferenceBar": {
+    "r1_name": "Happy Clients",
+    "r1_count": "100+",
+    "r2_name": "Active Servers",
+    "r2_count": "250+",
+    "r3_name": "Uptime",
+    "r3_count": "99.9%",
+    "r4_name": "Support",
+    "r4_count": "24/7"
+  },
+  "Metadata": {
+    "description": "Turkey's Premium Hosting Platform"
+  }
+}

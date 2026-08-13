@@ -6,33 +6,20 @@ import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { Flex, Container, Section, Card, Badge, Heading, Text } from "@/components/ui";
+import { useTranslations } from "next-intl";
 
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
 export default function DedicatedServersPage() {
+  const t = useTranslations("DedicatedServers");
 
   const faqs = [
-    { 
-      question: 'Fiziksel (Dedicated) sunucuların kurulum süresi nedir?', 
-      answer: 'Stokta olan donanımlarımız için kurulum süremiz ortalama 1-4 saat arasındadır. Özel donanım taleplerinde bu süre 24-48 saate kadar çıkabilmektedir.' 
-    },
-    { 
-      question: 'Sunucu yönetimini siz mi yapıyorsunuz?', 
-      answer: 'Dedicated sunucularımız varsayılan olarak "Unmanaged" (Yönetimsiz) olarak teslim edilir. Tüm root/yönetici erişimi sizdedir. İhtiyaç halinde ek ücret karşılığında yönetim (Managed) hizmeti sunmaktayız.' 
-    },
-    { 
-      question: 'DDoS koruması dahil mi?', 
-      answer: 'Evet, tüm fiziksel sunucularımızda kurumsal seviye Layer 4/7 DDoS koruması standart ve ücretsiz olarak sunulmaktadır.' 
-    },
-    { 
-      question: 'İşletim sistemini kendim kurabilir miyim?', 
-      answer: 'Evet, sağladığımız tam yetkili KVM/IPMI paneli üzerinden kendi ISO dosyanızı bağlayarak dilediğiniz işletim sistemini sıfırdan kurabilirsiniz.' 
-    },
-    { 
-      question: 'Ek IP adresi alabiliyor muyuz?', 
-      answer: 'Sunucunuza RIPE standartlarına uygun olarak ek IPv4 blokları tahsis edilebilir (/29, /28, /27 vb.). Taleplerinizi sipariş esnasında veya sonrasında iletebilirsiniz.' 
-    }
+    { question: t('faqs.q1'), answer: t('faqs.a1') },
+    { question: t('faqs.q2'), answer: t('faqs.a2') },
+    { question: t('faqs.q3'), answer: t('faqs.a3') },
+    { question: t('faqs.q4'), answer: t('faqs.a4') },
+    { question: t('faqs.q5'), answer: t('faqs.a5') }
   ];
 
   const plans = [
@@ -50,14 +37,12 @@ export default function DedicatedServersPage() {
         <BackgroundEffects />
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight">
-            Fiziksel Sunucular <br /> (Dedicated)
-          </Heading>
+          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight" dangerouslySetInnerHTML={{ __html: t("title") }} />
         </motion.div>
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
           <Text className="mx-auto mt-8 max-w-2xl md:text-[17px] tracking-wide">
-            %100 donanım izolasyonu, saf NVMe depolama ve en yeni nesil AMD işlemcilerle kurumsal projeleriniz için maksimum güç ve güvenlik.
+            {t("subtitle")}
           </Text>
         </motion.div>
       </Flex>
@@ -92,10 +77,10 @@ export default function DedicatedServersPage() {
                     <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
                       <Flex items="baseline" gap="1" className="shrink-0">
                         <span className="text-xl font-black text-white tracking-tight">₺{plan.price}</span>
-                        <span className="text-xs font-medium text-white/40 tracking-wider">/aylık</span>
+                        <span className="text-xs font-medium text-white/40 tracking-wider">{t("perMonth")}</span>
                       </Flex>
                       <Link href={`/checkout?plan=dedicated-${idx}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-bold hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] shrink-0">
-                        Sipariş Ver
+                        {t("orderBtn")}
                       </Link>
                     </Flex>
 

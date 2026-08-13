@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { Flex, Grid, Container, Section, Heading, Text } from "@/components/ui";
+import { useTranslations } from "next-intl";
 
 interface Faq {
   question: string;
@@ -53,6 +54,7 @@ function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick:
 }
 
 export function FaqSection({ faqs }: Props) {
+  const t = useTranslations('Home');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -69,13 +71,13 @@ export function FaqSection({ faqs }: Props) {
                 transition={{ duration: 0.7 }}
               >
                 <div className="w-fit rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-xs font-medium tracking-wide mb-6">
-                  Sıkça Sorulan Sorular
+                  {t('faq_badge')}
                 </div>
                 <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl leading-[1.1] mb-4 sm:mb-6">
-                  Aklınızda soru işareti kalmasın.
+                  {t('faq_title')}
                 </Heading>
                 <Text className="text-base md:text-lg">
-                  Platformumuz hakkında en çok merak edilen soruları ve cevapları sizin için derledik.
+                  {t('faq_desc')}
                 </Text>
               </motion.div>
             </div>

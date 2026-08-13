@@ -6,49 +6,39 @@ import { Check, Mail, Shield, ShieldCheck, MailOpen, Layers, Users, Server } fro
 import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { BackgroundEffects } from "@/components/BackgroundEffects";
+import { useTranslations } from "next-intl";
 
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
 export default function MailHostingPage() {
+  const t = useTranslations("MailHosting");
 
   const faqs = [
-    {
-      question: 'Kendi alan adım (domain) ile e-posta kullanabilir miyim?',
-      answer: 'Kesinlikle. Sahip olduğunuz mevcut alan adınızı (örn: adiniz@sirketiniz.com) sistemlerimize bağlayarak dakikalar içinde profesyonel e-posta gönderip almaya başlayabilirsiniz.'
-    },
-    {
-      question: 'Outlook veya akıllı telefonumdan e-postalarımı kontrol edebilir miyim?',
-      answer: 'Tüm mail hosting sunucularımız POP3, IMAP ve SMTP protokollerini tam olarak destekler. Outlook, Apple Mail, Gmail uygulaması veya herhangi bir mobil cihazdan e-postalarınızı senkronize edebilirsiniz.'
-    },
-    {
-      question: 'Anti-Spam (Gereksiz e-posta) koruması var mı?',
-      answer: 'Evet, kurumsal mail sunucularımızda yapay zeka destekli gelişmiş Anti-Spam ve Anti-Virüs koruması bulunmaktadır. Gelen kutunuz gereksiz ve zararlı yazılımlardan %99 oranında temizlenir.'
-    },
-    {
-      question: 'Eski maillerimi size taşıyabilir miyim?',
-      answer: 'Taşıma uzmanlarımız, eski e-posta sunucunuzdaki veya standart hostinginizdeki tüm mailleri klasör yapıları bozulmadan yeni kurumsal mail servisine ücretsiz olarak taşımaktadır.'
-    }
+    { question: t('faqs.q1'), answer: t('faqs.a1') },
+    { question: t('faqs.q2'), answer: t('faqs.a2') },
+    { question: t('faqs.q3'), answer: t('faqs.a3') },
+    { question: t('faqs.q4'), answer: t('faqs.a4') }
   ];
 
   const plans = [
     {
-      name: "Kurumsal 10",
-      desc: "Giriş seviyesi işletmeler ve startup'lar için.",
+      name: t('plans.kurumsal10.name'),
+      desc: t('plans.kurumsal10.desc'),
       price: { 'try': '39', 'usd': '1.2', 'eur': '1.1' },
-      features: ['10 GB E-Posta Kotası', '5 Adet Mail Hesabı', 'Gelişmiş Anti-Spam', 'IMAP/POP3 Desteği', 'Mobil & Webmail Uyumlu']
+      features: [t('plans.kurumsal10.f1'), t('plans.kurumsal10.f2'), t('plans.kurumsal10.f3'), t('plans.kurumsal10.f4'), t('plans.kurumsal10.f5')]
     },
     {
-      name: "Kurumsal 50",
-      desc: "Yoğun mail trafiği olan orta ölçekli şirketler için.",
+      name: t('plans.kurumsal50.name'),
+      desc: t('plans.kurumsal50.desc'),
       price: { 'try': '79', 'usd': '2.5', 'eur': '2.3' },
-      features: ['50 GB E-Posta Kotası', '25 Adet Mail Hesabı', 'Gelişmiş Anti-Spam', 'Ortak Takvim & Ajanda', 'Ücretsiz Mail Taşıma', 'Öncelikli Destek']
+      features: [t('plans.kurumsal50.f1'), t('plans.kurumsal50.f2'), t('plans.kurumsal50.f3'), t('plans.kurumsal50.f4'), t('plans.kurumsal50.f5'), t('plans.kurumsal50.f6')]
     },
     {
-      name: "Kurumsal Limitsiz",
-      desc: "Kurumsal büyük markalar ve ajanslar için.",
+      name: t('plans.kurumsallimitsiz.name'),
+      desc: t('plans.kurumsallimitsiz.desc'),
       price: { 'try': '149', 'usd': '4.5', 'eur': '4.2' },
-      features: ['Limitsiz E-Posta Kotası', 'Limitsiz Mail Hesabı', 'Özel IP Adresi', 'Gelişmiş Anti-Spam', 'Ortak Takvim & Ajanda', 'Sınırsız Arşivleme']
+      features: [t('plans.kurumsallimitsiz.f1'), t('plans.kurumsallimitsiz.f2'), t('plans.kurumsallimitsiz.f3'), t('plans.kurumsallimitsiz.f4'), t('plans.kurumsallimitsiz.f5'), t('plans.kurumsallimitsiz.f6')]
     }
   ];
 
@@ -64,9 +54,8 @@ export default function MailHostingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mx-auto mt-10 max-w-4xl select-none text-5xl font-medium leading-[1.05] tracking-tight lg:text-[72px] md:text-6xl"
-        >
-          Kurumsal <br /> Mail Hosting
-        </motion.h1>
+          dangerouslySetInnerHTML={{ __html: t("title") }}
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +63,7 @@ export default function MailHostingPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mx-auto mt-8 max-w-2xl text-base text-white/60 font-normal leading-relaxed tracking-wide md:text-[17px]"
         >
-          İşletmeniz için özel olarak tasarlanmış yüksek spam filtreli, hiçbir zaman çakılmayan premium e-posta barındırma hizmeti.
+          {t("subtitle")}
         </motion.p>
 
         <motion.div
@@ -103,7 +92,7 @@ export default function MailHostingPage() {
               </div>
               <div className="mb-8">
                 <span className="text-4xl font-bold">₺{plan.price['try']}</span>
-                <span className="text-white/50">/ay</span>
+                <span className="text-white/50">{t("perMonth")}</span>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 {plan.features.map((feat, i) => (
@@ -114,7 +103,7 @@ export default function MailHostingPage() {
                 ))}
               </ul>
               <Link href={`/checkout?plan=mail-${idx}`} className="block w-full py-3 text-center rounded-lg bg-white/5 hover:bg-white/10 text-white font-medium transition-all">
-                Sipariş Ver
+                {t("orderBtn")}
               </Link>
             </motion.div>
           ))}

@@ -6,33 +6,20 @@ import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { Flex, Container, Section, Card, Badge, Heading, Text } from "@/components/ui";
+import { useTranslations } from "next-intl";
 
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
 export default function VDSServersPage() {
+  const t = useTranslations("VDSServers");
 
   const faqs = [
-    {
-      question: 'Sanal sunucularda yedekleme hizmeti veriyor musunuz?',
-      answer: 'Sanal sunucularımızda otomatik günlük yedekleme ücretsiz olarak sağlanmaktadır, ancak verilerinizin güvenliği için sizin de farklı bir yerde yedek bulundurmanızı tavsiye ederiz.'
-    },
-    {
-      question: 'Sanal sunucumun RAM/CPU özelliklerini sonradan yükseltebilir miyim?',
-      answer: 'Evet, dilediğiniz zaman sunucunuzun kaynaklarını (RAM, CPU vb.) panel üzerinden bir üst pakete geçiş yaparak anında yükseltebilirsiniz.'
-    },
-    {
-      question: 'Teslimat ne kadar sürüyor?',
-      answer: 'Sanal sunucu siparişleriniz ödeme onayından hemen sonra otomatik olarak kurularak saniyeler içerisinde teslim edilir.'
-    },
-    {
-      question: 'Oyun sunucusu barındırmak için uygun mu?',
-      answer: 'Kesinlikle. Ryzen 9 9950X serisi işlemcilerimiz, yüksek çekirdek performansı sayesinde Minecraft ve FiveM gibi oyun sunucuları için rakipsiz bir performans sağlar.'
-    },
-    {
-      question: 'SSH veya uzak masaüstü bağlantısı sağlıyor musunuz?',
-      answer: 'Evet, Linux işletim sistemleri için SSH, Windows işletim sistemleri için RDP (Uzak Masaüstü) erişimi tam root/yönetici yetkileri ile tarafınıza iletilmektedir.'
-    }
+    { question: t('faqs.q1'), answer: t('faqs.a1') },
+    { question: t('faqs.q2'), answer: t('faqs.a2') },
+    { question: t('faqs.q3'), answer: t('faqs.a3') },
+    { question: t('faqs.q4'), answer: t('faqs.a4') },
+    { question: t('faqs.q5'), answer: t('faqs.a5') }
   ];
 
   const plans = [
@@ -51,14 +38,12 @@ export default function VDSServersPage() {
         <BackgroundEffects />
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight">
-            Ryzen 9 9950X <br /> Sanal Sunucular
-          </Heading>
+          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight" dangerouslySetInnerHTML={{ __html: t("title") }} />
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
           <Text className="mx-auto mt-8 max-w-2xl md:text-[17px] tracking-wide">
-            AMD Ryzen 9 9950X işlemcili NVMe VDS sunucu paketleriyle projelerinizi uçuşa geçirin. DDR5 RAM, root erişimi ve üst düzey koruma dahildir.
+            {t("subtitle")}
           </Text>
         </motion.div>
       </Flex>
@@ -93,10 +78,10 @@ export default function VDSServersPage() {
                     <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
                       <Flex items="baseline" gap="1">
                         <span className="text-xl font-black text-white tracking-tight">₺{plan.price}</span>
-                        <span className="text-xs font-medium text-white/40 tracking-wider">/aylık</span>
+                        <span className="text-xs font-medium text-white/40 tracking-wider">{t("perMonth")}</span>
                       </Flex>
                       <Link href={`/checkout?plan=vds-${plan.ram.toLowerCase()}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-bold hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] shrink-0">
-                        Satın Al
+                        {t("orderBtn")}
                       </Link>
                     </Flex>
 

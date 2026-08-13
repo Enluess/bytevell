@@ -5,9 +5,12 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 import { Flex, Container, Section, Heading, Text } from "@/components/ui";
 
+import { useTranslations } from "next-intl";
+
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
 export function LegalPageLayout({ title, lastUpdated, children }: { title: string, lastUpdated: string, children: React.ReactNode }) {
+  const t = useTranslations('Legal');
   return (
     <Flex col className="flex-1 min-h-screen">
       <Flex col items="center" justify="center" className="relative px-6 pb-12 pt-32 text-center overflow-hidden shrink-0">
@@ -19,7 +22,7 @@ export function LegalPageLayout({ title, lastUpdated, children }: { title: strin
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
           <Text className="mt-6 text-sm">
-            Son Güncelleme: {lastUpdated}
+            {t('lastUpdatedLabel')}: {lastUpdated}
           </Text>
         </motion.div>
       </Flex>

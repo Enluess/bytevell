@@ -6,35 +6,37 @@ import { Check, ShieldCheck, Server, History, Headphones, Globe, ArrowRight } fr
 import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { BackgroundEffects } from "@/components/BackgroundEffects";
+import { useTranslations } from "next-intl";
 
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 export default function WebHostingPage() {
+  const t = useTranslations("WebHosting");
 
   const faqs = [
-    { question: 'Sitemi ücretsiz taşıyor musunuz?', answer: 'Evet, mevcut sitenizi uzman ekibimiz hiçbir kesinti yaşatmadan ücretsiz olarak taşıyor. Sadece destek talebi oluşturmanız yeterlidir.' },
-    { question: 'Yedekleme hizmeti ücrete dahil mi?', answer: 'Tüm web hosting paketlerimizde günlük yedekleme ücretsiz olarak sunulmaktadır. Verileriniz güvenle saklanır.' },
-    { question: 'Ücretsiz SSL sertifikası veriyor musunuz?', answer: 'Evet, barındırdığınız tüm alan adları için ömür boyu ücretsiz Let\'s Encrypt SSL sertifikası otomatik olarak kurulur ve yenilenir.' },
+    { question: t('faqs.q1'), answer: t('faqs.a1') },
+    { question: t('faqs.q2'), answer: t('faqs.a2') },
+    { question: t('faqs.q3'), answer: t('faqs.a3') },
   ];
 
   const plans = [
     {
-      name: "Starter",
-      desc: "Kişisel bloglar ve portfolyolar için.",
+      name: t('plans.starter.name'),
+      desc: t('plans.starter.desc'),
       price: { 'try': '49', 'usd': '1.5', 'eur': '1.3' },
-      features: ['1 Adet Web Sitesi', '10 GB NVMe Depolama', 'Limitsiz Trafik', 'Ücretsiz SSL', '5 Adet E-Posta']
+      features: [t('plans.starter.f1'), t('plans.starter.f2'), t('plans.starter.f3'), t('plans.starter.f4'), t('plans.starter.f5')]
     },
     {
-      name: "Pro",
-      desc: "Orta ölçekli işletmeler ve KOBİ'ler için.",
+      name: t('plans.pro.name'),
+      desc: t('plans.pro.desc'),
       price: { 'try': '99', 'usd': '3', 'eur': '2.8' },
-      features: ['5 Adet Web Sitesi', '50 GB NVMe Depolama', 'Limitsiz Trafik', 'Ücretsiz SSL', 'Limitsiz E-Posta', 'Günlük Yedekleme']
+      features: [t('plans.pro.f1'), t('plans.pro.f2'), t('plans.pro.f3'), t('plans.pro.f4'), t('plans.pro.f5'), t('plans.pro.f6')]
     },
     {
-      name: "Ultra",
-      desc: "Yüksek trafikli projeler için.",
+      name: t('plans.ultra.name'),
+      desc: t('plans.ultra.desc'),
       price: { 'try': '199', 'usd': '6', 'eur': '5.5' },
-      features: ['Limitsiz Web Sitesi', '100 GB NVMe Depolama', 'Limitsiz Trafik', 'Ücretsiz SSL', 'Limitsiz E-Posta', 'Özel IP Adresi']
+      features: [t('plans.ultra.f1'), t('plans.ultra.f2'), t('plans.ultra.f3'), t('plans.ultra.f4'), t('plans.ultra.f5'), t('plans.ultra.f6')]
     }
   ];
 
@@ -50,9 +52,8 @@ export default function WebHostingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mx-auto mt-10 max-w-4xl select-none text-5xl font-medium leading-[1.05] tracking-tight lg:text-[72px] md:text-6xl"
-        >
-          cPanel <br /> Web Hosting
-        </motion.h1>
+          dangerouslySetInnerHTML={{ __html: t("title") }}
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +61,7 @@ export default function WebHostingPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mx-auto mt-8 max-w-2xl text-base text-white/60 font-normal leading-relaxed tracking-wide md:text-[17px]"
         >
-          Yüksek performanslı, güvenli ve yeni nesil donanımlarla donatılmış Web Hosting çözümleri.
+          {t("subtitle")}
         </motion.p>
 
         <motion.div
@@ -89,7 +90,7 @@ export default function WebHostingPage() {
               </div>
               <div className="mb-8">
                 <span className="text-4xl font-bold">₺{plan.price['try']}</span>
-                <span className="text-white/50">/ay</span>
+                <span className="text-white/50">{t("perMonth")}</span>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 {plan.features.map((feat, i) => (
@@ -100,7 +101,7 @@ export default function WebHostingPage() {
                 ))}
               </ul>
               <Link href={`/checkout?plan=${plan.name.toLowerCase()}`} className="block w-full py-3 text-center rounded-lg bg-white/5 hover:bg-white/10 text-white font-medium transition-all">
-                Sipariş Ver
+                {t("orderBtn")}
               </Link>
             </motion.div>
           ))}
