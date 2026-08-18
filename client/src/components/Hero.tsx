@@ -17,14 +17,6 @@ export function Hero() {
 
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-4xl relative z-10 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-8">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_15px_rgba(100,107,242,0.15)] will-change-transform"
-          >
-            <span className="text-xs font-medium text-foreground tracking-wide">{t('badge')}</span>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

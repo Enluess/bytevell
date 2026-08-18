@@ -11,9 +11,9 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       <span
         ref={ref}
         className={cn(
-          "inline-flex items-center px-4 py-2 rounded-xl text-[13px] font-medium whitespace-nowrap transition-colors",
-          variant === "default" && "bg-white/[0.03] border border-white/[0.05] text-white/70",
-          variant === "outline" && "border border-white/10 text-white/60",
+          "inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap transition-colors",
+          variant === "default" && "bg-surface border border-border text-foreground-secondary",
+          variant === "outline" && "border border-border text-foreground-muted",
           variant === "primary" && "bg-primary/10 text-primary border border-primary/20",
           className
         )}

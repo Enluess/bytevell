@@ -25,11 +25,7 @@ export function Features() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl px-6 space-y-4"
         >
-          <div className="mx-auto w-fit rounded-full bg-linear-to-r from-primary/50 via-purple-500/50 to-primary/50 p-px">
-            <div className="rounded-full bg-background px-4 py-1.5 text-xs text-white font-medium tracking-wide">
-              {t('badge')}
-            </div>
-          </div>
+
 
           <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
             {t('title')}

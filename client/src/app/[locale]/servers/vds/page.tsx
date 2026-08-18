@@ -1,18 +1,21 @@
-'use client';
-
 import { motion } from "framer-motion";
 import { Cpu } from "lucide-react";
 import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { Flex, Container, Section, Card, Badge, Heading, Text } from "@/components/ui";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { fetchStorefrontProducts, getProductFeatures } from "@/lib/storefront";
 
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
-export default function VDSServersPage() {
-  const t = useTranslations("VDSServers");
+export default async function VDSServersPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "VDSServers" });
+  
+  // Fetch products from backend for type 'vps'
+  const products = await fetchStorefrontProducts({ type: 'vps' });
 
   const faqs = [
     { question: t('faqs.q1'), answer: t('faqs.a1') },
@@ -22,73 +25,92 @@ export default function VDSServersPage() {
     { question: t('faqs.q5'), answer: t('faqs.a5') }
   ];
 
-  const plans = [
-    { ram: '2GB', disk: '30 GB NVMe Disk', cpu: '1 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '243,54' },
-    { ram: '4GB', disk: '40 GB NVMe Disk', cpu: '2 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '487,08' },
-    { ram: '6GB', disk: '50 GB NVMe Disk', cpu: '4 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '730,62' },
-    { ram: '8GB', disk: '60 GB NVMe Disk', cpu: '4 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '974,16' },
-    { ram: '10GB', disk: '70 GB NVMe Disk', cpu: '4 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '1.217,70' },
-    { ram: '12GB', disk: '80 GB NVMe Disk', cpu: '4 Core CPU @ 5.7 GHz', net: '20 Gbps Internet', price: '1.461,24' }
-  ];
-
   return (
     <Flex col className="flex-1 min-h-screen">
       
       <Flex col items="center" justify="center" className="relative px-6 pb-20 pt-32 text-center overflow-hidden">
         <BackgroundEffects />
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
           <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight" dangerouslySetInnerHTML={{ __html: t("title") }} />
-        </motion.div>
+        </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
           <Text className="mx-auto mt-8 max-w-2xl md:text-[17px] tracking-wide">
             {t("subtitle")}
           </Text>
-        </motion.div>
+        </div>
       </Flex>
 
       <Section id="pricing" className="pt-0">
         <Container>
           <Flex col gap="3">
-            {plans.map((plan, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }}>
-                <Card className="p-4 md:p-5 group">
-                  <Flex col className="md:flex-row md:items-center justify-between gap-5">
-                    
-                    <Flex className="flex-wrap md:flex-nowrap items-center w-full md:w-auto" gap="4 md:gap-6">
+            {products.length === 0 ? (
+               <div className="text-center text-white/50 py-10">No VDS plans available at the moment.</div>
+            ) : products.map((plan, idx) => {
+              const { features } = getProductFeatures(plan);
+              
+              let mainSpec = plan.name;
+              let remainingSpecs: string[] = [];
+
+              if (Array.isArray(features)) {
+                mainSpec = features.length > 0 ? features[0] : plan.name;
+                remainingSpecs = features.slice(1);
+              } else if (typeof features === 'object' && features !== null) {
+                mainSpec = features.ram ? `${features.ram} RAM` : plan.name;
+                if (features.cpu) remainingSpecs.push(`${features.cpu} CPU`);
+                if (features.disk) remainingSpecs.push(features.disk);
+                if (features.bandwidth) remainingSpecs.push(features.bandwidth);
+                if (features.os) remainingSpecs.push(features.os);
+                if (features.ddos) remainingSpecs.push(`DDoS: ${features.ddos}`);
+                if (features.extras) {
+                  const extras = features.extras.split(',').map((e: string) => e.trim()).filter(Boolean);
+                  remainingSpecs.push(...extras);
+                }
+              }
+
+              const monthlyPrice = plan.prices?.find((p: any) => p.billingCycle === 'monthly')?.recurringPrice || '0.00';
+              const currency = plan.prices?.[0]?.currency || 'TRY';
+
+              return (
+                <div key={plan.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: `${idx * 50}ms` }}>
+                  <Card className="p-4 md:p-5 group">
+                    <Flex col className="md:flex-row md:items-center justify-between gap-5">
                       
-                      <Flex items="center" gap="4" className="w-40 shrink-0">
-                        <Flex items="center" justify="center" className="p-2.5 rounded-xl bg-white/5 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-colors">
-                          <Cpu className="w-6 h-6" strokeWidth={1.5} />
+                      <Flex className="flex-wrap md:flex-nowrap items-center w-full md:w-auto" gap="4 md:gap-6">
+                        
+                        <Flex items="center" gap="4" className="w-40 shrink-0">
+                          <Flex items="center" justify="center" className="p-2.5 rounded-xl bg-white/5 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-colors">
+                            <Cpu className="w-6 h-6" strokeWidth={1.5} />
+                          </Flex>
+                          <Flex col>
+                            <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">{plan.name}</span>
+                            <span className="font-bold text-white text-[17px] tracking-wide">{mainSpec}</span>
+                          </Flex>
                         </Flex>
-                        <Flex col>
-                          <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">AMD Ryzen</span>
-                          <span className="font-bold text-white text-[17px] tracking-wide">{plan.ram} RAM</span>
+
+                        <Flex items="center" gap="2" className="flex-wrap">
+                          {remainingSpecs.map((spec, i) => (
+                             <Badge key={i}>{spec}</Badge>
+                          ))}
                         </Flex>
                       </Flex>
 
-                      <Flex items="center" gap="2" className="flex-wrap">
-                        <Badge>{plan.disk}</Badge>
-                        <Badge>{plan.cpu}</Badge>
-                        <Badge>{plan.net}</Badge>
+                      <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
+                        <Flex items="baseline" gap="1">
+                          <span className="text-xl font-black text-white tracking-tight">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
+                          <span className="text-xs font-medium text-white/40 tracking-wider">{t("perMonth")}</span>
+                        </Flex>
+                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-bold hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] shrink-0">
+                          {t("orderBtn")}
+                        </Link>
                       </Flex>
-                    </Flex>
 
-                    <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
-                      <Flex items="baseline" gap="1">
-                        <span className="text-xl font-black text-white tracking-tight">₺{plan.price}</span>
-                        <span className="text-xs font-medium text-white/40 tracking-wider">{t("perMonth")}</span>
-                      </Flex>
-                      <Link href={`/checkout?plan=vds-${plan.ram.toLowerCase()}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-bold hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] shrink-0">
-                        {t("orderBtn")}
-                      </Link>
                     </Flex>
-
-                  </Flex>
-                </Card>
-              </motion.div>
-            ))}
+                  </Card>
+                </div>
+              );
+            })}
           </Flex>
         </Container>
       </Section>

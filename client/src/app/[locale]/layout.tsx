@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Providers } from "@/components/Providers";
-import { Navigation } from "@/components/Navigation";
+import { LayoutWrapper } from "@/components/LayoutWrapper";
 import { InitialLoader } from "@/components/InitialLoader";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
@@ -42,11 +42,10 @@ export default async function RootLayout({
           <div className="pointer-events-none fixed bottom-0 right-6 top-0 z-1 w-px bg-white/5 2xl:right-[calc(50%-700px+24px)] lg:right-[calc(50%-512px+24px)] xl:right-[calc(50%-576px+24px)] hidden lg:block"></div>
           
           <InitialLoader />
-          <Navigation />
           <Providers>
-            <div className="relative z-10">
+            <LayoutWrapper>
               {children}
-            </div>
+            </LayoutWrapper>
           </Providers>
         </NextIntlClientProvider>
       </body>
