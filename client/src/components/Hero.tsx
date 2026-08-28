@@ -46,13 +46,6 @@ export function Hero() {
           >
             {t('button')}
           </Link>
-          <Link
-            href="/servers/dedicated"
-            className="inline-flex items-center justify-center text-white/80 hover:text-white font-medium rounded-md border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 px-8 py-3.5 text-[15px] active:scale-[0.98] transition-all duration-200 w-full sm:w-auto group"
-          >
-            {t('secondary_button')}
-            <ChevronRight className="w-4 h-4 ml-1 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-          </Link>
         </motion.div>
       </div>
     </section>
