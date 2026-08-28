@@ -1,10 +1,13 @@
 import { Check, ShieldCheck, Server, History, Headphones, Globe, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import dynamic from 'next/dynamic';
+import { ReferenceBar } from "@/components/ReferenceBar";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { getTranslations } from "next-intl/server";
 import { fetchStorefrontProducts, getProductFeatures } from "@/lib/storefront";
 
+import { Features } from "@/components/Features";
+import { CtaBanner } from "@/components/CtaBanner";
 const FaqSection = dynamic(() => import('@/components/FaqSection').then(mod => mod.FaqSection));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => mod.Footer));
 
