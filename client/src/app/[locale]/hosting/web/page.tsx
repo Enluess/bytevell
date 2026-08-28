@@ -26,7 +26,7 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
   return (
     <main className="flex-1 text-white min-h-screen">
 
-      <section className="relative px-6 pb-20 pt-32 text-center flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-24 md:pb-32 overflow-hidden min-h-[60vh]">
         <BackgroundEffects />
 
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -92,9 +92,19 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
+      <ReferenceBar />
+      <Features />
+
       <div className="container mx-auto px-6 max-w-6xl pb-20">
         <FaqSection faqs={faqs} />
       </div>
+
+      <CtaBanner 
+        title="Haz�r m�s�n�z?"
+        description="Hemen sipari� verin, projenizi saniyeler i�inde hayata ge�irin."
+        primaryText="Sipari� Ver"
+        primaryLink="/checkout"
+      />
 
       <Footer />
     </main>
