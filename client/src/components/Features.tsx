@@ -36,7 +36,7 @@ export function Features() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-start"
               >
-                <div className="mb-6 text-white/40 bg-white/[0.03] p-3 rounded-lg border border-white/5">
+                <div className="mb-6 text-white/40 bg-white/[0.03] p-3 rounded-xl border border-white/5">
                   <Icon className="w-6 h-6" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl font-bold tracking-tight text-white mb-3 font-heading">

@@ -42,7 +42,7 @@ export function Hero() {
         >
           <Link
             href="/servers/vds"
-            className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-md px-8 py-3.5 text-[15px] hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto shadow-sm"
+            className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-lg px-8 py-3.5 text-[15px] hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto shadow-sm"
           >
             {t('button')}
           </Link>

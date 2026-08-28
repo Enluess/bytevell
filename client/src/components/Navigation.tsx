@@ -120,7 +120,7 @@ export function Navigation() {
         className={`pointer-events-auto relative flex items-center justify-between overflow-visible transition-all duration-300 mx-auto w-full ${
           scrolled 
             ? 'max-w-full px-6 md:px-10 py-3 bg-[#060709]/90 backdrop-blur-md border-b border-white/5' 
-            : 'max-w-6xl px-6 md:px-8 py-3 bg-[#0a0b0d]/70 backdrop-blur-md border border-white/5 rounded-xl'
+            : 'max-w-6xl px-6 md:px-8 py-3 bg-[#0a0b0d]/70 backdrop-blur-md border border-white/5 rounded-2xl'
         }`}
       >
         <div className="flex items-center">
@@ -162,7 +162,7 @@ export function Navigation() {
                 {isActive && (
                   <motion.div
                     layoutId="nav-pill"
-                    className="absolute inset-0 bg-white/10 rounded-xl -z-10"
+                    className="absolute inset-0 bg-white/10 rounded-2xl -z-10"
                     transition={{ type: "spring", bounce: 0, duration: 0.25 }}
                   />
                 )}
@@ -181,7 +181,7 @@ export function Navigation() {
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 border backdrop-blur-md ${scrolled
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 border backdrop-blur-md ${scrolled
                   ? 'bg-[#060709]/95 border-white/10 shadow-sm'
                   : 'bg-[#0a0b0d]/95 border-white/5 shadow-sm'
                   }`}
@@ -284,7 +284,7 @@ export function Navigation() {
             <div className="px-5 pt-4 pb-8 flex flex-col gap-2">
               <button
                 onClick={() => { setIsMenuOpen(false); router.push("/"); }}
-                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]"
+                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px] rounded-xl"
               >
                 Ana Sayfa
               </button>

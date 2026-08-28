@@ -48,7 +48,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
         >
           <Link 
             href={primaryLink}
-            className="rounded-md px-8 py-3.5 bg-white text-black text-[15px] font-semibold hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center shadow-sm"
+            className="rounded-lg px-8 py-3.5 bg-white text-black text-[15px] font-semibold hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center shadow-sm"
           >
             {primaryText}
           </Link>
@@ -56,7 +56,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
           {secondaryText && secondaryLink && (
             <Link 
               href={secondaryLink}
-              className="rounded-md px-8 py-3.5 border border-white/10 hover:border-white/20 bg-white/5 text-[15px] text-white/90 hover:text-white font-medium hover:bg-white/10 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center"
+              className="rounded-lg px-8 py-3.5 border border-white/10 hover:border-white/20 bg-white/5 text-[15px] text-white/90 hover:text-white font-medium hover:bg-white/10 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center"
             >
               {secondaryText}
             </Link>

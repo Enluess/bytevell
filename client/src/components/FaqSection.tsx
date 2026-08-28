@@ -22,7 +22,7 @@ function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick:
         <h3 className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-white group-hover:text-white/80'}`}>
           {faq.question}
         </h3>
-        <Flex items="center" justify="center" className="flex-shrink-0 ml-4 relative w-8 h-8 rounded-md border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
+        <Flex items="center" justify="center" className="flex-shrink-0 ml-4 relative w-8 h-8 rounded-lg border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
