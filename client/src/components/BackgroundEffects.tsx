@@ -2,20 +2,25 @@
 
 export function BackgroundEffects() {
   return (
-    <div className="absolute top-0 left-0 w-full h-[800px] z-0 overflow-hidden pointer-events-none" aria-hidden="true" style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)' }}>
-      
-      <div className="absolute inset-0 grid-pattern opacity-50" style={{ backgroundSize: '50px 50px' }} />
-
+    <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+      {/* Subtle grid background pattern */}
       <div 
-        className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[1200px] h-[400px] rounded-[100%] pointer-events-none mix-blend-screen blur-[120px]" 
-        style={{ background: 'rgba(100, 107, 242, 0.15)' }} 
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)', 
+          backgroundSize: '48px 48px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+        }} 
       />
       
+      {/* Subtle top light gradient */}
       <div 
-        className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-[700px] h-[200px] rounded-[100%] pointer-events-none mix-blend-screen blur-[90px]" 
-        style={{ background: 'rgba(255, 255, 255, 0.05)' }} 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] max-w-4xl h-[500px] pointer-events-none opacity-[0.12]" 
+        style={{ 
+          background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 70%)' 
+        }} 
       />
-
     </div>
   );
 }

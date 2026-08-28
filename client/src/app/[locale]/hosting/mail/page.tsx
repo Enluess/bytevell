@@ -29,14 +29,14 @@ export default async function MailHostingPage({ params }: { params: Promise<{ lo
 
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
           <h1
-            className="mx-auto mt-10 max-w-4xl select-none text-5xl font-medium leading-[1.05] tracking-tight lg:text-[72px] md:text-6xl"
+            className="mx-auto mt-10 max-w-4xl select-none text-[42px] sm:text-[52px] md:text-[60px] lg:text-[68px] font-bold font-heading text-white tracking-tight leading-[1.05]"
             dangerouslySetInnerHTML={{ __html: t("title") }}
           />
         </div>
 
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
           <p
-            className="mx-auto mt-8 max-w-2xl text-base text-white/60 font-normal leading-relaxed tracking-wide md:text-[17px]"
+            className="mx-auto mt-8 max-w-2xl text-[16px] md:text-[18px] text-foreground-secondary font-normal leading-relaxed max-w-2xl"
           >
             {t("subtitle")}
           </p>
@@ -58,30 +58,30 @@ export default async function MailHostingPage({ params }: { params: Promise<{ lo
             return (
               <div
                 key={plan.id}
-                className="flex flex-col relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors animate-in fade-in slide-in-from-bottom-4 duration-500"
+                className="flex flex-col relative overflow-hidden rounded-xl bg-[#0a0b0d]/50 border border-white/5 p-8 hover:bg-white/[0.03] transition-colors animate-in fade-in slide-in-from-bottom-4 duration-500"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-sm text-white/50">Perfect for business email</p>
+                  <h3 className="text-2xl font-bold font-heading text-white mb-2">{plan.name}</h3>
+                  <p className="text-sm text-foreground-secondary">Perfect for business email</p>
                 </div>
                 <div className="mb-8">
-                  <span className="text-4xl font-bold">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
+                  <span className="text-4xl md:text-5xl font-bold font-heading text-white">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
                   <span className="text-white/50">{t("perMonth")}</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   {features.length > 0 ? features.map((feat: string, i: number) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/80">
-                      <Check className="w-5 h-5 text-white/40 shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm text-foreground-secondary">
+                      <Check className="w-5 h-5 text-white/20 shrink-0" />
                       <span>{feat}</span>
                     </li>
                   )) : (
-                    <li className="flex items-center gap-3 text-sm text-white/50">
+                    <li className="flex items-center gap-3 text-sm text-foreground-secondary">
                       <span>No features listed.</span>
                     </li>
                   )}
                 </ul>
-                <Link href={`/checkout?plan=${plan.slug}`} className="block w-full py-3 text-center rounded-lg bg-white text-black hover:bg-white/90 font-bold transition-all">
+                <Link href={`/checkout?plan=${plan.slug}`} className="block w-full py-3.5 text-center rounded-lg bg-white text-black hover:bg-white/90 font-semibold active:scale-[0.98] transition-all text-[15px] shadow-sm">
                   {t("orderBtn")}
                 </Link>
               </div>

@@ -80,11 +80,11 @@ export default async function VDSServersPage({ params }: { params: Promise<{ loc
                       <Flex className="flex-wrap md:flex-nowrap items-center w-full md:w-auto" gap="4 md:gap-6">
                         
                         <Flex items="center" gap="4" className="w-40 shrink-0">
-                          <Flex items="center" justify="center" className="p-2.5 rounded-xl bg-white/5 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-colors">
+                          <Flex items="center" justify="center" className="p-2.5 rounded-xl bg-white/5 text-white/50 group-hover:text-white group-hover:bg-white/[0.03] transition-colors">
                             <Cpu className="w-6 h-6" strokeWidth={1.5} />
                           </Flex>
                           <Flex col>
-                            <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">{plan.name}</span>
+                            <span className="text-[10px] font-bold text-white/20 tracking-wider uppercase">{plan.name}</span>
                             <span className="font-bold text-white text-[17px] tracking-wide">{mainSpec}</span>
                           </Flex>
                         </Flex>
@@ -99,9 +99,9 @@ export default async function VDSServersPage({ params }: { params: Promise<{ loc
                       <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
                         <Flex items="baseline" gap="1">
                           <span className="text-xl font-black text-white tracking-tight">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
-                          <span className="text-xs font-medium text-white/40 tracking-wider">{t("perMonth")}</span>
+                          <span className="text-xs font-medium text-white/20 tracking-wider">{t("perMonth")}</span>
                         </Flex>
-                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-bold hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] shrink-0">
+                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-lg bg-white text-black font-semibold hover:bg-white/90 active:scale-[0.98] transition-all text-sm shadow-sm  shrink-0">
                           {t("orderBtn")}
                         </Link>
                       </Flex>
