@@ -22,7 +22,7 @@ export function Hero() {
           className="text-[42px] sm:text-[52px] md:text-[60px] lg:text-[68px] font-bold font-heading text-white tracking-tight leading-[1.05] max-w-4xl"
         >
           {t('title1')} <br className="hidden sm:block" />
-          <span className="text-white/80">{t('title2')}</span>
+          <span>{t('title2')}</span>
         </motion.h1>
 
         <motion.p
