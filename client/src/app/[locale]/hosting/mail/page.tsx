@@ -70,7 +70,7 @@ export default async function MailHostingPage({ params }: { params: Promise<{ lo
                   <span className="text-white/50">{t("perMonth")}</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
-                  {features.length > 0 ? features.map((feat, i) => (
+                  {features.length > 0 ? features.map((feat: string, i: number) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/80">
                       <Check className="w-5 h-5 text-white/40 shrink-0" />
                       <span>{feat}</span>

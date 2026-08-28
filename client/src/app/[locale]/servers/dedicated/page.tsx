@@ -70,7 +70,7 @@ export default async function DedicatedServersPage({ params }: { params: Promise
                         </Flex>
 
                         <Flex items="center" gap="2" className="flex-wrap">
-                          {remainingSpecs.map((spec, i) => (
+                          {remainingSpecs.map((spec: string, i: number) => (
                              <Badge key={i} className="bg-rose-500/5 text-rose-200 border-rose-500/10">{spec}</Badge>
                           ))}
                         </Flex>
