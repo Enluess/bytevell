@@ -117,10 +117,10 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-4 md:mt-6 transition-all duration-300">
       <div
-        className={`pointer-events-auto relative flex items-center justify-between overflow-visible transition-all duration-300 mx-auto w-full max-w-6xl px-6 md:px-8 py-3 rounded-2xl border border-white/5 backdrop-blur-md ${
+        className={`pointer-events-auto relative flex items-center justify-between overflow-visible transition-all duration-500 mx-auto w-full max-w-6xl px-6 md:px-8 py-3 rounded-2xl ${
           scrolled 
-            ? 'bg-[#060709]/95 shadow-[0_4px_30px_rgba(0,0,0,0.3)]' 
-            : 'bg-[#0a0b0d]/70 shadow-none'
+            ? 'bg-[#060709]/95 border border-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.3)]' 
+            : 'bg-transparent border border-transparent backdrop-blur-none shadow-none'
         }`}
       >
         <div className="flex items-center">
