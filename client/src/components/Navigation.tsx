@@ -115,16 +115,14 @@ export function Navigation() {
   const activeDropdownContent = activeItem ? navItems.find(i => i.id === activeItem)?.dropdown : null;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-6">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-4 md:mt-6 transition-all duration-300">
       <div
-        className="pointer-events-auto relative flex items-center justify-between overflow-visible w-[95%] xl:w-300 max-w-full mx-auto px-6 md:px-10 py-3"
+        className={`pointer-events-auto relative flex items-center justify-between overflow-visible transition-all duration-300 mx-auto w-full ${
+          scrolled 
+            ? 'max-w-full px-6 md:px-10 py-3 bg-[#060709]/90 backdrop-blur-md border-b border-white/5' 
+            : 'max-w-6xl px-6 md:px-8 py-3 bg-[#0a0b0d]/70 backdrop-blur-md border border-white/5 rounded-xl'
+        }`}
       >
-        <div
-          className={`absolute inset-0 rounded-full -z-10 transition-all duration-500 ease-out ${scrolled
-            ? 'bg-black/80 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-            : 'bg-transparent backdrop-blur-none border border-white/4 shadow-none'
-            }`}
-        />
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
             <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" />
@@ -183,9 +181,9 @@ export function Navigation() {
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-500 ease-out w-95 border backdrop-blur-3xl ${scrolled
-                  ? 'bg-black/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-                  : 'bg-black/40 border-white/5 shadow-[0_16px_40px_-15px_rgba(0,0,0,0.5)]'
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 border backdrop-blur-md ${scrolled
+                  ? 'bg-[#060709]/95 border-white/10 shadow-sm'
+                  : 'bg-[#0a0b0d]/95 border-white/5 shadow-sm'
                   }`}
                 onMouseEnter={() => {
                   if (hoverTimeout.current) clearTimeout(hoverTimeout.current);

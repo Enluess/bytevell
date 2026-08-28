@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from "framer-motion";
-
 import { useTranslations } from "next-intl";
 
 export function ReferenceBar() {
@@ -13,32 +12,25 @@ export function ReferenceBar() {
     { name: t('r3_name'), count: t('r3_count') },
     { name: t('r4_name'), count: t('r4_count') }
   ];
+  
   return (
-    <div className="relative z-10 w-full bg-white/1 border-y border-white/10">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4">
+    <div className="relative z-10 w-full bg-[#0a0b0d] border-y border-white/5 py-8 md:py-10">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-white/5">
           {references.map((ref, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className={`group relative flex flex-col items-center justify-center text-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 border-b border-white/10 lg:border-b-0 ${index !== references.length - 1 ? 'lg:border-r lg:border-white/10' : ''
-                } ${index % 2 !== 1 ? 'border-r border-white/10 lg:border-r-0' : ''
-                } ${index >= 2 ? 'max-sm:border-b-0' : ''
-                }`}
+              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              className="flex flex-col items-center justify-center text-center px-4"
             >
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: 'radial-gradient(circle at center, rgba(100,107,242,0.1) 0%, transparent 60%)' }}
-              />
-
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-1 sm:mb-2 relative z-10 group-hover:text-primary transition-colors duration-300">
-                {ref.count}
-              </div>
-              <div className="text-sm font-medium text-foreground/60 uppercase tracking-widest relative z-10 group-hover:text-foreground/90 transition-colors duration-300">
+              <div className="text-[12px] font-medium text-foreground-secondary uppercase tracking-widest mb-2 font-mono">
                 {ref.name}
+              </div>
+              <div className="text-xl md:text-2xl font-bold tracking-tight text-white font-heading">
+                {ref.count}
               </div>
             </motion.div>
           ))}

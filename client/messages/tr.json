@@ -23,21 +23,23 @@
   },
   "Hero": {
     "badge": "Yüksek Performanslı Altyapı",
-    "title1": "Kesintisiz sunucu",
-    "title2": "performansını keşfedin.",
-    "description": "Yüksek performanslı sanal sunucular, DDoS korumalı dedicated altyapısı ve benzersiz çalışma süresi ile projelerinizi özgürce büyütün.",
-    "button": "Sunucuları Keşfedin"
+    "title1": "Sunucunuz için",
+    "title2": "doğru altyapı.",
+    "description": "Esneklik, tam kontrol ve kesintisiz performans. Profesyonel projeleriniz için VDS ve fiziksel sunucu çözümleri.",
+    "button": "Sunucuları İncele",
+    "eyebrow": "ByteVell Hosting",
+    "secondary_button": "Daha Fazla Bilgi"
   },
   "Features": {
     "badge": "Maksimum Güç İçin Tasarlandı",
-    "title": "Neden Bytevell?",
-    "description": "Deneyimli ekibimiz tarafından, geliştiriciler ve oyuncular için inşa edildi. Kurumsal seviye DDoS koruması, premium donanımlar ve dünya çapında düşük gecikmeli ağ yönlendirmesi sağlıyoruz.",
-    "f1_title": "Geleceğe Hazır Platform",
-    "f1_desc": "Web'in geleceğine uyum sağlamak için sürekli gelişiyoruz. En güncel donanımlar ve optimize edilmiş ağ altyapısı.",
-    "f2_title": "Gerçek İnsan Desteği",
-    "f2_desc": "Çünkü projeleriniz ve sorunlarınız, otomatik bot yanıtlarından çok daha fazlasını hak ediyor. Uzman teknik ekibimiz 7/24 yanınızda.",
-    "f3_title": "Sınır Tanımayan Büyüme",
-    "f3_desc": "Küçük projelerden devasa enterprise altyapılara kadar, Bytevell sizinle birlikte efor sarf etmeden kolayca ölçeklenir."
+    "title": "Neden ByteVell?",
+    "description": "Projeleriniz için gerekli olan donanım gücünü ve uzman desteğini tek bir çatı altında sunuyoruz.",
+    "f1_title": "Yüksek Performans",
+    "f1_desc": "Yeni nesil AMD işlemciler ve NVMe depolama ile yüksek kaynak performansı.",
+    "f2_title": "Güvenli Ağ",
+    "f2_desc": "DDoS koruması ve optimize edilmiş network altyapısı.",
+    "f3_title": "Gerçek Destek",
+    "f3_desc": "Sorun yaşadığınızda karşınızda otomatik cevaplar değil, gerçek insanlar olsun."
   },
   "Home": {
     "faq_q1": "Nasıl hizmet satın alabilirim?",
@@ -293,14 +295,14 @@
     "lastUpdatedLabel": "Son Güncelleme"
   },
   "ReferenceBar": {
-    "r1_name": "Mutlu Müşteri",
-    "r1_count": "100+",
-    "r2_name": "Aktif Sunucu",
-    "r2_count": "250+",
-    "r3_name": "Uptime",
-    "r3_count": "%99.9",
-    "r4_name": "Destek",
-    "r4_count": "7/24"
+    "r1_name": "İşlemci Mimarisi",
+    "r1_count": "AMD EPYC",
+    "r2_name": "Depolama",
+    "r2_count": "Enterprise NVMe",
+    "r3_name": "Ağ Altyapısı",
+    "r3_count": "10 Gbps",
+    "r4_name": "Güvenlik",
+    "r4_count": "DDoS Koruması"
   },
   "Metadata": {
     "description": "Türkiye'nin Premium Hosting Platformu"

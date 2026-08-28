@@ -23,21 +23,23 @@
   },
   "Hero": {
     "badge": "Hochleistungsinfrastruktur",
-    "title1": "Entdecken Sie unterbrechungsfreie",
-    "title2": "Server-Performance.",
-    "description": "Skalieren Sie Ihre Projekte frei mit leistungsstarken virtuellen Servern, DDoS-geschützter dedizierter Infrastruktur und unübertroffener Verfügbarkeit.",
-    "button": "Server Entdecken"
+    "title1": "Die richtige Infrastruktur",
+    "title2": "für Ihren Server.",
+    "description": "Flexibilität, volle Kontrolle und ununterbrochene Leistung. VDS- und Bare-Metal-Lösungen für Ihre professionellen Projekte.",
+    "button": "Server Entdecken",
+    "eyebrow": "ByteVell Hosting",
+    "secondary_button": "Mehr Erfahren"
   },
   "Features": {
     "badge": "Entwickelt für maximale Leistung",
-    "title": "Warum Bytevell?",
-    "description": "Von unserem erfahrenen Team für Entwickler und Gamer entwickelt. Wir bieten DDoS-Schutz auf Unternehmensniveau, Premium-Hardware und weltweites Netzwerk-Routing mit geringer Latenz.",
-    "f1_title": "Zukunftssichere Plattform",
-    "f1_desc": "Wir entwickeln uns ständig weiter, um uns an die Zukunft des Internets anzupassen. Modernste Hardware und eine optimierte Netzwerkinfrastruktur.",
-    "f2_title": "Echter menschlicher Support",
-    "f2_desc": "Weil Ihre Projekte und Probleme viel mehr verdienen als automatisierte Bot-Antworten. Unser kompetentes technisches Team steht Ihnen rund um die Uhr zur Verfügung.",
-    "f3_title": "Grenzenloses Wachstum",
-    "f3_desc": "Von kleinen Projekten bis hin zu massiven Unternehmens-Infrastrukturen skaliert Bytevell mühelos mit Ihnen."
+    "title": "Warum ByteVell?",
+    "description": "Wir bieten die für Ihre Projekte erforderliche Hardwareleistung und fachkundige Unterstützung.",
+    "f1_title": "Hohe Leistung",
+    "f1_desc": "Hohe Ressourcenleistung mit AMD-Prozessoren der nächsten Generation und NVMe-Speicher.",
+    "f2_title": "Sicheres Netzwerk",
+    "f2_desc": "DDoS-Schutz und optimierte Netzwerkinfrastruktur.",
+    "f3_title": "Echter Support",
+    "f3_desc": "Treffen Sie bei Problemen auf echte Menschen, keine automatisierten Antworten."
   },
   "Home": {
     "faq_q1": "Wie kann ich einen Dienst erwerben?",
@@ -293,14 +295,14 @@
     "lastUpdatedLabel": "Zuletzt aktualisiert"
   },
   "ReferenceBar": {
-    "r1_name": "Glückliche Kunden",
-    "r1_count": "100+",
-    "r2_name": "Aktive Server",
-    "r2_count": "250+",
-    "r3_name": "Betriebszeit",
-    "r3_count": "99,9%",
-    "r4_name": "Support",
-    "r4_count": "24/7"
+    "r1_name": "Prozessorarchitektur",
+    "r1_count": "AMD EPYC",
+    "r2_name": "Speicher",
+    "r2_count": "Enterprise NVMe",
+    "r3_name": "Netzwerk",
+    "r3_count": "10 Gbps",
+    "r4_name": "Sicherheit",
+    "r4_count": "DDoS Schutz"
   },
   "Metadata": {
     "description": "Premium-Hosting-Plattform der Türkei"

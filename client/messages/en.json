@@ -23,21 +23,23 @@
   },
   "Hero": {
     "badge": "High Performance Infrastructure",
-    "title1": "Discover uninterrupted",
-    "title2": "server performance.",
-    "description": "Scale your projects freely with high-performance virtual servers, DDoS-protected dedicated infrastructure, and unmatched uptime.",
-    "button": "Explore Servers"
+    "title1": "The right infrastructure",
+    "title2": "for your server.",
+    "description": "Flexibility, full control, and uninterrupted performance. VDS and bare-metal solutions for your professional projects.",
+    "button": "Explore Servers",
+    "eyebrow": "ByteVell Hosting",
+    "secondary_button": "Learn More"
   },
   "Features": {
     "badge": "Designed for Maximum Power",
-    "title": "Why Bytevell?",
-    "description": "Built by our experienced team for developers and gamers. We provide enterprise-grade DDoS protection, premium hardware, and worldwide low-latency network routing.",
-    "f1_title": "Future-Ready Platform",
-    "f1_desc": "We continuously evolve to adapt to the future of the web. The latest hardware and an optimized network infrastructure.",
-    "f2_title": "Real Human Support",
-    "f2_desc": "Because your projects and issues deserve much more than automated bot responses. Our expert technical team is with you 24/7.",
-    "f3_title": "Boundless Growth",
-    "f3_desc": "From small projects to massive enterprise infrastructures, Bytevell scales effortlessly along with you."
+    "title": "Why ByteVell?",
+    "description": "We offer the hardware power and expert support required for your projects under one roof.",
+    "f1_title": "High Performance",
+    "f1_desc": "High resource performance with next-generation AMD processors and NVMe storage.",
+    "f2_title": "Secure Network",
+    "f2_desc": "DDoS protection and optimized network infrastructure.",
+    "f3_title": "Real Support",
+    "f3_desc": "When you encounter an issue, face real people, not automated responses."
   },
   "Home": {
     "faq_q1": "How can I purchase a service?",
@@ -293,14 +295,14 @@
     "lastUpdatedLabel": "Last Updated"
   },
   "ReferenceBar": {
-    "r1_name": "Happy Clients",
-    "r1_count": "100+",
-    "r2_name": "Active Servers",
-    "r2_count": "250+",
-    "r3_name": "Uptime",
-    "r3_count": "99.9%",
-    "r4_name": "Support",
-    "r4_count": "24/7"
+    "r1_name": "Processor Arch",
+    "r1_count": "AMD EPYC",
+    "r2_name": "Storage",
+    "r2_count": "Enterprise NVMe",
+    "r3_name": "Network",
+    "r3_count": "10 Gbps",
+    "r4_name": "Security",
+    "r4_count": "DDoS Protection"
   },
   "Metadata": {
     "description": "Turkey's Premium Hosting Platform"
