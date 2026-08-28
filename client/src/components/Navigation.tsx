@@ -181,9 +181,9 @@ export function Navigation() {
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 border backdrop-blur-2xl ${scrolled
-                  ? 'bg-[#060709]/75 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
-                  : 'bg-[#0a0b0d]/70 border-white/5 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 border backdrop-blur-3xl ${scrolled
+                  ? 'bg-[#060709]/50 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
+                  : 'bg-[#0a0b0d]/50 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
                   }`}
                 onMouseEnter={() => {
                   if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
