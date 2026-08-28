@@ -58,8 +58,18 @@ export function FaqSection({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section className="py-16 sm:py-24 md:py-32 relative bg-transparent z-10">
-      <Container size="6xl">
+    <Section className="py-16 sm:py-24 md:py-32 relative bg-background z-10 overflow-hidden">
+      {/* Subtle dot pattern background */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]" 
+        style={{ 
+          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', 
+          backgroundSize: '24px 24px',
+          maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+        }} 
+      />
+      <Container size="6xl" className="relative z-10">
         <Grid cols={1} className="lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-24">
           
           <div className="lg:col-span-5">
