@@ -14,18 +14,6 @@ export function Hero() {
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
-        
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/5"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-          <span className="text-[12px] font-medium text-white/70 font-mono uppercase tracking-widest">
-            {t('eyebrow')}
-          </span>
-        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 15 }}

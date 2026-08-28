@@ -22,7 +22,7 @@ function FaqItem({ faq, isOpen, onClick }: { faq: Faq, isOpen: boolean, onClick:
         <h3 className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-white group-hover:text-white/80'}`}>
           {faq.question}
         </h3>
-        <Flex items="center" justify="center" className="flex-shrink-0 ml-4 relative w-8 h-8 rounded-full border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
+        <Flex items="center" justify="center" className="flex-shrink-0 ml-4 relative w-8 h-8 rounded-md border border-white/10 group-hover:border-white/20 transition-colors bg-white/5">
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -70,10 +70,7 @@ export function FaqSection({ faqs }: Props) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <div className="w-fit rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-xs font-medium tracking-wide mb-6">
-                  {t('faq_badge')}
-                </div>
-                <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl leading-[1.1] mb-4 sm:mb-6">
+                <Heading level={2} className="text-3xl sm:text-4xl md:text-5xl leading-[1.1] mb-4 sm:mb-6 font-heading">
                   {t('faq_title')}
                 </Heading>
                 <Text className="text-base md:text-lg">
