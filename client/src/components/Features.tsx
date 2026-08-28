@@ -11,7 +11,7 @@ export function Features() {
   const featureIcons = [Cpu, ShieldCheck, HeadphonesIcon];
 
   return (
-    <section className="py-24 md:py-32 bg-[#0a0b0d] relative z-10 border-t border-white/5 overflow-hidden">
+    <section className="py-24 md:py-32 bg-background relative z-10 border-t border-white/5 overflow-hidden">
       {/* Subtle dot pattern background to match FAQ */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]" 
