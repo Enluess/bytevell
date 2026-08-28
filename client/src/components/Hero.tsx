@@ -21,6 +21,14 @@ export function Hero() {
         }} 
       />
       
+      {/* Subtle top light gradient */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] max-w-4xl h-[500px] pointer-events-none opacity-[0.12]" 
+        style={{ 
+          background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 70%)' 
+        }} 
+      />
+
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
 
         <motion.h1

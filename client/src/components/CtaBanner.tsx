@@ -15,6 +15,14 @@ interface Props {
 export function CtaBanner({ title, description, primaryText, primaryLink, secondaryText, secondaryLink }: Props) {
   return (
     <section className="relative z-10 overflow-hidden bg-background py-24 sm:py-32 border-t border-white/5">
+      {/* Subtle top light gradient */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] pointer-events-none opacity-[0.08]" 
+        style={{ 
+          background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 70%)' 
+        }} 
+      />
+
       <div className="relative z-20 mx-auto max-w-4xl w-full px-6 text-center space-y-8">
         
         <motion.h2 
