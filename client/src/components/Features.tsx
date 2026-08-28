@@ -12,12 +12,14 @@ export function Features() {
 
   return (
     <section className="py-24 md:py-32 bg-[#0a0b0d] relative z-10 border-t border-white/5 overflow-hidden">
-      {/* Subtle vertical lines to break the emptiness */}
+      {/* Subtle dot pattern background to match FAQ */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-[0.02] mix-blend-screen" 
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]" 
         style={{ 
-          backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px)', 
-          backgroundSize: '120px 100%' 
+          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', 
+          backgroundSize: '24px 24px',
+          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
         }} 
       />
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10">
