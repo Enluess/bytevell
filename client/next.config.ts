@@ -9,3 +9,4 @@ const nextConfig: NextConfig = {
 
 export default withNextIntl(nextConfig);
 // Force restart 2
+// Force restart 3

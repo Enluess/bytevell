@@ -295,14 +295,14 @@
     "lastUpdatedLabel": "Son Güncelleme"
   },
   "ReferenceBar": {
-    "r1_name": "İşlemci Mimarisi",
-    "r1_count": "AMD EPYC",
-    "r2_name": "Depolama",
-    "r2_count": "Enterprise NVMe",
-    "r3_name": "Ağ Altyapısı",
-    "r3_count": "10 Gbps",
-    "r4_name": "Güvenlik",
-    "r4_count": "DDoS Koruması"
+    "r1_name": "Aktif Müşteri",
+    "r1_count": "100+",
+    "r2_name": "Aktif Sunucu",
+    "r2_count": "250+",
+    "r3_name": "Uptime Oranı",
+    "r3_count": "%99.9",
+    "r4_name": "Teknik Destek",
+    "r4_count": "7/24"
   },
   "Metadata": {
     "description": "Türkiye'nin Premium Hosting Platformu"

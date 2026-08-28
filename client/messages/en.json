@@ -295,14 +295,14 @@
     "lastUpdatedLabel": "Last Updated"
   },
   "ReferenceBar": {
-    "r1_name": "Processor Arch",
-    "r1_count": "AMD EPYC",
-    "r2_name": "Storage",
-    "r2_count": "Enterprise NVMe",
-    "r3_name": "Network",
-    "r3_count": "10 Gbps",
-    "r4_name": "Security",
-    "r4_count": "DDoS Protection"
+    "r1_name": "Active Clients",
+    "r1_count": "100+",
+    "r2_name": "Active Servers",
+    "r2_count": "250+",
+    "r3_name": "Uptime Rate",
+    "r3_count": "99.9%",
+    "r4_name": "Tech Support",
+    "r4_count": "24/7"
   },
   "Metadata": {
     "description": "Turkey's Premium Hosting Platform"

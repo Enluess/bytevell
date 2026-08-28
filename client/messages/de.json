@@ -295,14 +295,14 @@
     "lastUpdatedLabel": "Zuletzt aktualisiert"
   },
   "ReferenceBar": {
-    "r1_name": "Prozessorarchitektur",
-    "r1_count": "AMD EPYC",
-    "r2_name": "Speicher",
-    "r2_count": "Enterprise NVMe",
-    "r3_name": "Netzwerk",
-    "r3_count": "10 Gbps",
-    "r4_name": "Sicherheit",
-    "r4_count": "DDoS Schutz"
+    "r1_name": "Aktive Kunden",
+    "r1_count": "100+",
+    "r2_name": "Aktive Server",
+    "r2_count": "250+",
+    "r3_name": "Verfügbarkeit",
+    "r3_count": "99.9%",
+    "r4_name": "Technischer Support",
+    "r4_count": "24/7"
   },
   "Metadata": {
     "description": "Premium-Hosting-Plattform der Türkei"
