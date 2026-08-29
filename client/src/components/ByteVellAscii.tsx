@@ -24,17 +24,17 @@ export function ByteVellAscii({
   const targetMouse = useRef({ x: 0, y: 0 });
   const smoothMouse = useRef({ x: 0, y: 0 });
 
-  const gridRef = useRef({ cols: 90, rows: 44 });
+  const gridRef = useRef({ cols: 200, rows: 40 });
 
   useEffect(() => {
     const updateGrid = () => {
       const w = window.innerWidth;
-      if (w < 768) {
-        gridRef.current = { cols: 50, rows: 26 };
+      if (w < 640) {
+        gridRef.current = { cols: 80, rows: 20 };
       } else if (w < 1024) {
-        gridRef.current = { cols: 70, rows: 36 };
+        gridRef.current = { cols: 140, rows: 30 };
       } else {
-        gridRef.current = { cols: 90, rows: 44 };
+        gridRef.current = { cols: 200, rows: 40 };
       }
     };
     updateGrid();
@@ -93,12 +93,11 @@ export function ByteVellAscii({
         for (let x = 0; x < cols; x++) {
           const nx = (x / (cols - 1)) * 2 - 1;
           const ny = (y / (rows - 1)) * 2 - 1;
-
-          // Exact Nodesty shield geometry
-          const bottom = -1 + 0.5 * nx * nx;
-          const top = 1 - 1.5 * Math.pow(Math.abs(nx), 1.8);
-
-          if (ny < bottom || ny > top) {
+          
+          // Wide Oval Mask (AsciiVisual style)
+          const distFromCenter = nx * nx + ny * ny;
+          
+          if (distFromCenter > 1) {
             line += " ";
             continue;
           }
@@ -116,23 +115,20 @@ export function ByteVellAscii({
           // Apply density multiplier
           intensity *= density;
 
+          // Mouse interaction (boosts intensity near cursor)
           if (mouseInteraction) {
             const dx = nx - sm.x;
             const dy = ny - sm.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 0.6) {
-              const boost = Math.pow(1 - dist / 0.6, 2) * 0.5;
+            const mouseDist = Math.sqrt(dx * dx + dy * dy);
+            if (mouseDist < 0.6) {
+              const boost = Math.pow(1 - mouseDist / 0.6, 2) * 0.5;
               intensity += boost;
             }
           }
 
-          // Soften the very edges of the shape to prevent hard cuts
-          const distToBottom = ny - bottom;
-          const distToTop = top - ny;
-          const edgeDist = Math.min(distToBottom, distToTop);
-          if (edgeDist < 0.2) {
-             intensity *= Math.pow(edgeDist / 0.2, 0.5);
-          }
+          // Soften the edges of the oval so it fades out organically
+          const edgeFade = Math.pow(1 - distFromCenter, 0.8);
+          intensity *= edgeFade;
 
           intensity = Math.max(0, Math.min(1, intensity));
 
@@ -151,22 +147,23 @@ export function ByteVellAscii({
   }, [density, speed, mouseInteraction]);
 
   return (
-    <div ref={containerRef} className={`relative flex items-center justify-center overflow-hidden ${className}`}>
+    <div ref={containerRef} className={`relative flex items-center justify-center overflow-hidden w-full ${className}`}>
       <pre
         ref={preRef}
         aria-hidden="true"
         className="font-mono whitespace-pre select-none text-center pointer-events-none"
         style={{
-          // Match the screenshot styling: very wide tracking, appropriate font size, neon blue gradient
-          fontSize: "clamp(8px, 1.2vw, 14px)",
+          // Small font size, no massive letter spacing. This naturally creates the dense particle look.
+          fontSize: "clamp(6px, 0.8vw, 10px)", 
           lineHeight: 1.1,
-          letterSpacing: "0.45em", // VERY important to stretch it horizontally
-          backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,255,255,0.9) 0%, rgba(99,102,241,0.9) 40%, rgba(30,58,138,0.4) 80%, rgba(15,23,42,0) 100%)",
+          letterSpacing: "0.05em", // NORMAL letter spacing
+          // Deep blue gradient matching the screenshot
+          backgroundImage: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,255,255,1) 0%, rgba(99,102,241,0.9) 30%, rgba(30,58,138,0.5) 70%, rgba(15,23,42,0) 100%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          textShadow: "0 0 15px rgba(99,102,241,0.2)",
+          filter: "drop-shadow(0 0 10px rgba(99,102,241,0.2))",
         }}
       />
     </div>
