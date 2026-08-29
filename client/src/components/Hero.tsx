@@ -3,14 +3,13 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { ChevronRight } from "lucide-react";
 import { ByteVellAscii } from "@/components/ByteVellAscii";
 
 export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-8 sm:pb-12 overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-0 overflow-hidden bg-background">
       {/* Subtle grid background pattern */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
@@ -55,7 +54,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-          className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+          className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           <Link
             href="/servers/vds"
@@ -64,26 +63,22 @@ export function Hero() {
             {t('button')}
           </Link>
         </motion.div>
-
-        {/* ASCII particle wave animation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-          className="w-full mt-6 sm:mt-8"
-          style={{
-            maskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 65%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 65%)',
-          }}
-        >
-          <ByteVellAscii
-            className="w-full"
-            density={1}
-            speed={0.8}
-            mouseInteraction
-          />
-        </motion.div>
       </div>
+
+      {/* ASCII Shield Animation */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+        className="w-full max-w-4xl mx-auto mt-8 sm:mt-10 mb-4 relative z-10"
+      >
+        <ByteVellAscii
+          className="w-full"
+          density={1}
+          speed={1}
+          mouseInteraction
+        />
+      </motion.div>
     </section>
   );
 }
