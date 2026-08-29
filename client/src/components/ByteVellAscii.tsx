@@ -1,7 +1,6 @@
-
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type ByteVellAsciiProps = {
   className?: string;
@@ -10,9 +9,13 @@ type ByteVellAsciiProps = {
   mouseInteraction?: boolean;
 };
 
-// Subtle characters, mostly spaces, dots, and pluses. No blocky characters.
-const CHAR_SET = "      ....::::---===+++xxx";
-const CHAR_MAP = CHAR_SET.split("");
+// Characters from empty to dense - using block-like chars for particle look
+const CHARS = " ·∙•●";
+
+function hash(x: number, y: number): number {
+  const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+  return n - Math.floor(n);
+}
 
 export function ByteVellAscii({
   className = "",
@@ -22,164 +25,149 @@ export function ByteVellAscii({
 }: ByteVellAsciiProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const preRef = useRef<HTMLPreElement>(null);
-
   const targetMouse = useRef({ x: 0, y: 0 });
-  const currentMouse = useRef({ x: 0, y: 0 });
-
-  const cols = useRef(150);
-  const rows = useRef(32);
+  const smoothMouse = useRef({ x: 0, y: 0 });
+  const grid = useRef({ cols: 220, rows: 22 });
 
   useEffect(() => {
-    const updateSize = () => {
+    const update = () => {
       const w = window.innerWidth;
-      if (w < 768) {
-        cols.current = 60;
-        rows.current = 24;
+      if (w < 640) {
+        grid.current = { cols: 90, rows: 14 };
       } else if (w < 1024) {
-        cols.current = 100;
-        rows.current = 28;
+        grid.current = { cols: 150, rows: 18 };
       } else {
-        cols.current = 160;
-        rows.current = 32;
+        grid.current = { cols: 220, rows: 22 };
       }
     };
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   useEffect(() => {
-    let animationFrameId: number;
-    let time = 0;
-    
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let lastRenderTime = 0;
+    if (!mouseInteraction) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    const render = (currentTime: number) => {
-      if (!preRef.current) return;
-
-      if (prefersReducedMotion && currentTime - lastRenderTime < 200) {
-        animationFrameId = requestAnimationFrame(render);
-        return;
-      }
-      lastRenderTime = currentTime;
-      
-      const width = cols.current;
-      const height = rows.current;
-
-      let output = "";
-
-      currentMouse.current.x += (targetMouse.current.x - currentMouse.current.x) * 0.08;
-      currentMouse.current.y += (targetMouse.current.y - currentMouse.current.y) * 0.08;
-
-      const mx = currentMouse.current.x;
-      const my = currentMouse.current.y;
-
-      for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-          const nx = (x / width) * 2 - 1;
-          const ny = (y / height) * 2 - 1;
-
-          // Extremely wide ellipse shape
-          const shapeDist = Math.sqrt(nx * nx + (ny * 4) * (ny * 4));
-          
-          let mask = 0;
-          if (shapeDist < 1.0) {
-            mask = Math.pow(1 - shapeDist, 1.5); 
-          }
-
-          if (mask <= 0) {
-            output += " ";
-            continue;
-          }
-
-          // Mouse effect distortion
-          const distToMouse = Math.sqrt(Math.pow(nx - mx, 2) + Math.pow(ny - my, 2));
-          let mouseEffect = 0;
-          if (mouseInteraction && distToMouse < 0.4) {
-            mouseEffect = Math.pow(0.4 - distToMouse, 1.2) * 2; 
-          }
-
-          // Create horizontal wave-like noise
-          const freq1 = 2 * density;
-          const freq2 = 5 * density;
-          
-          const t = time * 0.0015 * speed;
-          
-          // Horizontal moving waves
-          let noise = Math.sin(nx * freq1 + t) * Math.cos(ny * freq1 - t * 0.5);
-          noise += Math.cos(nx * freq2 - t) * 0.5;
-          noise += Math.sin(ny * 10 + t) * 0.3; // subtle vertical striations
-          
-          let intensity = (noise + 2) / 4;
-
-          intensity += mouseEffect * 0.5;
-          intensity *= mask;
-
-          let charIndex = Math.floor(intensity * CHAR_MAP.length);
-          if (charIndex < 0) charIndex = 0;
-          if (charIndex >= CHAR_MAP.length) charIndex = CHAR_MAP.length - 1;
-
-          output += CHAR_MAP[charIndex];
-        }
-        output += "\n";
-      }
-
-      preRef.current.textContent = output;
-      time += prefersReducedMotion ? 1 : 16;
-      
-      animationFrameId = requestAnimationFrame(render);
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      targetMouse.current.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      targetMouse.current.y = ((e.clientY - r.top) / r.height) * 2 - 1;
+    };
+    const onLeave = () => {
+      targetMouse.current.x = 0;
+      targetMouse.current.y = 0;
     };
 
-    animationFrameId = requestAnimationFrame(render);
-
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
     return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [density, speed, mouseInteraction]);
-
-  useEffect(() => {
-    const handleGlobalMouseMove = (e: MouseEvent) => {
-      if (!mouseInteraction || !containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      targetMouse.current.x = (x / rect.width) * 2 - 1;
-      targetMouse.current.y = (y / rect.height) * 2 - 1;
-    };
-    
-    if (mouseInteraction) {
-      window.addEventListener("mousemove", handleGlobalMouseMove);
-    }
-    
-    return () => {
-      window.removeEventListener("mousemove", handleGlobalMouseMove);
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
     };
   }, [mouseInteraction]);
 
-  const handleMouseLeave = () => {
-    targetMouse.current.x = 0;
-    targetMouse.current.y = 0;
-  };
+  useEffect(() => {
+    let raf: number;
+    const slow = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let t = 0;
+
+    const frame = () => {
+      if (!preRef.current) { raf = requestAnimationFrame(frame); return; }
+
+      const { cols, rows } = grid.current;
+      const mx = smoothMouse.current;
+      mx.x += (targetMouse.current.x - mx.x) * 0.05;
+      mx.y += (targetMouse.current.y - mx.y) * 0.05;
+
+      t += (slow ? 0.002 : 0.008) * speed;
+
+      const charLen = CHARS.length;
+      const lines: string[] = [];
+
+      for (let row = 0; row < rows; row++) {
+        let line = "";
+        for (let col = 0; col < cols; col++) {
+          // Normalized -1..1
+          const nx = (col / cols) * 2 - 1;
+          const ny = (row / rows) * 2 - 1;
+
+          // Very wide, short ellipse mask
+          const ex = nx * 0.7;
+          const ey = ny * 3.5;
+          const dist = ex * ex + ey * ey;
+
+          if (dist > 1.0) { line += " "; continue; }
+
+          // Soft edge falloff
+          const edge = Math.pow(1 - dist, 0.8);
+
+          // Layered flowing noise - horizontal movement dominant
+          const f = density;
+          let v = 0;
+          v += Math.sin(nx * 10 * f + t * 3) * Math.cos(ny * 8 * f - t * 1.5) * 0.4;
+          v += Math.cos(nx * 16 * f - t * 2 + ny * 4) * 0.3;
+          v += Math.sin((nx * nx + ny * ny) * 12 * f - t * 2.5) * 0.2;
+          v += Math.sin(nx * 25 * f + t * 4) * 0.15;
+
+          // Subtle texture grain
+          v += (hash(col + t * 10, row + t * 5) - 0.5) * 0.25;
+
+          // Horizontal band structure (like scan lines / data streams)
+          v += Math.sin(ny * 40 + t * 2) * 0.12;
+          v += Math.cos(nx * 6 + ny * 20 - t * 3) * 0.1;
+
+          // Normalize
+          let intensity = (v + 1.2) / 2.4;
+          intensity = Math.max(0, Math.min(1, intensity));
+
+          // Mouse boost
+          if (mouseInteraction) {
+            const dx = nx - mx.x;
+            const dy = (ny - mx.y) * 2; // Stretch Y for the wide shape
+            const md = Math.sqrt(dx * dx + dy * dy);
+            if (md < 0.4) {
+              intensity = Math.min(1, intensity + Math.pow(1 - md / 0.4, 2) * 0.5);
+            }
+          }
+
+          // Apply mask
+          intensity *= edge;
+
+          // Character selection
+          const ci = Math.floor(intensity * (charLen - 1));
+          line += CHARS[Math.max(0, Math.min(charLen - 1, ci))];
+        }
+        lines.push(line);
+      }
+
+      preRef.current.textContent = lines.join("\n");
+      raf = requestAnimationFrame(frame);
+    };
+
+    raf = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(raf);
+  }, [density, speed, mouseInteraction]);
 
   return (
-    <div 
-      ref={containerRef}
-      className={`relative flex items-center justify-center cursor-default overflow-hidden ${className}`}
-      onMouseLeave={handleMouseLeave}
-    >
-      <pre 
+    <div ref={containerRef} className={`relative ${className}`}>
+      <pre
         ref={preRef}
-        className="font-mono text-[6px] sm:text-[8px] md:text-[10px] leading-[1.1] tracking-[0.2em] select-none mix-blend-screen opacity-90"
+        aria-hidden="true"
+        className="font-mono select-none whitespace-pre text-center leading-none"
         style={{
-          backgroundImage: "linear-gradient(to right, transparent 0%, rgba(59, 130, 246, 0.4) 15%, rgba(99, 102, 241, 0.8) 45%, #ffffff 50%, rgba(99, 102, 241, 0.8) 55%, rgba(59, 130, 246, 0.4) 85%, transparent 100%)",
-          backgroundClip: "text",
+          fontSize: "clamp(3px, 0.45vw, 6px)",
+          lineHeight: 1.3,
+          letterSpacing: "0.02em",
+          backgroundImage:
+            "linear-gradient(180deg, rgba(30,58,138,0.3) 0%, rgba(59,130,246,0.7) 30%, rgba(147,197,253,0.9) 50%, rgba(59,130,246,0.7) 70%, rgba(30,58,138,0.3) 100%)",
           WebkitBackgroundClip: "text",
+          backgroundClip: "text",
           color: "transparent",
+          WebkitTextFillColor: "transparent",
         }}
       />
     </div>
   );
 }
-

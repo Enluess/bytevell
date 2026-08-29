@@ -10,7 +10,7 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-24 md:pb-32 overflow-hidden min-h-[85vh] bg-background">
+    <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-8 sm:pb-12 overflow-hidden bg-background">
       {/* Subtle grid background pattern */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
@@ -64,12 +64,25 @@ export function Hero() {
             {t('button')}
           </Link>
         </motion.div>
-      </div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] pointer-events-none opacity-80 mix-blend-screen flex items-end justify-center z-0"
-           style={{ maskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 80%)' }}
-      >
-        <ByteVellAscii className="w-full pointer-events-auto pb-4" density={0.8} speed={0.6} />
+        {/* ASCII particle wave animation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+          className="w-full mt-6 sm:mt-8"
+          style={{
+            maskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 65%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 65%)',
+          }}
+        >
+          <ByteVellAscii
+            className="w-full"
+            density={1}
+            speed={0.8}
+            mouseInteraction
+          />
+        </motion.div>
       </div>
     </section>
   );
