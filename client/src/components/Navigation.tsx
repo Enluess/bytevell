@@ -237,7 +237,7 @@ export function Navigation() {
 
           <button
             onClick={() => router.push("/auth/login")}
-            className="bg-white text-black hover:bg-white/90 active:scale-95 px-6 py-2.5 rounded-full font-semibold transition-all duration-200 flex items-center gap-2 text-[14px]"
+            className="bg-white text-black hover:bg-white/90 active:scale-95 px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 flex items-center gap-2 text-[14px]"
           >
             <LogIn className="w-4 h-4" strokeWidth={2} />
             {t('customerPanel')}
@@ -356,7 +356,7 @@ export function Navigation() {
                     setIsMenuOpen(false);
                     router.push("/auth/login");
                   }}
-                  className="w-full h-13 bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                  className="w-full h-13 bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px]"
                 >
                   <LogIn className="w-5 h-5" />
                   {t('customerPanel')}
