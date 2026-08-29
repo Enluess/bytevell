@@ -9,7 +9,7 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-0 overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-0 overflow-hidden bg-background">
       {/* Subtle grid background pattern */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
@@ -29,8 +29,8 @@ export function Hero() {
         }} 
       />
 
+      {/* Text content */}
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
-
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -65,12 +65,12 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ASCII Shield Animation */}
+      {/* ASCII Wave Animation - full width, right below content */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-        className="w-full max-w-4xl mx-auto mt-8 sm:mt-10 mb-4 relative z-10"
+        transition={{ duration: 1.5, delay: 0.4, ease: "easeOut" }}
+        className="w-full mt-10 sm:mt-12 relative z-10"
       >
         <ByteVellAscii
           className="w-full"

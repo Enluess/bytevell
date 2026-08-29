@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-// ─── TYPES ────────────────────────────────────────────────────
 type ByteVellAsciiProps = {
   className?: string;
   density?: number;
@@ -10,48 +9,37 @@ type ByteVellAsciiProps = {
   mouseInteraction?: boolean;
 };
 
-// ─── CONSTANTS ────────────────────────────────────────────────
+// Characters ordered by visual density
 const CHARS = [
-  " ", " ", "\u00B7", ".", ":", "-", "=",
+  " ", " ", " ", "\u00B7", ".", ":", "-", "=",
   "+", "*", "x", "%", "&", "#", "@",
 ];
-const CHAR_COUNT = CHARS.length;
+const CHAR_LEN = CHARS.length;
 
-// Grid sizes per breakpoint
-const GRID_DESKTOP = { cols: 90, rows: 44 };
-const GRID_TABLET = { cols: 65, rows: 32 };
-const GRID_MOBILE = { cols: 40, rows: 22 };
+// Grid sizes
+const GRID_DESKTOP = { cols: 220, rows: 32 };
+const GRID_TABLET  = { cols: 140, rows: 24 };
+const GRID_MOBILE  = { cols: 70,  rows: 16 };
 
-// Mouse interpolation factor
 const MOUSE_LERP = 0.08;
 
-// ─── SHAPE FUNCTION (Nodesty-style shield) ────────────────────
-function isInsideShield(nx: number, ny: number): boolean {
-  // nx: -1..1 (horizontal), ny: -1..1 (vertical)
-  const bottom = -1 + 0.5 * nx * nx;
-  const top = 1 - 1.5 * Math.pow(Math.abs(nx), 1.8);
-  return ny >= bottom && ny <= top;
+// ─── Wide horizontal band mask ─────────────────────────────
+function bandMask(nx: number, ny: number): number {
+  // nx: -1..1, ny: -1..1
+  // Very wide, short horizontal band
+  const absX = Math.abs(nx);
+  const absY = Math.abs(ny);
+
+  // Horizontal: gentle fade starting at 70% width
+  const hFade = absX < 0.7 ? 1 : Math.max(0, 1 - (absX - 0.7) / 0.3);
+
+  // Vertical: tight band, strong fade
+  const vFade = absY < 0.4 ? 1 : Math.max(0, 1 - (absY - 0.4) / 0.6);
+
+  // Combine with smooth curve
+  return Math.pow(hFade, 1.5) * Math.pow(vFade, 2);
 }
 
-// Shield edge distance for soft falloff
-function shieldEdgeFactor(nx: number, ny: number): number {
-  const bottom = -1 + 0.5 * nx * nx;
-  const top = 1 - 1.5 * Math.pow(Math.abs(nx), 1.8);
-  const range = top - bottom;
-  if (range <= 0) return 0;
-
-  // Distance from nearest edge, normalized
-  const distFromBottom = (ny - bottom) / range;
-  const distFromTop = (top - ny) / range;
-  const edgeDist = Math.min(distFromBottom, distFromTop);
-
-  // Also fade at horizontal edges
-  const horizFade = 1 - Math.pow(Math.abs(nx), 2.5);
-
-  return Math.max(0, Math.min(1, edgeDist * 4)) * horizFade;
-}
-
-// ─── COMPONENT ────────────────────────────────────────────────
 export function ByteVellAscii({
   className = "",
   density = 1,
@@ -64,20 +52,20 @@ export function ByteVellAscii({
   const smoothMouse = useRef({ x: 0, y: 0 });
   const gridRef = useRef(GRID_DESKTOP);
 
-  // ─── Responsive grid sizing ─────────────────────────────────
+  // Responsive
   useEffect(() => {
-    const updateGrid = () => {
+    const update = () => {
       const w = window.innerWidth;
       if (w < 640) gridRef.current = GRID_MOBILE;
       else if (w < 1024) gridRef.current = GRID_TABLET;
       else gridRef.current = GRID_DESKTOP;
     };
-    updateGrid();
-    window.addEventListener("resize", updateGrid);
-    return () => window.removeEventListener("resize", updateGrid);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  // ─── Mouse tracking ────────────────────────────────────────
+  // Mouse tracking
   useEffect(() => {
     if (!mouseInteraction) return;
     const el = containerRef.current;
@@ -92,7 +80,6 @@ export function ByteVellAscii({
       targetMouse.current.x = 0;
       targetMouse.current.y = 0;
     };
-
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
     return () => {
@@ -101,96 +88,80 @@ export function ByteVellAscii({
     };
   }, [mouseInteraction]);
 
-  // ─── Animation loop ────────────────────────────────────────
+  // Animation
   useEffect(() => {
     let raf: number;
-    const reducedMotion =
-      typeof window !== "undefined" &&
+    const reduced = typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     let time = 0;
 
     const render = () => {
-      if (!preRef.current) {
-        raf = requestAnimationFrame(render);
-        return;
-      }
+      if (!preRef.current) { raf = requestAnimationFrame(render); return; }
 
       const { cols, rows } = gridRef.current;
-
-      // Smooth mouse interpolation
       const sm = smoothMouse.current;
       const tm = targetMouse.current;
       sm.x += (tm.x - sm.x) * MOUSE_LERP;
       sm.y += (tm.y - sm.y) * MOUSE_LERP;
 
-      // Advance time
-      time += reducedMotion ? 0.002 : 0.016;
+      time += reduced ? 0.003 : 0.014;
       const t = time * speed;
+      const f = density;
 
       const lines: string[] = [];
 
       for (let row = 0; row < rows; row++) {
         let line = "";
         for (let col = 0; col < cols; col++) {
-          // Normalize to -1..1
           const nx = (col / (cols - 1)) * 2 - 1;
           const ny = (row / (rows - 1)) * 2 - 1;
 
-          // Check if inside shield shape
-          if (!isInsideShield(nx, ny)) {
-            line += " ";
-            continue;
-          }
+          // Band mask
+          const mask = bandMask(nx, ny);
+          if (mask < 0.01) { line += " "; continue; }
 
-          // Edge softness factor
-          const edge = shieldEdgeFactor(nx, ny);
+          // ── Layered noise ──
 
-          // ── Layered noise (organic flowing energy) ──
-          const f = density;
-          let noise = 0;
+          // Horizontal flowing waves
+          let v = 0;
+          v += Math.sin(nx * 8 * f + t * 1.2) * Math.cos(ny * 6 * f - t * 0.7) * 0.5;
+          v += Math.sin((nx + ny * 0.5) * 12 * f - t * 1.8) * 0.35;
+          v += Math.cos(nx * 20 * f + t * 2.5) * Math.sin(ny * 15 * f - t * 1.0) * 0.2;
 
-          // Primary horizontal waves
-          noise += Math.sin(nx * 5 * f + t * 0.8) * Math.cos(ny * 4 * f - t * 0.6);
-
-          // Diagonal flow
-          noise += Math.sin((nx - ny) * 6 * f + t * 1.2) * 0.7;
-
-          // Radial pulse
+          // Radial pulse from center
           const r = Math.sqrt(nx * nx + ny * ny);
-          noise += Math.cos(r * 8 * f - t * 2) * 0.5;
+          v += Math.cos(r * 10 * f - t * 2) * 0.25;
 
-          // Secondary high-frequency detail
-          noise += Math.sin(nx * 12 * f + t * 1.5) * Math.cos(ny * 10 * f - t * 0.9) * 0.3;
+          // Horizontal scan-line bands (data stream feel)
+          v += Math.sin(ny * 30 + nx * 2 + t * 1.5) * 0.2;
+          v += Math.cos(ny * 50 - t * 3) * 0.1;
 
-          // Subtle vertical bands
-          noise += Math.sin(ny * 15 * f + t * 0.4) * 0.2;
+          // Fine detail texture
+          v += Math.sin(nx * 35 * f + ny * 25 * f + t * 0.8) * 0.12;
 
-          // Normalize noise to 0..1
-          let intensity = (noise + 2.7) / 5.4;
+          // Normalize to 0..1
+          let intensity = (v + 1.7) / 3.4;
           intensity = Math.max(0, Math.min(1, intensity));
 
-          // ── Mouse interaction ──
+          // Mouse interaction
           if (mouseInteraction) {
             const dx = nx - sm.x;
-            const dy = ny - sm.y;
+            const dy = (ny - sm.y) * 2; // stretch Y because band is short
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 0.6) {
-              const ripple = Math.pow(1 - dist / 0.6, 2);
-              // Add energy near mouse
+            if (dist < 0.5) {
+              const ripple = Math.pow(1 - dist / 0.5, 2);
               intensity = Math.min(1, intensity + ripple * 0.5);
-              // Add extra noise distortion near mouse
-              intensity += Math.sin(dist * 20 - t * 8) * ripple * 0.15;
+              intensity += Math.sin(dist * 25 - t * 8) * ripple * 0.1;
               intensity = Math.max(0, Math.min(1, intensity));
             }
           }
 
-          // Apply edge mask
-          intensity *= edge;
+          // Apply mask
+          intensity *= mask;
 
-          // Map to character
-          const ci = Math.floor(intensity * (CHAR_COUNT - 1));
-          line += CHARS[Math.max(0, Math.min(CHAR_COUNT - 1, ci))];
+          // Character selection
+          const ci = Math.floor(intensity * (CHAR_LEN - 1));
+          line += CHARS[Math.max(0, Math.min(CHAR_LEN - 1, ci))];
         }
         lines.push(line);
       }
@@ -203,24 +174,23 @@ export function ByteVellAscii({
     return () => cancelAnimationFrame(raf);
   }, [density, speed, mouseInteraction]);
 
-  // ─── RENDER ─────────────────────────────────────────────────
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       <pre
         ref={preRef}
         aria-hidden="true"
-        className="font-mono select-none whitespace-pre text-center leading-none pointer-events-none"
+        className="font-mono select-none whitespace-pre text-center leading-none"
         style={{
-          fontSize: "clamp(8px, 1.1vw, 14px)",
-          lineHeight: 1.05,
-          letterSpacing: "0.04em",
+          fontSize: "clamp(4px, 0.5vw, 7px)",
+          lineHeight: 1.2,
+          letterSpacing: "0.01em",
           backgroundImage:
-            "linear-gradient(135deg, #7c3aed 0%, #a855f7 25%, #d946ef 50%, #f0abfc 75%, #ffffff 100%)",
+            "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(30,58,138,0.6) 20%, rgba(59,130,246,0.8) 45%, rgba(147,197,253,0.95) 50%, rgba(59,130,246,0.8) 55%, rgba(30,58,138,0.6) 80%, rgba(15,23,42,0.3) 100%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          filter: "drop-shadow(0 0 8px rgba(168, 85, 247, 0.15))",
+          filter: "drop-shadow(0 0 12px rgba(59, 130, 246, 0.1))",
         }}
       />
     </div>
