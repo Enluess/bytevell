@@ -16,28 +16,26 @@ const CHARS = [
 ];
 const CHAR_LEN = CHARS.length;
 
-// Grid sizes
-const GRID_DESKTOP = { cols: 220, rows: 32 };
-const GRID_TABLET  = { cols: 140, rows: 24 };
-const GRID_MOBILE  = { cols: 70,  rows: 16 };
+// Grid sizes - very wide, very short
+const GRID_DESKTOP = { cols: 280, rows: 16 };
+const GRID_TABLET  = { cols: 180, rows: 12 };
+const GRID_MOBILE  = { cols: 90,  rows: 8 };
 
 const MOUSE_LERP = 0.08;
 
 // ─── Wide horizontal band mask ─────────────────────────────
 function bandMask(nx: number, ny: number): number {
   // nx: -1..1, ny: -1..1
-  // Very wide, short horizontal band
   const absX = Math.abs(nx);
   const absY = Math.abs(ny);
 
-  // Horizontal: gentle fade starting at 70% width
-  const hFade = absX < 0.7 ? 1 : Math.max(0, 1 - (absX - 0.7) / 0.3);
+  // Horizontal: fade starting at 80% width
+  const hFade = absX < 0.8 ? 1 : Math.max(0, 1 - (absX - 0.8) / 0.2);
 
-  // Vertical: tight band, strong fade
-  const vFade = absY < 0.4 ? 1 : Math.max(0, 1 - (absY - 0.4) / 0.6);
+  // Vertical: VERY tight, center-only band
+  const vFade = Math.max(0, 1 - absY * absY * 2.5);
 
-  // Combine with smooth curve
-  return Math.pow(hFade, 1.5) * Math.pow(vFade, 2);
+  return Math.pow(hFade, 2) * Math.pow(vFade, 1.5);
 }
 
 export function ByteVellAscii({
