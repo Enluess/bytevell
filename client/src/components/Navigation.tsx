@@ -265,10 +265,10 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#030303]/98 backdrop-blur-2xl z-60 overflow-y-auto overscroll-contain pointer-events-auto"
+            className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#060709]/95 backdrop-blur-3xl z-60 overflow-y-auto overscroll-contain pointer-events-auto"
             style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#030303]/90 backdrop-blur-xl border-b border-white/5">
+            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#060709]/90 backdrop-blur-2xl border-b border-white/5">
               <button onClick={() => { setIsMenuOpen(false); router.push("/"); }} className="font-bold text-xl font-heading text-white tracking-tight">
                 <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" />
               </button>
@@ -290,15 +290,15 @@ export function Navigation() {
               </button>
 
               <div className="mt-3">
-                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Hosting</div>
+                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Hosting</div>
                 <div className="flex flex-col gap-0.5">
                   {hostingItems.map((item, i) => (
                     <button
                       key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
+                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
                     >
-                      <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
+                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white transition-all">{item.icon}</div>
                       <div>
                         <div>{item.title}</div>
                         {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
@@ -309,15 +309,15 @@ export function Navigation() {
               </div>
 
               <div className="mt-3">
-                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Sunucular</div>
+                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Sunucular</div>
                 <div className="flex flex-col gap-0.5">
                   {serverItems.map((item, i) => (
                     <button
                       key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
+                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
                     >
-                      <div className="text-primary bg-primary/10 p-2 rounded-lg shrink-0">{item.icon}</div>
+                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white transition-all">{item.icon}</div>
                       <div>
                         <div>{item.title}</div>
                         {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
@@ -328,7 +328,7 @@ export function Navigation() {
               </div>
 
               <div className="mt-3">
-                <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2 px-4">Destek & Bilgi</div>
+                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Destek & Bilgi</div>
                 <div className="grid grid-cols-2 gap-0.5">
                   {supportItems.map((item, i) => (
                     <button
@@ -341,9 +341,9 @@ export function Navigation() {
                           router.push(item.href);
                         }
                       }}
-                      className="w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]"
+                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]"
                     >
-                      <div className="text-primary/80 shrink-0">{item.icon}</div>
+                      <div className="text-white/40 group-hover:text-white transition-colors shrink-0">{item.icon}</div>
                       <span className="truncate">{item.title}</span>
                     </button>
                   ))}
