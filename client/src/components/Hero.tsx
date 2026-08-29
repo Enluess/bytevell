@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ChevronRight } from "lucide-react";
+import { ByteVellAscii } from "@/components/ByteVellAscii";
 
 export function Hero() {
   const t = useTranslations('Hero');
@@ -28,6 +29,10 @@ export function Hero() {
           background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 70%)' 
         }} 
       />
+
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60 mix-blend-screen overflow-hidden">
+        <ByteVellAscii className="w-full max-w-[1200px]" density={1.2} speed={0.8} />
+      </div>
 
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
 
