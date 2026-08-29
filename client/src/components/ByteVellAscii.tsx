@@ -10,7 +10,8 @@ type ByteVellAsciiProps = {
   mouseInteraction?: boolean;
 };
 
-const CHAR_SET = "   �.:-=+*x%&#@";
+// Subtle characters, mostly spaces, dots, and pluses. No blocky characters.
+const CHAR_SET = "      ....::::---===+++xxx";
 const CHAR_MAP = CHAR_SET.split("");
 
 export function ByteVellAscii({
@@ -22,26 +23,24 @@ export function ByteVellAscii({
   const containerRef = useRef<HTMLDivElement>(null);
   const preRef = useRef<HTMLPreElement>(null);
 
-  // Mouse state refs
   const targetMouse = useRef({ x: 0, y: 0 });
   const currentMouse = useRef({ x: 0, y: 0 });
 
-  // Size state
-  const cols = useRef(90);
-  const rows = useRef(44);
+  const cols = useRef(150);
+  const rows = useRef(32);
 
   useEffect(() => {
     const updateSize = () => {
       const w = window.innerWidth;
       if (w < 768) {
-        cols.current = 50;
-        rows.current = 28;
+        cols.current = 60;
+        rows.current = 24;
       } else if (w < 1024) {
-        cols.current = 75;
-        rows.current = 36;
-      } else {
         cols.current = 100;
-        rows.current = 42;
+        rows.current = 28;
+      } else {
+        cols.current = 160;
+        rows.current = 32;
       }
     };
     updateSize();
@@ -59,7 +58,6 @@ export function ByteVellAscii({
     const render = (currentTime: number) => {
       if (!preRef.current) return;
 
-      // Throttle for reduced motion
       if (prefersReducedMotion && currentTime - lastRenderTime < 200) {
         animationFrameId = requestAnimationFrame(render);
         return;
@@ -71,7 +69,6 @@ export function ByteVellAscii({
 
       let output = "";
 
-      // Mouse interpolation
       currentMouse.current.x += (targetMouse.current.x - currentMouse.current.x) * 0.08;
       currentMouse.current.y += (targetMouse.current.y - currentMouse.current.y) * 0.08;
 
@@ -83,13 +80,12 @@ export function ByteVellAscii({
           const nx = (x / width) * 2 - 1;
           const ny = (y / height) * 2 - 1;
 
-          // Create an elliptical shield mask
-          // Make it wider than it is tall
-          const shapeDist = Math.sqrt(nx * nx + (ny * 1.5) * (ny * 1.5));
+          // Extremely wide ellipse shape
+          const shapeDist = Math.sqrt(nx * nx + (ny * 4) * (ny * 4));
           
           let mask = 0;
           if (shapeDist < 1.0) {
-            mask = Math.pow(1 - shapeDist, 1.2); 
+            mask = Math.pow(1 - shapeDist, 1.5); 
           }
 
           if (mask <= 0) {
@@ -97,26 +93,27 @@ export function ByteVellAscii({
             continue;
           }
 
+          // Mouse effect distortion
           const distToMouse = Math.sqrt(Math.pow(nx - mx, 2) + Math.pow(ny - my, 2));
           let mouseEffect = 0;
-          if (mouseInteraction && distToMouse < 0.5) {
-            mouseEffect = Math.pow(0.5 - distToMouse, 1.5) * 2; 
+          if (mouseInteraction && distToMouse < 0.4) {
+            mouseEffect = Math.pow(0.4 - distToMouse, 1.2) * 2; 
           }
 
-          const freq1 = 3 * density;
-          const freq2 = 4 * density;
-          const freq3 = 2.5 * density;
+          // Create horizontal wave-like noise
+          const freq1 = 2 * density;
+          const freq2 = 5 * density;
           
-          const t = time * 0.001 * speed;
+          const t = time * 0.0015 * speed;
           
-          let noise = Math.sin(nx * freq1 + t) * Math.cos(ny * freq1 - t);
-          noise += Math.sin((nx - ny) * freq2 + t * 1.2);
-          noise += Math.cos(Math.sqrt(nx*nx + ny*ny) * freq3 - t * 0.8);
+          // Horizontal moving waves
+          let noise = Math.sin(nx * freq1 + t) * Math.cos(ny * freq1 - t * 0.5);
+          noise += Math.cos(nx * freq2 - t) * 0.5;
+          noise += Math.sin(ny * 10 + t) * 0.3; // subtle vertical striations
           
-          // Normalize noise roughly to 0..1
-          let intensity = (noise + 3) / 6;
+          let intensity = (noise + 2) / 4;
 
-          intensity += mouseEffect * 0.8;
+          intensity += mouseEffect * 0.5;
           intensity *= mask;
 
           let charIndex = Math.floor(intensity * CHAR_MAP.length);
@@ -153,11 +150,11 @@ export function ByteVellAscii({
     };
     
     if (mouseInteraction) {
-      window.addEventListener('mousemove', handleGlobalMouseMove);
+      window.addEventListener("mousemove", handleGlobalMouseMove);
     }
     
     return () => {
-      window.removeEventListener('mousemove', handleGlobalMouseMove);
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
     };
   }, [mouseInteraction]);
 
@@ -169,18 +166,17 @@ export function ByteVellAscii({
   return (
     <div 
       ref={containerRef}
-      className={`relative flex items-center justify-center cursor-default ${className}`}
+      className={`relative flex items-center justify-center cursor-default overflow-hidden ${className}`}
       onMouseLeave={handleMouseLeave}
     >
       <pre 
         ref={preRef}
-        className="font-mono text-[8px] sm:text-[10px] md:text-[13px] leading-[1.05] tracking-tight select-none opacity-80"
+        className="font-mono text-[6px] sm:text-[8px] md:text-[10px] leading-[1.1] tracking-[0.2em] select-none mix-blend-screen opacity-90"
         style={{
-          backgroundImage: "linear-gradient(135deg, #a855f7 0%, #d946ef 40%, #f472b6 70%, #ffffff 100%)",
+          backgroundImage: "linear-gradient(to right, transparent 0%, rgba(59, 130, 246, 0.4) 15%, rgba(99, 102, 241, 0.8) 45%, #ffffff 50%, rgba(99, 102, 241, 0.8) 55%, rgba(59, 130, 246, 0.4) 85%, transparent 100%)",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           color: "transparent",
-          textShadow: "0 0 20px rgba(217, 70, 239, 0.2)",
         }}
       />
     </div>

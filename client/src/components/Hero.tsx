@@ -30,10 +30,6 @@ export function Hero() {
         }} 
       />
 
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60 mix-blend-screen overflow-hidden">
-        <ByteVellAscii className="w-full max-w-[1200px]" density={1.2} speed={0.8} />
-      </div>
-
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
 
         <motion.h1
@@ -68,6 +64,12 @@ export function Hero() {
             {t('button')}
           </Link>
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] pointer-events-none opacity-80 mix-blend-screen flex items-end justify-center z-0"
+           style={{ maskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(ellipse at bottom, black 40%, transparent 80%)' }}
+      >
+        <ByteVellAscii className="w-full pointer-events-auto pb-4" density={0.8} speed={0.6} />
       </div>
     </section>
   );
