@@ -12,3 +12,5 @@ export default withNextIntl(nextConfig);
 // Force restart 3
 // Force reload for translation changes
 
+// Force reload for tr.json encoding fix
+
