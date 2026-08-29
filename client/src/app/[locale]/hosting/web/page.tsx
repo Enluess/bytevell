@@ -83,7 +83,7 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
                     </li>
                   )}
                 </ul>
-                <Link href={`/checkout?plan=${plan.slug}`} className="block w-full py-3.5 text-center rounded-lg bg-white text-black hover:bg-white/90 font-semibold active:scale-[0.98] transition-all text-[15px] shadow-sm">
+                <Link href={`/checkout?plan=${plan.slug}`} className="block w-full py-3.5 text-center rounded-xl bg-white text-black hover:bg-white/90 font-semibold active:scale-[0.98] transition-all text-[15px] shadow-sm">
                   {t("orderBtn")}
                 </Link>
               </div>

@@ -104,7 +104,7 @@ export default async function VDSServersPage({ params }: { params: Promise<{ loc
                           <span className="text-xl font-black text-white tracking-tight">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
                           <span className="text-xs font-medium text-white/20 tracking-wider">{t("perMonth")}</span>
                         </Flex>
-                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-lg bg-white text-black font-semibold hover:bg-white/90 active:scale-[0.98] transition-all text-sm shadow-sm  shrink-0">
+                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 active:scale-[0.98] transition-all text-sm shadow-sm  shrink-0">
                           {t("orderBtn")}
                         </Link>
                       </Flex>
