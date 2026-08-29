@@ -24,17 +24,18 @@ export function ByteVellAscii({
   const targetMouse = useRef({ x: 0, y: 0 });
   const smoothMouse = useRef({ x: 0, y: 0 });
 
-  const gridRef = useRef({ cols: 200, rows: 40 });
+  // Wide, dense grid
+  const gridRef = useRef({ cols: 250, rows: 44 });
 
   useEffect(() => {
     const updateGrid = () => {
       const w = window.innerWidth;
       if (w < 640) {
-        gridRef.current = { cols: 80, rows: 20 };
+        gridRef.current = { cols: 100, rows: 24 };
       } else if (w < 1024) {
-        gridRef.current = { cols: 140, rows: 30 };
+        gridRef.current = { cols: 180, rows: 36 };
       } else {
-        gridRef.current = { cols: 200, rows: 40 };
+        gridRef.current = { cols: 250, rows: 44 };
       }
     };
     updateGrid();
@@ -83,7 +84,7 @@ export function ByteVellAscii({
       sm.x += (tm.x - sm.x) * 0.08;
       sm.y += (tm.y - sm.y) * 0.08;
 
-      time += reduced ? 0.005 : 0.02;
+      time += reduced ? 0.005 : 0.015;
       const t = time * speed;
 
       const lines: string[] = [];
@@ -94,40 +95,46 @@ export function ByteVellAscii({
           const nx = (x / (cols - 1)) * 2 - 1;
           const ny = (y / (rows - 1)) * 2 - 1;
           
-          // Wide Oval Mask (AsciiVisual style)
+          // Smooth wide oval mask
+          // Since cols=250 and rows=44, nx*nx + ny*ny automatically creates a VERY wide physical oval.
           const distFromCenter = nx * nx + ny * ny;
-          
           if (distFromCenter > 1) {
             line += " ";
             continue;
           }
 
-          // Exact mathematical noise functions from the prompt
+          // Exact mathematical noise for HORIZONTAL DATA STREAMS (like Nodesty AsciiVisual)
           let v = 0;
-          v += Math.sin(nx * 5 + t * 0.8);
-          v += Math.cos(ny * 4 - t * 0.6);
-          v += Math.sin((nx - ny) * 6 + t * 1.2);
-          v += Math.cos(Math.sqrt(nx * nx + ny * ny) * 8 - t * 2);
-
-          // Normalize sum (-4 to 4) to roughly (0 to 1)
-          let intensity = (v + 4) / 8;
           
-          // Apply density multiplier
+          // 1. High frequency horizontal lines (scanlines)
+          v += Math.sin(ny * 40 + t * 2) * 0.3;
+          v += Math.cos(ny * 70 - t * 3) * 0.2;
+          
+          // 2. Slow horizontal waves
+          v += Math.sin(nx * 3 + ny * 5 + t * 0.8) * 0.4;
+          
+          // 3. Central bright core
+          v += Math.cos(Math.sqrt(nx * nx + ny * ny) * 5 - t) * 0.3;
+
+          // Normalize
+          let intensity = (v + 1.2) / 2.4;
+          
           intensity *= density;
 
-          // Mouse interaction (boosts intensity near cursor)
+          // Mouse interaction (pushes/ripples the scanlines)
           if (mouseInteraction) {
             const dx = nx - sm.x;
             const dy = ny - sm.y;
-            const mouseDist = Math.sqrt(dx * dx + dy * dy);
+            // Stretch the mouse interaction horizontally to match the grid aspect ratio
+            const mouseDist = Math.sqrt(dx * dx + dy * dy * 4); 
             if (mouseDist < 0.6) {
-              const boost = Math.pow(1 - mouseDist / 0.6, 2) * 0.5;
+              const boost = Math.pow(1 - mouseDist / 0.6, 2) * 0.6;
               intensity += boost;
             }
           }
 
-          // Soften the edges of the oval so it fades out organically
-          const edgeFade = Math.pow(1 - distFromCenter, 0.8);
+          // Edge fade (softens the oval boundary)
+          const edgeFade = Math.pow(1 - distFromCenter, 1.2);
           intensity *= edgeFade;
 
           intensity = Math.max(0, Math.min(1, intensity));
@@ -147,23 +154,24 @@ export function ByteVellAscii({
   }, [density, speed, mouseInteraction]);
 
   return (
-    <div ref={containerRef} className={`relative flex items-center justify-center overflow-hidden w-full ${className}`}>
+    <div ref={containerRef} className={`relative flex justify-center w-full ${className}`}>
       <pre
         ref={preRef}
         aria-hidden="true"
         className="font-mono whitespace-pre select-none text-center pointer-events-none"
         style={{
-          // Small font size, no massive letter spacing. This naturally creates the dense particle look.
-          fontSize: "clamp(6px, 0.8vw, 10px)", 
+          // Very small font, normal letter spacing -> dense particle field
+          fontSize: "clamp(6px, 0.75vw, 10px)", 
           lineHeight: 1.1,
-          letterSpacing: "0.05em", // NORMAL letter spacing
-          // Deep blue gradient matching the screenshot
-          backgroundImage: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,255,255,1) 0%, rgba(99,102,241,0.9) 30%, rgba(30,58,138,0.5) 70%, rgba(15,23,42,0) 100%)",
+          letterSpacing: "0.03em",
+          
+          // Deep space blue gradient matching the Nodesty screenshot
+          backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(224,231,255,1) 0%, rgba(99,102,241,0.9) 25%, rgba(30,58,138,0.7) 60%, rgba(15,23,42,0) 100%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          filter: "drop-shadow(0 0 10px rgba(99,102,241,0.2))",
+          filter: "drop-shadow(0 0 15px rgba(99,102,241,0.15))",
         }}
       />
     </div>
