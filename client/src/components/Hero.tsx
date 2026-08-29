@@ -9,7 +9,7 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-0 overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-10 sm:pb-16 overflow-hidden bg-background">
       {/* Subtle grid background pattern */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
@@ -65,12 +65,12 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ASCII Wave Animation - full width, right below content */}
+      {/* ASCII Animation strictly placed below */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.4, ease: "easeOut" }}
-        className="w-full mt-10 sm:mt-12 relative z-10"
+        className="w-full mt-12 sm:mt-16 relative z-10"
       >
         <ByteVellAscii
           className="w-full"

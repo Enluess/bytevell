@@ -2,41 +2,15 @@
 
 import { useEffect, useRef } from "react";
 
+const CHARS = [" ", " ", "·", ".", ":", "-", "=", "+", "*", "x", "%", "&", "#", "@"];
+const CHAR_LEN = CHARS.length;
+
 type ByteVellAsciiProps = {
   className?: string;
   density?: number;
   speed?: number;
   mouseInteraction?: boolean;
 };
-
-// Characters ordered by visual density
-const CHARS = [
-  " ", " ", " ", "\u00B7", ".", ":", "-", "=",
-  "+", "*", "x", "%", "&", "#", "@",
-];
-const CHAR_LEN = CHARS.length;
-
-// Grid sizes - very wide, very short
-const GRID_DESKTOP = { cols: 280, rows: 16 };
-const GRID_TABLET  = { cols: 180, rows: 12 };
-const GRID_MOBILE  = { cols: 90,  rows: 8 };
-
-const MOUSE_LERP = 0.08;
-
-// ─── Wide horizontal band mask ─────────────────────────────
-function bandMask(nx: number, ny: number): number {
-  // nx: -1..1, ny: -1..1
-  const absX = Math.abs(nx);
-  const absY = Math.abs(ny);
-
-  // Horizontal: fade starting at 80% width
-  const hFade = absX < 0.8 ? 1 : Math.max(0, 1 - (absX - 0.8) / 0.2);
-
-  // Vertical: VERY tight, center-only band
-  const vFade = Math.max(0, 1 - absY * absY * 2.5);
-
-  return Math.pow(hFade, 2) * Math.pow(vFade, 1.5);
-}
 
 export function ByteVellAscii({
   className = "",
@@ -46,24 +20,28 @@ export function ByteVellAscii({
 }: ByteVellAsciiProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const preRef = useRef<HTMLPreElement>(null);
+
   const targetMouse = useRef({ x: 0, y: 0 });
   const smoothMouse = useRef({ x: 0, y: 0 });
-  const gridRef = useRef(GRID_DESKTOP);
 
-  // Responsive
+  const gridRef = useRef({ cols: 90, rows: 44 });
+
   useEffect(() => {
-    const update = () => {
+    const updateGrid = () => {
       const w = window.innerWidth;
-      if (w < 640) gridRef.current = GRID_MOBILE;
-      else if (w < 1024) gridRef.current = GRID_TABLET;
-      else gridRef.current = GRID_DESKTOP;
+      if (w < 768) {
+        gridRef.current = { cols: 50, rows: 26 };
+      } else if (w < 1024) {
+        gridRef.current = { cols: 70, rows: 36 };
+      } else {
+        gridRef.current = { cols: 90, rows: 44 };
+      }
     };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    updateGrid();
+    window.addEventListener("resize", updateGrid);
+    return () => window.removeEventListener("resize", updateGrid);
   }, []);
 
-  // Mouse tracking
   useEffect(() => {
     if (!mouseInteraction) return;
     const el = containerRef.current;
@@ -78,6 +56,7 @@ export function ByteVellAscii({
       targetMouse.current.x = 0;
       targetMouse.current.y = 0;
     };
+
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
     return () => {
@@ -86,80 +65,79 @@ export function ByteVellAscii({
     };
   }, [mouseInteraction]);
 
-  // Animation
   useEffect(() => {
     let raf: number;
-    const reduced = typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let time = 0;
+    const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const render = () => {
-      if (!preRef.current) { raf = requestAnimationFrame(render); return; }
+      if (!preRef.current) {
+        raf = requestAnimationFrame(render);
+        return;
+      }
 
       const { cols, rows } = gridRef.current;
       const sm = smoothMouse.current;
       const tm = targetMouse.current;
-      sm.x += (tm.x - sm.x) * MOUSE_LERP;
-      sm.y += (tm.y - sm.y) * MOUSE_LERP;
+      
+      sm.x += (tm.x - sm.x) * 0.08;
+      sm.y += (tm.y - sm.y) * 0.08;
 
-      time += reduced ? 0.003 : 0.014;
+      time += reduced ? 0.005 : 0.02;
       const t = time * speed;
-      const f = density;
 
       const lines: string[] = [];
 
-      for (let row = 0; row < rows; row++) {
+      for (let y = 0; y < rows; y++) {
         let line = "";
-        for (let col = 0; col < cols; col++) {
-          const nx = (col / (cols - 1)) * 2 - 1;
-          const ny = (row / (rows - 1)) * 2 - 1;
+        for (let x = 0; x < cols; x++) {
+          const nx = (x / (cols - 1)) * 2 - 1;
+          const ny = (y / (rows - 1)) * 2 - 1;
 
-          // Band mask
-          const mask = bandMask(nx, ny);
-          if (mask < 0.01) { line += " "; continue; }
+          // Exact Nodesty shield geometry
+          const bottom = -1 + 0.5 * nx * nx;
+          const top = 1 - 1.5 * Math.pow(Math.abs(nx), 1.8);
 
-          // ── Layered noise ──
+          if (ny < bottom || ny > top) {
+            line += " ";
+            continue;
+          }
 
-          // Horizontal flowing waves
+          // Exact mathematical noise functions from the prompt
           let v = 0;
-          v += Math.sin(nx * 8 * f + t * 1.2) * Math.cos(ny * 6 * f - t * 0.7) * 0.5;
-          v += Math.sin((nx + ny * 0.5) * 12 * f - t * 1.8) * 0.35;
-          v += Math.cos(nx * 20 * f + t * 2.5) * Math.sin(ny * 15 * f - t * 1.0) * 0.2;
+          v += Math.sin(nx * 5 + t * 0.8);
+          v += Math.cos(ny * 4 - t * 0.6);
+          v += Math.sin((nx - ny) * 6 + t * 1.2);
+          v += Math.cos(Math.sqrt(nx * nx + ny * ny) * 8 - t * 2);
 
-          // Radial pulse from center
-          const r = Math.sqrt(nx * nx + ny * ny);
-          v += Math.cos(r * 10 * f - t * 2) * 0.25;
+          // Normalize sum (-4 to 4) to roughly (0 to 1)
+          let intensity = (v + 4) / 8;
+          
+          // Apply density multiplier
+          intensity *= density;
 
-          // Horizontal scan-line bands (data stream feel)
-          v += Math.sin(ny * 30 + nx * 2 + t * 1.5) * 0.2;
-          v += Math.cos(ny * 50 - t * 3) * 0.1;
-
-          // Fine detail texture
-          v += Math.sin(nx * 35 * f + ny * 25 * f + t * 0.8) * 0.12;
-
-          // Normalize to 0..1
-          let intensity = (v + 1.7) / 3.4;
-          intensity = Math.max(0, Math.min(1, intensity));
-
-          // Mouse interaction
           if (mouseInteraction) {
             const dx = nx - sm.x;
-            const dy = (ny - sm.y) * 2; // stretch Y because band is short
+            const dy = ny - sm.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 0.5) {
-              const ripple = Math.pow(1 - dist / 0.5, 2);
-              intensity = Math.min(1, intensity + ripple * 0.5);
-              intensity += Math.sin(dist * 25 - t * 8) * ripple * 0.1;
-              intensity = Math.max(0, Math.min(1, intensity));
+            if (dist < 0.6) {
+              const boost = Math.pow(1 - dist / 0.6, 2) * 0.5;
+              intensity += boost;
             }
           }
 
-          // Apply mask
-          intensity *= mask;
+          // Soften the very edges of the shape to prevent hard cuts
+          const distToBottom = ny - bottom;
+          const distToTop = top - ny;
+          const edgeDist = Math.min(distToBottom, distToTop);
+          if (edgeDist < 0.2) {
+             intensity *= Math.pow(edgeDist / 0.2, 0.5);
+          }
 
-          // Character selection
+          intensity = Math.max(0, Math.min(1, intensity));
+
           const ci = Math.floor(intensity * (CHAR_LEN - 1));
-          line += CHARS[Math.max(0, Math.min(CHAR_LEN - 1, ci))];
+          line += CHARS[ci];
         }
         lines.push(line);
       }
@@ -173,22 +151,22 @@ export function ByteVellAscii({
   }, [density, speed, mouseInteraction]);
 
   return (
-    <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
+    <div ref={containerRef} className={`relative flex items-center justify-center overflow-hidden ${className}`}>
       <pre
         ref={preRef}
         aria-hidden="true"
-        className="font-mono select-none whitespace-pre text-center leading-none"
+        className="font-mono whitespace-pre select-none text-center pointer-events-none"
         style={{
-          fontSize: "clamp(4px, 0.5vw, 7px)",
-          lineHeight: 1.2,
-          letterSpacing: "0.01em",
-          backgroundImage:
-            "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(30,58,138,0.6) 20%, rgba(59,130,246,0.8) 45%, rgba(147,197,253,0.95) 50%, rgba(59,130,246,0.8) 55%, rgba(30,58,138,0.6) 80%, rgba(15,23,42,0.3) 100%)",
+          // Match the screenshot styling: very wide tracking, appropriate font size, neon blue gradient
+          fontSize: "clamp(8px, 1.2vw, 14px)",
+          lineHeight: 1.1,
+          letterSpacing: "0.45em", // VERY important to stretch it horizontally
+          backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,255,255,0.9) 0%, rgba(99,102,241,0.9) 40%, rgba(30,58,138,0.4) 80%, rgba(15,23,42,0) 100%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          filter: "drop-shadow(0 0 12px rgba(59, 130, 246, 0.1))",
+          textShadow: "0 0 15px rgba(99,102,241,0.2)",
         }}
       />
     </div>
