@@ -10,10 +10,10 @@ export default function PanelLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen bg-[#000000] text-foreground overflow-hidden">
+    <div className="flex h-screen bg-background text-foreground overflow-hidden">
       {/* Floating Sidebar hidden on mobile by default, shown on lg */}
-      <div className="hidden lg:flex z-40 w-[260px] shrink-0 p-4 pb-4 pr-0">
-        <div className="w-full h-full bg-white/[0.02] border border-white/5 rounded-[2rem] overflow-hidden flex flex-col relative before:absolute before:inset-0 before:-z-10 before:backdrop-blur-2xl">
+      <div className="hidden lg:flex z-40 w-[260px] shrink-0 p-4 lg:p-8 lg:pr-0">
+        <div className="w-full h-full bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden flex flex-col relative before:absolute before:inset-0 before:-z-10 before:backdrop-blur-2xl">
           <PanelSidebar />
         </div>
       </div>
@@ -21,7 +21,7 @@ export default function PanelLayout({
       <div className="flex-1 flex flex-col min-w-0 relative">
         <PanelHeader />
         
-        <main className="flex-1 overflow-y-auto px-4 pb-4 md:px-8 md:pb-8 xl:px-10 xl:pb-10 scrollbar-hide relative">
+        <main className="flex-1 overflow-y-auto px-4 pb-4 lg:px-8 lg:pb-8 scrollbar-hide relative">
           <div className="max-w-[1500px] mx-auto w-full relative z-10 pt-4">
             {children}
           </div>

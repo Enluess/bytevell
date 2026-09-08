@@ -16,6 +16,13 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const getFirstName = (fullName: string) => {
+    const parts = fullName.trim().split(' ');
+    if (parts.length <= 1) return fullName;
+    return parts.slice(0, -1).join(' ');
+  };
+
+
   useEffect(() => {
     setMounted(true);
     const fetchData = async () => {
@@ -23,7 +30,7 @@ export default function DashboardPage() {
         const json = await api.get<{ stats: any; recentServices: any[]; recentInvoices: any[] }>('/dashboard/stats');
         setData(json);
       } catch (err: any) {
-        console.error("Failed to fetch dashboard stats", err);
+        
         setError(err.message || 'Failed to load dashboard data');
       } finally {
         setLoading(false);
@@ -63,7 +70,7 @@ export default function DashboardPage() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-8 border-b border-white/5">
         <div>
           <h1 className="text-[32px] font-semibold tracking-tight text-white mb-3">
-            {t('greeting_evening')}{mounted && user?.name ? user.name.split(' ')[0] : t('customer')}.
+            {t('greeting_evening')}{mounted && user?.name ? getFirstName(user.name) : t('customer')}.
           </h1>
           <div className="flex items-center gap-3 text-[14px] text-white/50">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">

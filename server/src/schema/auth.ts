@@ -6,6 +6,11 @@ export const registerSchema = z.object({
   name: z.string().optional(),
   tc: z.string().optional(),
   phone: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  country: z.string().optional(),
+  postalCode: z.string().optional(),
 }).strict(); // strict prevents mass assignment of unexpected fields
 
 export const loginSchema = z.object({

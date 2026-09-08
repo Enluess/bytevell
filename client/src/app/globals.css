@@ -1,6 +1,14 @@
 @import url('https://fonts.cdnfonts.com/css/product-sans');
 @import "tailwindcss";
 @import "@heroui/styles";
+:root {
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: dark;
+}
+
 
 @source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
@@ -99,4 +107,106 @@ html::-webkit-scrollbar-thumb {
 /* Utility to override HeroUI rounded corners uniformly */
 .heroui-radius-override * {
   border-radius: 8px !important;
+}
+/* Custom Phone Input Styles */
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem; /* xl */
+  transition: all 0.2s ease;
+}
+
+.PhoneInput:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.PhoneInput:focus-within {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.PhoneInputCountry {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  margin-right: 0.5rem;
+}
+
+.PhoneInputCountrySelect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #0A0A0A;
+}
+
+.PhoneInputCountrySelect option {
+  color: #fff;
+  background-color: #0A0A0A;
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1rem;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.PhoneInputCountryIcon--border {
+  border: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.PhoneInputCountryIconImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 0.75rem 1rem 0.75rem 0; /* py-3 pr-4 */
+  outline: none;
+}
+
+.PhoneInputInput::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.PhoneInputCountrySelectArrow {
+  display: block;
+  content: '';
+  width: 0.35em;
+  height: 0.35em;
+  margin-left: 0.5em;
+  border-right: 2px solid rgba(255,255,255,0.4);
+  border-bottom: 2px solid rgba(255,255,255,0.4);
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
+  opacity: 1;
+  color: #fff;
 }

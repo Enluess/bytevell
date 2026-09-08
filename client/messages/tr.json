@@ -754,7 +754,10 @@
       "no_account": "Hesabınız yok mu?",
       "register_link": "Hemen Kayıt Olun",
       "error": "Giriş başarısız. Lütfen bilgilerinizi kontrol edin.",
-      "success": "Giriş başarılı, yönlendiriliyorsunuz..."
+      "success": "Giriş başarılı, yönlendiriliyorsunuz...",
+      "email_placeholder": "ornek@mail.com",
+      "password_placeholder": "••••••••",
+      "forgot_password": "Şifremi Unuttum"
     },
     "Register": {
       "title": "Hesap Oluşturun",
@@ -767,7 +770,23 @@
       "login_link": "Giriş Yapın",
       "error": "Kayıt başarısız veya bu e-posta zaten kullanılıyor.",
       "success": "Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...",
-      "tc": "T.C. Kimlik No"
+      "tc": "T.C. Kimlik No",
+      "phone": "Telefon",
+      "address": "Adres",
+      "name_placeholder": "Enes Çevik",
+      "phone_placeholder": "05XX XXX XX XX",
+      "email_placeholder": "ornek@mail.com",
+      "address_placeholder": "Açık adresiniz...",
+      "password_placeholder": "••••••••",
+      "confirm_password": "Şifre Onayı",
+      "city": "Şehir",
+      "city_placeholder": "İstanbul",
+      "state": "Eyalet / Bölge",
+      "state_placeholder": "Marmara",
+      "country": "Ülke",
+      "country_placeholder": "Türkiye",
+      "postal_code": "Posta Kodu",
+      "postal_code_placeholder": "34000"
     }
   },
   "Admin": {
@@ -1111,10 +1130,10 @@
     "Satlanhizmetler": "Satılan hizmetleri, ürün paketlerini ve kategorileri yönetin.",
     "rn29990": "Örn: 299.90",
     "rn2GBRAMveya1Gb": "Örn: 2GB RAM veya 1 Gbps Port",
-    "Cancelled": "Cancelled",
-    "Suspended": "Suspended",
-    "Pending": "Pending",
-    "Active": "Active",
+    "Cancelled": "İptal Edildi",
+    "Suspended": "Askıya Alındı",
+    "Pending": "Bekliyor",
+    "Active": "Aktif",
     "Fiyat": "Fiyat",
     "HizmetAd": "Hizmet Adı",
     "KapalClosed": "Kapalı (Closed)",
@@ -1141,10 +1160,10 @@
     "ManuelHizmetAta": "Manuel Hizmet Ata",
     "YeniBakiye": "Yeni Bakiye (₺)",
     "Kullancbulunama": "Kullanıcı bulunamadı.",
-    "Operational": "Operational",
-    "Searchcustomers": "Search customers, IP, server...",
-    "Logout": "Logout",
-    "Admin": "Admin",
+    "Operational": "Aktif / Operasyonel",
+    "Searchcustomers": "Müşteri, IP, sunucu ara...",
+    "Logout": "Çıkış Yap",
+    "Admin": "Yönetici",
     "Hata oluştu": {
       "": "Hata oluştu."
     },

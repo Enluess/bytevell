@@ -43,10 +43,12 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     const errorCode = data.error?.code || 'UNKNOWN_ERROR';
     
     // Automatically handle token expiry / unauthenticated
-    if (response.status === 401 && (errorCode === 'AUTH_TOKEN_EXPIRED' || errorCode === 'AUTH_TOKEN_INVALID')) {
+    if (response.status === 401 && (errorCode === 'AUTH_TOKEN_EXPIRED' || errorCode === 'AUTH_TOKEN_INVALID' || errorCode === 'AUTH_NO_TOKEN')) {
       useAuthStore.getState().logout();
       if (typeof window !== 'undefined') {
         window.location.href = '/auth/login';
+        // Return a promise that never resolves to prevent the component from throwing while redirecting
+        return new Promise(() => {}) as Promise<T>;
       }
     }
     

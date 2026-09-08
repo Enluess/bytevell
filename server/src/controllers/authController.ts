@@ -20,7 +20,7 @@ export const register = async (
             throw new AppError(ErrorCodes.VALIDATION_ERROR, parsed.error.errors[0].message, 400, parsed.error.errors);
         }
         
-        let { email, password, name, tc, phone } = parsed.data;
+        let { email, password, name, tc, phone, address, city, state, country, postalCode } = parsed.data;
         email = email.trim().toLowerCase();
 
         const existingUser = await db.query.users.findFirst({
@@ -38,6 +38,11 @@ export const register = async (
             name,
             taxId: tc || undefined,
             phone: phone || undefined,
+            address: address || undefined,
+            city: city || undefined,
+            state: state || undefined,
+            country: country || undefined,
+            postalCode: postalCode || undefined,
         }).returning();
 
         // Log activity

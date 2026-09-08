@@ -10,6 +10,11 @@ export const users = pgTable('users', {
   password: varchar('password', { length: 255 }).notNull(),
   name: varchar('name', { length: 255 }),
   phone: varchar('phone', { length: 50 }),
+  address: text('address'),
+  city: varchar('city', { length: 100 }),
+  state: varchar('state', { length: 100 }),
+  country: varchar('country', { length: 100 }),
+  postalCode: varchar('postal_code', { length: 20 }),
   
   // Account type
   accountType: varchar('account_type', { length: 20 }).notNull().default('individual'), // individual, company
@@ -237,7 +242,7 @@ export const coupons = pgTable('coupons', {
 export const couponUsages = pgTable('coupon_usages', {
   id: uuid('id').primaryKey().defaultRandom(),
   couponId: uuid('coupon_id').references(() => coupons.id, { onDelete: 'cascade' }).notNull(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   orderId: uuid('order_id').references(() => orders.id),
   discountAmount: numeric('discount_amount', { precision: 18, scale: 2 }).notNull(),
   currency: varchar('currency', { length: 3 }).notNull().default('TRY'),
@@ -251,7 +256,7 @@ export const couponUsages = pgTable('coupon_usages', {
 export const orders = pgTable('orders', {
   id: uuid('id').primaryKey().defaultRandom(),
   orderNumber: varchar('order_number', { length: 50 }).notNull().unique(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   
   // Financial
   subtotal: numeric('subtotal', { precision: 18, scale: 2 }).notNull().default('0.00'),
@@ -321,7 +326,7 @@ export const orderItemOptions = pgTable('order_item_options', {
 export const invoices = pgTable('invoices', {
   id: uuid('id').primaryKey().defaultRandom(),
   invoiceNumber: varchar('invoice_number', { length: 50 }).notNull().unique(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   orderId: uuid('order_id').references((): any => orders.id),
   
   // Financial
@@ -391,7 +396,7 @@ export const paymentMethods = pgTable('payment_methods', {
 export const payments = pgTable('payments', {
   id: uuid('id').primaryKey().defaultRandom(),
   invoiceId: uuid('invoice_id').references(() => invoices.id).notNull(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   paymentMethodId: uuid('payment_method_id').references(() => paymentMethods.id),
   
   amount: numeric('amount', { precision: 18, scale: 2 }).notNull(),
@@ -420,7 +425,7 @@ export const payments = pgTable('payments', {
 // Immutable financial ledger — NEVER delete rows from this table
 export const transactions = pgTable('transactions', {
   id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   
   type: varchar('type', { length: 30 }).notNull(),
   // payment, refund, credit, debit, adjustment, promotional_credit
@@ -449,7 +454,7 @@ export const refunds = pgTable('refunds', {
   id: uuid('id').primaryKey().defaultRandom(),
   paymentId: uuid('payment_id').references(() => payments.id).notNull(),
   invoiceId: uuid('invoice_id').references(() => invoices.id).notNull(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   
   amount: numeric('amount', { precision: 18, scale: 2 }).notNull(),
   currency: varchar('currency', { length: 3 }).notNull().default('TRY'),
@@ -500,7 +505,7 @@ export const currencies = pgTable('currencies', {
 
 export const services = pgTable('services', {
   id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   productId: uuid('product_id').references(() => products.id),
   orderId: uuid('order_id').references(() => orders.id),
   serverId: uuid('server_id').references(() => servers.id),
@@ -723,7 +728,7 @@ export const domainTldPrices = pgTable('domain_tld_prices', {
 
 export const domains = pgTable('domains', {
   id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   serviceId: uuid('service_id').references(() => services.id),
   registrarId: uuid('registrar_id').references(() => domainRegistrars.id),
   
@@ -788,7 +793,7 @@ export const ticketDepartments = pgTable('ticket_departments', {
 
 export const tickets = pgTable('tickets', {
   id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   departmentId: uuid('department_id').references(() => ticketDepartments.id),
   serviceId: uuid('service_id').references(() => services.id), // Related service
   
@@ -1001,7 +1006,7 @@ export const auditLogs = pgTable('audit_logs', {
 
 export const activityLogs = pgTable('activity_logs', {
   id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   action: varchar('action', { length: 255 }).notNull(),
   category: varchar('category', { length: 50 }), // auth, service, billing, support, security
   ipAddress: varchar('ip_address', { length: 50 }),
