@@ -56,7 +56,7 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section id="pricing" className="container mx-auto px-6 pb-20 space-y-6 max-w-7xl">
+      <section id="pricing" className="container mx-auto px-8 sm:px-10 md:px-12 pb-20 space-y-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-8">
           {products.length === 0 ? (
              <div className="col-span-full text-center text-white/50 py-10">No Web Hosting plans available at the moment.</div>
@@ -103,7 +103,7 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
       <ReferenceBar />
       <Features />
 
-      <div className="container mx-auto px-6 max-w-6xl pb-20">
+      <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl pb-20">
         <FaqSection faqs={faqs} />
       </div>
 

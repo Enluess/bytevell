@@ -108,7 +108,7 @@ export function Navigation() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 flex justify-center w-full pt-4 md:pt-6">
       <div
-        className="pointer-events-auto relative flex items-center justify-between overflow-visible mx-auto w-full max-w-6xl px-5 sm:px-6 md:px-8 py-4"
+        className="pointer-events-auto relative flex items-center justify-between overflow-visible mx-auto w-full max-w-6xl px-8 sm:px-10 md:px-12 py-4"
       >
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
@@ -265,7 +265,7 @@ export function Navigation() {
               </button>
             </div>
 
-            <div className="px-2 pt-4 pb-8 flex flex-col gap-2">
+            <div className="px-4 pt-4 pb-8 flex flex-col gap-2">
               <button
                 onClick={() => { setIsMenuOpen(false); router.push("/"); }}
                 className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]"

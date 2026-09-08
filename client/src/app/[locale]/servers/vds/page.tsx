@@ -114,12 +114,12 @@ export default async function VDSServersPage({ params }: { params: Promise<{ loc
                         </Flex>
                       </Flex>
 
-                      <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0" items="center" justify="between" gap="6 md:gap-8">
+                      <Flex className="w-full md:w-auto pt-4 md:pt-0 border-t border-white/5 md:border-0 mt-2 md:mt-0 flex-col sm:flex-row" items="center" justify="between" gap="4 md:gap-8">
                         <Flex items="baseline" gap="1">
                           <span className="text-xl font-black text-white tracking-tight">{currency === 'TRY' ? '₺' : (currency === 'USD' ? '$' : '€')}{monthlyPrice}</span>
                           <span className="text-xs font-medium text-white/20 tracking-wider">{t("perMonth")}</span>
                         </Flex>
-                        <Link href={`/checkout?plan=${plan.slug}`} className="px-8 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 active:scale-[0.98] transition-all text-sm shadow-sm  shrink-0">
+                        <Link href={`/checkout?plan=${plan.slug}`} className="w-full sm:w-auto px-8 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 active:scale-[0.98] transition-all text-sm text-center shadow-sm shrink-0">
                           {t("orderBtn")}
                         </Link>
                       </Flex>

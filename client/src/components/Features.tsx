@@ -12,7 +12,7 @@ export function Features() {
 
   return (
     <section className="py-24 md:py-32 bg-background relative z-10 overflow-hidden">
-      <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10">
+      <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10">
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight font-heading mb-6 leading-tight">
