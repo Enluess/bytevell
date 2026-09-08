@@ -8,7 +8,7 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-28 overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center justify-center min-h-[100svh] pt-24 pb-20 overflow-hidden bg-background">
       {/* Subtle top light gradient — single soft glow, no grid */}
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] max-w-5xl h-[600px] pointer-events-none opacity-[0.15]" 
@@ -29,9 +29,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white leading-[1.15] tracking-tight max-w-4xl"
+          className="text-[36px] sm:text-[52px] lg:text-[72px] font-bold font-heading text-white leading-[1.1] tracking-tight max-w-4xl"
         >
-          {t('title1')} <br className="hidden sm:block" />
+          {t('title1')} <br />
           <span>{t('title2')}</span>
         </motion.h1>
 

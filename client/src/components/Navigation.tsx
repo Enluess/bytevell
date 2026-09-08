@@ -112,7 +112,7 @@ export function Navigation() {
       >
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
-            <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" priority />
+            <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" priority style={{ height: "auto" }} />
           </Link>
         </div>
 
@@ -234,7 +234,7 @@ export function Navigation() {
           </Suspense>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-foreground/80 hover:text-white p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
+            className="text-white p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors active:scale-95"
             aria-label="Menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -252,9 +252,9 @@ export function Navigation() {
             className="md:hidden fixed inset-0 top-0 left-0 w-full h-full bg-[#060709]/95 backdrop-blur-3xl z-60 overflow-y-auto overscroll-contain pointer-events-auto"
             style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#060709]/90 backdrop-blur-2xl border-b border-white/5">
+            <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-5 bg-[#060709]/95 backdrop-blur-3xl border-b border-white/5">
               <button onClick={() => { setIsMenuOpen(false); router.push("/"); }} className="font-bold text-xl font-heading text-white tracking-tight">
-                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" priority />
+                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" priority style={{ height: "auto" }} />
               </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -265,55 +265,55 @@ export function Navigation() {
               </button>
             </div>
 
-            <div className="px-4 pt-4 pb-8 flex flex-col gap-2">
+            <div className="px-6 pt-6 pb-12 flex flex-col gap-4">
               <button
                 onClick={() => { setIsMenuOpen(false); router.push("/"); }}
-                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]"
+                className="w-full text-left text-white/80 hover:text-white hover:bg-white/5 active:bg-white/10 rounded-2xl px-5 py-4 font-semibold transition-colors text-[17px] tracking-wide"
               >
-                Ana Sayfa
+                {t('home')}
               </button>
 
-              <div className="mt-3">
-                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Hosting</div>
-                <div className="flex flex-col gap-0.5">
+              <div className="mt-2">
+                <div className="text-[12px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2 px-5">{t('hosting')}</div>
+                <div className="flex flex-col gap-1">
                   {hostingItems.map((item, i) => (
                     <button
                       key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
+                      className="group w-full text-left rounded-2xl px-5 py-3.5 transition-colors flex items-center gap-4 active:scale-[0.98] bg-transparent hover:bg-white/5"
                     >
-                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white transition-all">{item.icon}</div>
-                      <div>
-                        <div>{item.title}</div>
-                        {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
+                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 border border-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 transition-all">{item.icon}</div>
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-white/90 group-hover:text-white text-[16px] tracking-wide">{item.title}</span>
+                        {item.description && <span className="text-[13px] text-white/40 mt-0.5">{item.description}</span>}
                       </div>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-3">
-                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Sunucular</div>
-                <div className="flex flex-col gap-0.5">
+              <div className="mt-2">
+                <div className="text-[12px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2 px-5">{t('servers')}</div>
+                <div className="flex flex-col gap-1">
                   {serverItems.map((item, i) => (
                     <button
                       key={i}
                       onClick={() => { setIsMenuOpen(false); router.push(item.href); }}
-                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3 font-medium transition-colors flex items-center gap-3.5 text-[15px]"
+                      className="group w-full text-left rounded-2xl px-5 py-3.5 transition-colors flex items-center gap-4 active:scale-[0.98] bg-transparent hover:bg-white/5"
                     >
-                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white transition-all">{item.icon}</div>
-                      <div>
-                        <div>{item.title}</div>
-                        {item.description && <div className="text-xs text-foreground/50 mt-0.5">{item.description}</div>}
+                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 border border-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 transition-all">{item.icon}</div>
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-white/90 group-hover:text-white text-[16px] tracking-wide">{item.title}</span>
+                        {item.description && <span className="text-[13px] text-white/40 mt-0.5">{item.description}</span>}
                       </div>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-3">
-                <div className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-widest mb-3 px-4">Destek & Bilgi</div>
-                <div className="grid grid-cols-2 gap-0.5">
+              <div className="mt-2">
+                <div className="text-[12px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2 px-5">{t('support')}</div>
+                <div className="flex flex-col gap-1">
                   {supportItems.map((item, i) => (
                     <button
                       key={i}
@@ -325,22 +325,22 @@ export function Navigation() {
                           router.push(item.href);
                         }
                       }}
-                      className="group w-full text-left text-foreground/80 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-3 py-3 font-medium transition-colors flex items-center gap-2.5 text-[13px]"
+                      className="group w-full text-left rounded-2xl px-5 py-3.5 transition-colors flex items-center gap-4 active:scale-[0.98] bg-transparent hover:bg-white/5"
                     >
-                      <div className="text-white/40 group-hover:text-white transition-colors shrink-0">{item.icon}</div>
-                      <span className="truncate">{item.title}</span>
+                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 border border-white/5 text-white/50 shrink-0 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 transition-all">{item.icon}</div>
+                      <span className="font-semibold text-white/90 group-hover:text-white text-[15px] tracking-wide">{item.title}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 mt-3 border-t border-white/5">
+              <div className="pt-6 mt-4 border-t border-white/5 px-2">
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);
                     router.push("/auth/login");
                   }}
-                  className="w-full h-13 bg-white text-black hover:bg-white/90 active:bg-white/80 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 text-[15px]"
+                  className="w-full h-14 bg-white text-black hover:bg-white/90 active:scale-[0.98] rounded-xl font-bold transition-all flex items-center justify-center gap-2 text-[16px] shadow-[0_4px_14px_0_rgba(255,255,255,0.25)]"
                 >
                   <LogIn className="w-5 h-5" />
                   {t('customerPanel')}

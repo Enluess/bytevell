@@ -52,7 +52,7 @@ export function InitialLoader() {
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               className="font-bold text-3xl md:text-4xl font-heading text-white tracking-tight"
             >
-              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={280} height={83} className="object-contain" priority />
+              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={280} height={83} className="object-contain" priority style={{ height: "auto" }} />
             </motion.div>
 
             <Loader2 className="w-5 h-5 text-white/50 animate-spin" />

@@ -35,7 +35,7 @@ export default async function DedicatedServersPage({ params }: { params: Promise
         <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h1
-              className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white leading-[1.15] tracking-tight max-w-4xl"
+              className="text-[40px] sm:text-[52px] lg:text-[72px] font-bold font-heading text-white leading-[1.15] tracking-tight max-w-4xl"
               dangerouslySetInnerHTML={{ __html: t("title") }}
             />
           </div>

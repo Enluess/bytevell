@@ -18,7 +18,7 @@ export function LegalPageLayout({ title, lastUpdated, children }: { title: strin
         
         <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10 flex flex-col items-center gap-6 md:gap-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white tracking-tight leading-[1.05] max-w-4xl select-none">
+            <h1 className="text-[40px] sm:text-[52px] lg:text-[72px] font-bold font-heading text-white tracking-tight leading-[1.05] max-w-4xl select-none">
               {title}
             </h1>
           </motion.div>

@@ -14,7 +14,7 @@ export function ReferenceBar() {
   ];
   
   return (
-    <div className="relative z-10 w-full bg-background py-10 md:py-14">
+    <div className="relative z-10 w-full bg-background py-10 md:py-14 hidden md:block">
       <div className="max-w-6xl mx-auto px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {references.map((ref, index) => (
