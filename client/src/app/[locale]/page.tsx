@@ -36,9 +36,6 @@ export default function Home() {
         <Hero />
         <ReferenceBar />
         <Features />
-
-        <div className="h-px bg-linear-to-r from-transparent via-white/10 to-transparent w-full" />
-
         <FaqSection faqs={faqs} />
 
         <CtaBanner

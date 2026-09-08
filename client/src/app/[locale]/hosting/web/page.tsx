@@ -26,25 +26,33 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
   return (
     <main className="flex-1 text-white min-h-screen">
 
-      <section className="relative flex flex-col items-center justify-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-24 md:pb-32 overflow-hidden min-h-[60vh]">
+      <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-28 overflow-hidden bg-background">
         <BackgroundEffects />
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <h1
-            className="mx-auto mt-10 max-w-4xl select-none text-[42px] sm:text-[52px] md:text-[60px] lg:text-[68px] font-bold font-heading text-white tracking-tight leading-[1.05]"
-            dangerouslySetInnerHTML={{ __html: t("title") }}
-          />
-        </div>
+        <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <h1
+              className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white leading-[1.15] tracking-tight max-w-4xl"
+              dangerouslySetInnerHTML={{ __html: t("title") }}
+            />
+          </div>
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
-          <p
-            className="mx-auto mt-8 max-w-2xl text-[16px] md:text-[18px] text-foreground-secondary font-normal leading-relaxed max-w-2xl"
-          >
-            {t("subtitle")}
-          </p>
-        </div>
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+            <p className="mt-6 text-[16px] md:text-[18px] text-foreground-secondary max-w-2xl font-normal leading-relaxed">
+              {t("subtitle")}
+            </p>
+          </div>
 
-        <div className="relative z-20 mt-10 flex justify-center animate-in fade-in duration-500 delay-200">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+            <div className="mt-10 flex flex-row flex-wrap items-center justify-center gap-4 w-auto">
+            <Link
+              href="#pricing"
+              className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-xl px-8 py-3.5 text-[15px] hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-auto shadow-sm"
+            >
+              Paketleri İncele
+            </Link>
+          </div>
+          </div>
         </div>
       </section>
 
@@ -60,7 +68,7 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
             return (
               <div
                 key={plan.id}
-                className="flex flex-col relative overflow-hidden rounded-xl bg-[#0a0b0d]/50 border border-white/5 p-8 hover:bg-white/[0.03] transition-colors animate-in fade-in slide-in-from-bottom-4 duration-500"
+                className="flex flex-col relative overflow-hidden rounded-xl bg-[#0a0b0d]/50 border border-white/5 p-6 sm:p-8 hover:bg-white/[0.03] transition-colors animate-in fade-in slide-in-from-bottom-4 duration-500"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <div className="mb-6">
@@ -100,9 +108,9 @@ export default async function WebHostingPage({ params }: { params: Promise<{ loc
       </div>
 
       <CtaBanner 
-        title="Haz�r m�s�n�z?"
-        description="Hemen sipari� verin, projenizi saniyeler i�inde hayata ge�irin."
-        primaryText="Sipari� Ver"
+        title="Hazır mısınız?"
+        description="Hemen sipariş verin, projenizi saniyeler içinde hayata geçirin."
+        primaryText="Sipariş Ver"
         primaryLink="/checkout"
       />
 

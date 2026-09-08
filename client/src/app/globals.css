@@ -7,7 +7,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #08090B;
+  --background: #000000;
   --surface: #0A0B0D;
   --surface-elevated: #0F1114;
   --surface-raised: #13161A;

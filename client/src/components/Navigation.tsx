@@ -13,19 +13,10 @@ export function Navigation() {
   const t = useTranslations('Navigation');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  const [scrolled, setScrolled] = useState(false);
 
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
   const navRefs = useRef<Record<string, HTMLDivElement | null>>({});
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -115,17 +106,13 @@ export function Navigation() {
   const activeDropdownContent = activeItem ? navItems.find(i => i.id === activeItem)?.dropdown : null;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-4 md:mt-6 transition-all duration-300">
+    <header className="absolute top-0 left-0 right-0 z-50 flex justify-center w-full pt-4 md:pt-6">
       <div
-        className={`pointer-events-auto relative flex items-center justify-between overflow-visible transition-all duration-500 mx-auto w-full max-w-6xl px-6 md:px-8 py-3 rounded-2xl ${
-          scrolled 
-            ? 'bg-[#060709]/95 border border-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.3)]' 
-            : 'bg-transparent border border-transparent backdrop-blur-none shadow-none'
-        }`}
+        className="pointer-events-auto relative flex items-center justify-between overflow-visible mx-auto w-full max-w-6xl px-5 sm:px-6 md:px-8 py-4"
       >
         <div className="flex items-center">
           <Link href="/" className="font-bold text-2xl font-heading text-white tracking-tight transition-opacity pr-6 md:pr-10">
-            <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" />
+            <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={105} height={28} className="object-contain" priority />
           </Link>
         </div>
 
@@ -181,10 +168,7 @@ export function Navigation() {
                   y: { duration: 0.2, ease: "easeOut" },
                   scale: { duration: 0.2, ease: "easeOut" }
                 }}
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 backdrop-blur-[80px] ${scrolled
-                  ? 'bg-[#060709]/40 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
-                  : 'bg-[#0a0b0d]/40 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
-                  }`}
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-4 rounded-2xl overflow-hidden pointer-events-auto transition-all duration-300 ease-out w-95 backdrop-blur-[80px] bg-[#0a0b0d]/90 shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/5"
                 onMouseEnter={() => {
                   if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
                 }}
@@ -250,7 +234,7 @@ export function Navigation() {
           </Suspense>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-foreground/80 hover:text-white p-2 rounded-full hover:bg-white/5 transition-colors"
+            className="text-foreground/80 hover:text-white p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
             aria-label="Menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -270,7 +254,7 @@ export function Navigation() {
           >
             <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#060709]/90 backdrop-blur-2xl border-b border-white/5">
               <button onClick={() => { setIsMenuOpen(false); router.push("/"); }} className="font-bold text-xl font-heading text-white tracking-tight">
-                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" />
+                <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={90} height={24} className="object-contain" priority />
               </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -281,10 +265,10 @@ export function Navigation() {
               </button>
             </div>
 
-            <div className="px-5 pt-4 pb-8 flex flex-col gap-2">
+            <div className="px-2 pt-4 pb-8 flex flex-col gap-2">
               <button
                 onClick={() => { setIsMenuOpen(false); router.push("/"); }}
-                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px] rounded-xl"
+                className="w-full text-left text-foreground/90 hover:text-white hover:bg-white/5 active:bg-white/8 rounded-xl px-4 py-3.5 font-medium transition-colors text-[15px]"
               >
                 Ana Sayfa
               </button>

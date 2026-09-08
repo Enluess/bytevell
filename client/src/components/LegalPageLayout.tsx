@@ -13,19 +13,22 @@ export function LegalPageLayout({ title, lastUpdated, children }: { title: strin
   const t = useTranslations('Legal');
   return (
     <Flex col className="flex-1 min-h-screen">
-      <Flex col items="center" justify="center" className="relative px-6 pb-12 pt-32 text-center overflow-hidden shrink-0">
+      <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-28 overflow-hidden bg-background shrink-0 text-center">
         <BackgroundEffects />
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight">
-            {title}
-          </Heading>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-          <Text className="mt-6 text-sm">
-            {t('lastUpdatedLabel')}: {lastUpdated}
-          </Text>
-        </motion.div>
-      </Flex>
+        
+        <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10 flex flex-col items-center gap-6 md:gap-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white tracking-tight leading-[1.05] max-w-4xl select-none">
+              {title}
+            </h1>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+            <p className="text-[16px] md:text-[18px] text-foreground-secondary font-normal leading-relaxed max-w-2xl">
+              {t('lastUpdatedLabel')}: {lastUpdated}
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       <Container size="3xl" className="pb-24 relative z-10 flex-1">
         <motion.div 

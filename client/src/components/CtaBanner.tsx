@@ -23,7 +23,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
         }} 
       />
 
-      <div className="relative z-20 mx-auto max-w-4xl w-full px-6 text-center space-y-8">
+      <div className="relative z-20 mx-auto max-w-4xl w-full px-8 sm:px-10 text-center space-y-8">
         
         <motion.h2 
           initial={{ opacity: 0, y: 15 }}
@@ -52,11 +52,11 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+          className="mt-10 flex flex-row flex-wrap items-center justify-center gap-4 w-auto"
         >
           <Link 
             href={primaryLink}
-            className="rounded-xl px-8 py-3.5 bg-white text-black text-[15px] font-semibold hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center shadow-sm"
+            className="rounded-xl px-8 py-3.5 bg-white text-black text-[15px] font-semibold hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-auto text-center shadow-sm"
           >
             {primaryText}
           </Link>
@@ -64,7 +64,7 @@ export function CtaBanner({ title, description, primaryText, primaryLink, second
           {secondaryText && secondaryLink && (
             <Link 
               href={secondaryLink}
-              className="px-6 py-3.5 text-[15px] text-foreground-secondary hover:text-white font-medium active:scale-[0.98] transition-all duration-200 w-full sm:w-auto text-center"
+              className="px-6 py-3.5 text-[15px] text-foreground-secondary hover:text-white font-medium active:scale-[0.98] transition-all duration-200 w-auto text-center"
             >
               {secondaryText}
             </Link>

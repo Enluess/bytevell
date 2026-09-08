@@ -3,24 +3,22 @@
 export function BackgroundEffects() {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-      {/* Subtle grid background pattern */}
+      {/* Subtle top light gradient — single soft glow, no grid */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] max-w-5xl h-[600px] pointer-events-none opacity-[0.15]" 
         style={{ 
-          backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)', 
-          backgroundSize: '48px 48px',
-          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+          background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 60%)' 
         }} 
       />
       
-      {/* Subtle top light gradient */}
+
+      {/* Central strong glow like Nodesty */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] max-w-4xl h-[500px] pointer-events-none opacity-[0.12]" 
-        style={{ 
-          background: 'radial-gradient(ellipse at top, var(--primary) 0%, transparent 70%)' 
-        }} 
+        className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[80%] max-w-2xl h-[300px] pointer-events-none opacity-20 blur-[100px]" 
+        style={{ background: 'var(--primary)' }}
       />
+      {/* Bottom fade for seamless transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 }

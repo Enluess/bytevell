@@ -3,23 +3,22 @@ import { useTranslations } from "next-intl";
 
 export default function PrivacyPage() {
   const t = useTranslations("Legal.Privacy");
-
+  const sections = t.raw("sections");
+  
   return (
     <LegalPageLayout title={t("title")} lastUpdated={t("lastUpdated")}>
-      <h2>{t("h1")}</h2>
-      <p>{t("p1")}</p>
-      
-      <h2>{t("h2")}</h2>
-      <p>{t("p2")}</p>
-
-      <h2>{t("h3")}</h2>
-      <p>{t("p3")}</p>
-
-      <h2>{t("h4")}</h2>
-      <p>{t("p4")}</p>
-
-      <h2>{t("h5")}</h2>
-      <p>{t("p5")}</p>
+      {sections.map((section: any, idx: number) => (
+        <div key={idx} className="mb-8">
+          {section.title !== "Giriş" && (
+            <h2 className="text-2xl font-bold text-white mb-4">{section.title}</h2>
+          )}
+          <div className="text-foreground-secondary leading-relaxed space-y-4">
+            {section.content.split('\n\n').map((paragraph: string, pIdx: number) => (
+              <p key={pIdx}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      ))}
     </LegalPageLayout>
   );
 }

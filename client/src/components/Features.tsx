@@ -11,17 +11,7 @@ export function Features() {
   const featureIcons = [Cpu, ShieldCheck, HeadphonesIcon];
 
   return (
-    <section className="py-24 md:py-32 bg-background relative z-10 border-t border-white/5 overflow-hidden">
-      {/* Subtle dot pattern background to match FAQ */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]" 
-        style={{ 
-          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', 
-          backgroundSize: '24px 24px',
-          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-        }} 
-      />
+    <section className="py-24 md:py-32 bg-background relative z-10 overflow-hidden">
       <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-6xl relative z-10">
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">

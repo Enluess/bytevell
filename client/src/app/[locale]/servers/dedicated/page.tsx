@@ -29,19 +29,35 @@ export default async function DedicatedServersPage({ params }: { params: Promise
   return (
     <Flex col className="flex-1 min-h-screen">
       
-      <Flex col items="center" justify="center" className="relative px-6 pb-20 pt-32 text-center overflow-hidden">
+      <section className="relative flex flex-col items-center pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-28 overflow-hidden bg-background">
         <BackgroundEffects />
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <Heading level={1} className="mx-auto mt-10 max-w-4xl select-none leading-[1.05] tracking-tight" dangerouslySetInnerHTML={{ __html: t("title") }} />
-        </div>
+        <div className="container mx-auto px-8 sm:px-10 md:px-12 max-w-6xl relative z-10 flex flex-col items-center text-center gap-6 md:gap-8">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <h1
+              className="text-5xl sm:text-6xl lg:text-[72px] font-bold font-heading text-white leading-[1.15] tracking-tight max-w-4xl"
+              dangerouslySetInnerHTML={{ __html: t("title") }}
+            />
+          </div>
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
-          <Text className="mx-auto mt-8 max-w-2xl md:text-[17px] tracking-wide">
-            {t("subtitle")}
-          </Text>
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+            <p className="mt-6 text-[16px] md:text-[18px] text-foreground-secondary max-w-2xl font-normal leading-relaxed">
+              {t("subtitle")}
+            </p>
+          </div>
+
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+            <div className="mt-10 flex flex-row flex-wrap items-center justify-center gap-4 w-auto">
+            <Link
+              href="#pricing"
+              className="inline-flex items-center justify-center bg-white text-black font-semibold rounded-xl px-8 py-3.5 text-[15px] hover:bg-white/90 active:scale-[0.98] transition-all duration-200 w-auto shadow-sm"
+            >
+              Paketleri İncele
+            </Link>
+          </div>
+          </div>
         </div>
-      </Flex>
+      </section>
 
       <Section id="pricing" className="pt-0">
         <Container>
@@ -98,9 +114,19 @@ export default async function DedicatedServersPage({ params }: { params: Promise
         </Container>
       </Section>
 
+      <ReferenceBar />
+      <Features />
+
       <Container className="max-w-6xl pb-20">
         <FaqSection faqs={faqs} />
       </Container>
+
+      <CtaBanner 
+        title="Hazır mısınız?"
+        description="Hemen sipariş verin, projenizi saniyeler içinde hayata geçirin."
+        primaryText="Sipariş Ver"
+        primaryLink="/checkout"
+      />
 
       <Footer />
     </Flex>

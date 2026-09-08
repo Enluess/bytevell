@@ -228,69 +228,126 @@
     "Terms": {
       "title": "Hizmet Şartları",
       "lastUpdated": "Ağustos 2026",
-      "h1": "1. Sözleşmenin Kabulü",
-      "p1": "Bytevell (\"biz\", \"bize\" veya \"bizim\") tarafından sunulan hizmetleri kullanarak, bu Hizmet Şartları'nı (\"Şartlar\") kabul etmiş sayılırsınız. Hizmetlerimizi kullanmadan önce lütfen bu Şartları dikkatlice okuyun.",
-      "h2": "2. Hizmetlerin Kullanımı",
-      "p2": "Sağladığımız hosting ve sunucu hizmetlerini yasal amaçlar doğrultusunda kullanmayı kabul edersiniz. Sunucularımız üzerinde yasadışı içerik barındırmak, spam yapmak veya ağımıza zarar verecek herhangi bir aktivitede bulunmak kesinlikle yasaktır.",
-      "h3": "3. Hesap Güvenliği",
-      "p3": "Hesabınızın ve şifrenizin gizliliğini korumaktan siz sorumlusunuz. Hesabınız altında gerçekleşen tüm aktivitelerden tamamen siz sorumlu tutulacaksınız.",
-      "h4": "4. Ücretler ve Ödemeler",
-      "p4": "Tüm hizmetler ön ödemeli olarak sunulmaktadır. Yenileme dönemi gelen hizmetlerin ödemesinin yapılmaması durumunda, hizmetleriniz askıya alınabilir veya sonlandırılabilir.",
-      "h5": "5. Sorumluluk Reddi",
-      "p5": "Hizmetlerimiz \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sunulmaktadır. Veri kaybı veya iş kesintilerinden kaynaklanan dolaylı zararlardan dolayı herhangi bir sorumluluk kabul etmiyoruz."
+      "sections": [
+        {
+          "title": "Giriş",
+          "content": "Hesap oluşturularak, sipariş verilerek, otomatik ödeme aktif edilerek veya bir Bytevell hizmetinden faydalanılarak işbu Hizmet Sözleşmesi hükümleri peşinen kabul edilmiş sayılır. (Son Güncelleme: 13.07.2026)"
+        },
+        {
+          "title": "Taraflar ve Kabul",
+          "content": "1.1:\n\nİşbu Hizmet Sözleşmesi (bundan böyle 'Sözleşme' veya 'Hizmet Şartları' olarak anılacaktır), Bytevell LLC (bundan böyle 'Bytevell' veya 'Şirket' olarak anılacaktır) ile hesap oluşturan, sipariş veren, otomatik ödemeyi aktif hale getiren veya Şirket'e ait herhangi bir Hizmeti kullanan gerçek veya tüzel kişi (bundan böyle 'Müşteri' olarak anılacaktır) arasında akdedilmiştir.\n\n1.2:\n\nMüşteri, bytevell.com portalı üzerinde hesap oluşturarak, sipariş vererek, otomatik ödemeyi etkinleştiren veya herhangi bir Hizmeti kullanmaya başlayarak işbu Sözleşme hükümlerini bütünüyle kabul ettiğini, hesap bilgilerinin eksiksiz, doğru ve güncel olduğunu beyan, kabul ve taahhüt eder."
+        },
+        {
+          "title": "Hizmetler ve Siparişler",
+          "content": "2.1:\n\nBytevell; sanal sunucu (VPS), fiziksel sunucu (dedicated), web hosting ve e-posta hosting hizmetleri sunmaktadır. Sağlanan hizmetlerin teknik özellikleri, kaynak limitleri, lokasyon bilgileri, faturalama dönemleri ve hizmete özel koşullar ilgili ürün sayfasında, sipariş özetinde veya müşteri panelinde gösterilmektedir.\n\n2.2:\n\nVerilen siparişler; ödeme doğrulama süreçlerine, dolandırıcılık (fraud) ve uyum (compliance) denetimlerine, altyapı kapasitesine ve Bytevell'nin nihai onayına tabidir. Taraflar arasında yazılı olarak ayrıca bir Hizmet Seviyesi Taahhüdü (SLA) akdedilmediği müddetçe, hizmet aktivasyon süreleri tahmini niteliktedir."
+        },
+        {
+          "title": "Hesaplar ve Müşteri Sorumlulukları",
+          "content": "3.1:\n\nMüşteri, hesap erişim bilgilerinin ve şifrelerinin güvenliğinden, birincil iletişim e-posta adresinin güncelliğinden ve hesabı üzerinden gerçekleştirilen tüm faaliyetlerden doğrudan sorumludur. Yetkisiz bir erişim veya güvenlik ihlali şüphesi halinde durum derhal Şirket'e bildirilmelidir.\n\n3.2:\n\nHesap kapsamında barındırılan içeriklerin, çalışan uygulamaların, web sitelerinin, gönderilen e-postaların ve tüm faaliyetlerin yürürlükteki hukuka uygunluğundan münhasıran Müşteri sorumludur. Yetkisiz sistem, ağ veya verilere erişim amacıyla Hizmet kullanılamayacağı gibi, Bytevell'nin önceden verilmiş yazılı izni olmaksızın Hizmetlerin üçüncü kişilere satışı veya devri gerçekleştirilemez."
+        },
+        {
+          "title": "Ücretler, Para Birimi ve Ödemeler",
+          "content": "4.1:\n\nHizmet bedelleri; sipariş adımlarında, sipariş özetinde veya ilgili faturada Türk Lirası (TRY), Amerikan Doları (USD) ya da Euro (EUR) cinsinden belirtilen tutarlardan ibarettir. Mevzuat gereği uygulanması gereken KDV, satış vergisi ve diğer yasal vergiler faturaya yansıtılır. Müşteri'nin ödeme yöntemi veya bankası tarafından uygulanan kur farkı, transfer komisyonu ve diğer masraflar Müşteri'nin sorumluluğundadır.\n\n4.2:\n\nMüşteri ödemelerini; Stripe entegrasyonu üzerinden kredi/banka kartı, Bytevell hesap bakiyesi, müşteri panelinde belirtilen banka hesaplarına havale/EFT veya Wise kanalıyla gerçekleştirebilir. Banka transferi ile yapılan ödemelerde fatura referans kodunun belirtilmesi zorunlu olup, ödeme Şirket hesaplarına geçip doğrulanana kadar sipariş askıda kalır. Nakdi (elden) ödemeler kabul edilmez.\n\n4.3:\n\nMüşteri, düzenlenen faturaları belirtilen son ödeme tarihine kadar ifa etmekle yükümlüdür. Faturaların vadesinde ödenmemesi halinde Bytevell, ilgili Hizmeti kısmen veya tamamen kısıtlama, askıya alma, iptal etme veya sonlandırma hakkını saklı tutar."
+        },
+        {
+          "title": "Otomatik Ödeme ve Yenileme",
+          "content": "5.1:\n\nOtomatik ödeme sistemi ihtiyaridir ve her Hizmet için Müşteri tarafından münferiden aktif edilebilir. İşbu sistem aktif edildiğinde Müşteri, fatura bedellerinin müşteri panelinde tanımlı ödeme yöntemlerinden (hesap bakiyesi veya kayıtlı Stripe kartı) otomatik olarak tahsil edilmesine muvafakat eder.\n\n5.2:\n\nAktif Hizmetler için müşteri paneli üzerinden erken yenileme imkanı sunulabilir. Yenileme işlemi ancak ilgili faturanın tamamen ödenmesi halinde hüküm ifade eder. Yenileme faturasının ödenmemesi durumunda işlem iptal edilir. Otomatik ödeme talimatı, hesaba yansıtılmış aktif bir fatura veya Hizmet dönemi bulunmadığı sürece kendiliğinden yeni bir taahhüt oluşturmaz."
+        },
+        {
+          "title": "Hizmet Değişiklikleri",
+          "content": "6.1:\n\nPaket yükseltme (upgrade) ve düşürme (downgrade) işlemleri; teknik uygunluğa, ürün uyumluluğuna, veri taşıma gereksinimlerine ve onay öncesinde Müşteri'ye ibraz edilen ücrete tabidir. Hizmet paketi değişiklikleri geçici kesintilere, yeniden kuruluma ya da yeni paket limitlerini aşan verilerin silinmesine yol açabilir.\n\n6.2:\n\nFiziksel sunucu paketlerindeki değişiklik talepleri, teknik destek biriminin manuel incelemesine tabidir. Bytevell, yürürlükteki mevzuat çerçevesinde makul bir süre öncesinden bildirimde bulunmak kaydıyla, sunduğu ürün ve hizmet özelliklerini gelecek dönemler için değiştirme veya yayından kaldırma hakkını saklı tutar."
+        },
+        {
+          "title": "Kabul Edilebilir Kullanım",
+          "content": "7.1:\n\nMüşteri, işbu Sözleşme'nin ayrılmaz bir parçası olan Adil Kullanım Politikası'na ve ürüne özel belirlenmiş kurallara riayet etmekle mükelleftir. İşbu kurallar; kaynak kullanımı, ağ trafiği, kripto para madenciliği, VPN/proxy yapılandırmaları, I/O limitleri, e-posta gönderimleri ve altyapıyı tehdit eden diğer eylemleri düzenler.\n\n7.2:\n\nBytevell, gelen kötüye kullanım (abuse) bildirimlerini ve şüpheli işlemleri inceleme hakkını haizdir. Yasalara aykırı içeriklerin kaldırılması, kaynakların sınırlandırılması veya Hizmetin askıya alınması işlemleri Şirket tarafından re'sen uygulanabilir. İhlalin niteliğine göre Müşteri'ye düzeltme imkanı tanınabilir; ancak güvenlik riskleri, dolandırıcılık, ağır suistimal halleri veya yasal mercilerin talepleri durumunda önceden bildirimde bulunmaksızın Hizmet sonlandırabilir."
+        },
+        {
+          "title": "Yedekleme ve Veriler",
+          "content": "8.1:\n\nMüşteri, Hizmet kapsamında barındırdığı verilerin bağımsız yedeklerini almak ve muhafaza etmekle yükümlüdür. Sunulan yedekleme, anlık görüntü (snapshot) veya geri yükleme özellikleri yardımcı araçlar olup, verilerin mutlak olarak eksiksiz, güncel veya kurtarılabilir olduğuna dair bir garanti verilmemektedir.\n\n8.2:\n\nSanal sunucu (VPS/VDS) hizmetlerinde yedekleme veya geri yükleme araçlarının kullanılması mevcut verilerin üzerine yazılmasına sebebiyet verebilir. Şirket'in manuel veri kurtarma taahhüdü bulunmamakla birlikte, talep halinde ek ücrete tabi olarak kurtarma desteği sağlanabilir. Hizmet süresinin sona ermesi, iptal, fesih veya hesap silme durumlarında barındırılan tüm veriler kalıcı olarak silinecektir."
+        },
+        {
+          "title": "Askıya Alma, İptal ve İadeler",
+          "content": "9.1:\n\nÖdemenin yapılmaması, dolandırıcılık şüphesi, güvenlik tehditleri, Sözleşme'nin esaslı ihlali, hukuka aykırı faaliyetler veya Adil Kullanım Politikası'nın çiğnenmesi hallerinde Bytevell, ilgili Hizmeti askıya alabilir, kısıtlayabilir veya feshedebilir. E-posta hosting hizmetlerinin askıya alınması durumunda e-posta trafiği durdurulur ve erişim engellenir.\n\n9.2:\n\nMüşteri, müşteri paneli veya destek talebi üzerinden Hizmet iptali isteyebilir. Fiziksel sunucu iptalleri destek ekibinin incelemesine tabidir. İade süreçleri, istisnaları ve yöntemleri Teslimat ve İade Politikası hükümlerine tabi olup; dolandırıcılık, kötüye kullanım ve kural ihlali nedeniyle sonlandırılan hizmetlerde herhangi bir ücret iadesi yapılması söz konusu değildir."
+        },
+        {
+          "title": "Feragatler ve Sorumluluğun Sınırlandırılması",
+          "content": "10.1:\n\nHizmetler, yürürlükteki mevzuatın izin verdiği ölçüde 'olduğu gibi' (as-is) ve 'kullanıma hazır olduğu şekliyle' (as-available) sunulmaktadır. Bytevell, Hizmetlerin kesintisiz, hatasız, güvenli veya veri kayıpsız çalışacağını garanti etmez; verilerin güvenliği ve yedeklenmesi sorumluluğu münhasıran Müşteri'ye aittir.\n\n10.2:\n\nYasal sınırların elverdiği azami ölçüde Bytevell; doğrudan, dolaylı, arızi, özel veya cezai zararlardan, kar kayıplarından yahut veri kayıplarından sorumlu tutulamaz. Şirket'in işbu Sözleşme kapsamındaki toplam mali sorumluluğu, her halükarda zarar doğuran olaydan önceki on iki (12) ay içinde Müşteri tarafından ilgili Hizmet için ödenen bedel ile sınırlıdır."
+        },
+        {
+          "title": "Değişiklikler ve Bildirimler",
+          "content": "11.1:\n\nBytevell, işbu Sözleşme hükümlerini gelecek dönemleri kapsamak üzere tek taraflı olarak güncelleme hakkını saklı tutar. Sözleşme değişiklikleri web sitesinde yayımlandığı tarihte yürürlüğe girer ve Müşteri'nin bu tarihten sonra Hizmeti kullanmaya devam etmesi değişikliklerin kabulü anlamına gelir.\n\n11.2:\n\nSözleşme, faturalama, güvenlik ve hesap işlemleri ile ilgili her türlü tebligat, Müşteri'nin kayıtlı e-posta adresine veya müşteri paneline elektronik ortamda iletilir. Müşteri, işbu iletilerin hukuken geçerli tebligat hükmünde olduğunu kabul eder."
+        },
+        {
+          "title": "Uygulanacak Hukuk ve Yetkili Mahkeme",
+          "content": "12.1:\n\nİşbu Sözleşme, kanunlar ihtilafı kurallarına bakılmaksızın Amerika Birleşik Devletleri Delaware Eyaleti yasalarına tabidir. Tüketici mevzuatından doğan zorunlu haklar saklı kalmak kaydıyla, işbu Sözleşme'den kaynaklanan her türlü uyuşmazlığın çözümünde Delaware Eyalet Mahkemeleri ve Federal Mahkemeleri münhasıran yetkilidir.\n\n12.2:\n\nİşbu Sözleşme veya Hizmetler ile ilgili tüm soru ve bildirimler, müşteri paneli destek sistemi veya bytevell.com üzerinde yer alan resmi iletişim kanalları vasıtasıyla Bytevell LLC'ye yönlendirilmelidir.\n\nSunucunuzu şimdi başlatın.\n\nBytevell'nin üstün altyapısı ile projelerinizi özgürce inşa edin ve sınır tanımadan ölçeklendirin."
+        },
+        {
+          "title": "Bize Ulaşın",
+          "content": "Geliştirme:"
+        },
+        {
+          "title": "Zukrein",
+          "content": "Tasarım:"
+        },
+        {
+          "title": "Hero Artz",
+          "content": "© 2026 Bytevell LLC. Tüm hakları saklıdır."
+        }
+      ]
     },
     "Privacy": {
       "title": "Gizlilik Politikası",
       "lastUpdated": "Ağustos 2026",
-      "h1": "1. Toplanan Bilgiler",
-      "p1": "Hesap oluştururken, hizmet satın alırken veya destek talebi açarken bize sağladığınız isim, e-posta adresi, fatura adresi gibi kişisel bilgileri topluyoruz.",
-      "h2": "2. Bilgilerin Kullanımı",
-      "p2": "Topladığımız bilgileri; hizmet sağlamak, ödemeleri işlemek, destek sağlamak ve önemli hesap güncellemelerini bildirmek amacıyla kullanıyoruz.",
-      "h3": "3. Veri Güvenliği",
-      "p3": "Kişisel bilgilerinizin güvenliğini ciddiye alıyoruz. Verilerinizi yetkisiz erişime, değiştirilmeye veya ifşa edilmeye karşı korumak için sektör standardı güvenlik önlemleri uyguluyoruz.",
-      "h4": "4. Çerezler (Cookies)",
-      "p4": "Sitemizin işlevselliğini artırmak ve oturum yönetimini sağlamak için çerezler kullanmaktayız. Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz.",
-      "h5": "5. Üçüncü Taraflarla Paylaşım",
-      "p5": "Kişisel bilgilerinizi, ödeme sağlayıcıları gibi hizmetleri yürütebilmek için zorunlu olan üçüncü taraflar dışında, pazarlama amacıyla asla satmıyor veya paylaşmıyoruz."
+      "sections": []
     },
     "Refund": {
       "title": "Teslimat ve İade Politikası",
       "lastUpdated": "Ağustos 2026",
-      "h1": "1. Hizmet Teslimatı",
-      "p1": "Ödemesi onaylanan Sanal Sunucu (VDS) ve Web Hosting paketlerimiz genellikle saniyeler içerisinde otomatik olarak kurulur ve teslim edilir. Fiziksel (Dedicated) sunucuların kurulum süresi donanıma göre 1 ile 48 saat arasında değişebilir.",
-      "h2": "2. İade Koşulları",
-      "p2": "Yeni müşterilerimiz için ilk satın alımlarda (Fiziksel sunucular ve alan adları hariç) 3 gün içerisinde koşulsuz şartsız iade garantisi sunuyoruz.",
-      "h3": "3. İade Edilemeyen Hizmetler",
-      "l1": "Alan adı (Domain) kayıt, yenileme ve transfer işlemleri",
-      "l2": "Fiziksel (Dedicated) Sunucular",
-      "l3": "SSL Sertifikaları",
-      "l4": "Özel yazılım lisansları (cPanel, LiteSpeed vb.)",
-      "h4": "4. İade Süreci",
-      "p4": "İade talebinizi müşteri panelinizden destek talebi (ticket) açarak bize iletebilirsiniz. İadeniz onaylandıktan sonra, ödeme yönteminize bağlı olarak 3-7 iş günü içerisinde tarafınıza yansıtılacaktır."
+      "sections": [
+        {
+          "title": "Giriş",
+          "content": "1.1:\n\nMüşteri tarafından verilen siparişin onaylanmasını müteakip, sunucu kurulum süreci otomatik olarak başlatılır. Hizmete ilişkin erişim ve yönetim detayları, Müşteri'nin kayıtlı e-posta adresine ve müşteri paneline ivedilikle iletilir.\n\n1.2:\n\nBytevell LLC, fiziksel veya sanal sunucu hizmetlerine ilişkin iade taleplerini inceleme ve karara bağlama yetkisini tek taraflı olarak saklı tutar. İade işlemleri ancak Şirket'in yazılı onayı halinde gerçekleştirilebilecektir.\n\n1.3:\n\nİndirim, promosyon veya kampanya kuponları kullanılmak suretiyle sipariş edilen hizmetler kapsamında herhangi bir iade işlemi tesis edilmesi mümkün değildir.\n\n1.4:\n\nBytevell LLC'den hizmet alan tüm Müşteriler, işbu teslimat ve iade şartlarını peşinen kabul, beyan ve taahhüt ederler. Bytevell LLC, işbu hükümlerde dilediği zaman değişiklik yapma yetkisini haizdir."
+        },
+        {
+          "title": "Web ve Mail Hosting Hizmetleri",
+          "content": "2.1:\n\nSiparişin onaylanmasıyla birlikte web hosting kurulum süreci otomatik olarak başlatılır. Hizmetin aktivasyonuna dair tüm teknik detaylar en kısa sürede Müşteri'nin kayıtlı e-posta adresine ve müşteri paneline gönderilir.\n\n2.2:\n\nBytevell LLC, web hosting hizmetlerine ilişkin iade taleplerini münferiden değerlendirme hakkını saklı tutar. İade süreci ancak Şirket'in onayı dahilinde işletilebilir.\n\n2.3:\n\nBytevell LLC bünyesinde hesap oluşturan ve hizmet alan Müşteriler, işbu teslimat ve iade politikası hükümlerini kabul etmiş sayılır. Şirket, işbu şartlarda tek taraflı değişiklik yapma hakkına sahiptir.\n\nSunucunuzu şimdi başlatın.\n\nBytevell'nin üstün altyapısı ile projelerinizi özgürce inşa edin ve sınır tanımadan ölçeklendirin."
+        },
+        {
+          "title": "Bize Ulaşın",
+          "content": "Geliştirme:"
+        },
+        {
+          "title": "Zukrein",
+          "content": "Tasarım:"
+        },
+        {
+          "title": "Hero Artz",
+          "content": "© 2026 Bytevell LLC. Tüm hakları saklıdır."
+        }
+      ]
     },
     "FairUse": {
       "title": "Adil Kullanım Politikası",
       "lastUpdated": "Ağustos 2026",
-      "h1": "1. Amacımız",
-      "p1": "Adil Kullanım Politikamız (AKP), tüm müşterilerimize yüksek kalitede ve kesintisiz hizmet sunabilmemizi sağlamak için tasarlanmıştır. \"Limitsiz\" olarak sunulan hizmetlerin suistimal edilmesini önlemeyi amaçlar.",
-      "h2": "2. Limitsiz Trafik ve Bant Genişliği",
-      "p2": "VDS ve Dedicated sunucularda sunulan limitsiz trafik, normal ve meşru kullanım standartlarına tabidir. Sunucu hatlarını sürekli ve aralıksız olarak %100 kapasitede kullanarak ağ altyapısına zarar veren kullanımlar bu kapsama girmez.",
-      "h3": "3. Kaynak Kullanımı",
-      "p3": "Paylaşımlı web hosting hizmetlerinde CPU, RAM ve I/O kaynaklarının diğer kullanıcıları olumsuz etkileyecek düzeyde ve sürekli olarak yüksek kullanılması durumunda hesabınız sınırlandırılabilir.",
-      "h4": "4. Depolama Sınırları",
-      "p4": "Hosting paketlerindeki disk alanları, sadece web sitesi dosyalarının barındırılması içindir. Kişisel yedekleme arşivi, dosya paylaşım merkezi veya bulut disk olarak kullanılamaz."
+      "sections": []
     },
     "Support": {
       "title": "Genel Destek Politikası",
       "lastUpdated": "Ağustos 2026",
-      "h1": "1. Destek Kapsamı",
-      "p1": "Teknik destek ekibimiz, sunucu altyapısı, ağ bağlantısı, donanım arızaları ve Bytevell tarafından sağlanan kontrol panelleriyle ilgili sorunlarda 7/24 hizmet vermektedir.",
-      "h2": "2. Kapsam Dışı Konular",
-      "p2": "Unmanaged (Yönetimsiz) sunucularda işletim sistemi içi yapılandırmalar, üçüncü parti yazılım kurulumları, web sitesi yazılım hataları ve SEO/tasarım düzenlemeleri standart destek kapsamı dışındadır.",
-      "h3": "3. Yanıt Süreleri",
-      "p3": "Destek taleplerinize öncelik sırasına göre en hızlı şekilde yanıt verilmektedir. Ortalama ilk yanıt süremiz 15 dakikadır.",
-      "h4": "4. İletişim Kanalları",
-      "p4": "Destek taleplerinizi müşteri panelinizdeki bilet (ticket) sistemi üzerinden iletmeniz gerekmektedir. Canlı destek hattımız sadece satış öncesi bilgi ve acil durumlar için hizmet vermektedir."
+      "sections": [
+        {
+          "title": "Giriş",
+          "content": "1.1:\n\nİşbu Genel Destek Politikası kapsamında sunulan web hosting hizmetlerinde, yalnızca sunucu tarafındaki altyapısal arızalara ilişkin teknik destek sağlanmaktadır.\n\n1.2:\n\nWeb sitelerinde meydana gelebilecek yazılımsal veya tasarımsal aksaklıklar, kullanıcı kaynaklı hatalar ve üçüncü taraf yazılım entegrasyonlarından neşet eden sorunlar işbu destek kapsamı haricinde olup, bunlara ilişkin sorumluluk tamamen Müşteri'ye aittir.\n\n1.3:\n\nYazılımsal destek gerektiren hallerde, harici bir yazılım uzmanından veya ilgili yazılım/hizmet sağlayıcısından destek temin edilmesi Müşteri'nin sorumluluğundadır."
+        },
+        {
+          "title": "Sanal ve Fiziksel Sunucu Hizmetleri",
+          "content": "2.1:\n\nSağlanan sanal ve fiziksel sunucu hizmetleri 'unmanaged' (yönetilmeyen) statüde olup, teknik destek münhasıran fiziksel donanım arızaları ve sanal altyapı operasyonları ile sınırlıdır.\n\n2.2:\n\nSunucu bünyesinde barındırılan yazılımlar, işletim sistemleri, servisler, eklentiler veya Müşteri tarafından yüklenen diğer uygulamalardan kaynaklanan her türlü ihtilaf ve teknik sorun tamamen Müşteri'nin sorumluluğundadır.\n\n2.3:\n\nMüşteri'nin 'managed' (yönetilen) sunucu hizmeti talep etmesi halinde, ek bir hizmet sözleşmesi akdedilmeli ve buna ilişkin destek paketi satın alınmalıdır."
+        },
+        {
+          "title": "Ekstra Destek Hizmetleri",
+          "content": "3.1:\n\nYönetilen Hizmet Paketi: Sunucu işletim sisteminin idaresi, yazılım güncellemeleri, güvenlik yamalarının uygulanması ve konfigürasyon desteği gibi kapsamlı teknik işlemler Müşteri tarafından talep edilebilir. İşbu hizmet, ek ücrete ve ayrı bir sözleşmeye tabidir.\n\n3.2:\n\nAcil Durum Müdahalesi: Kritik mahiyetteki teknik aksaklıklarda, Müşteri ek bir hizmet bedeli karşılığında acil müdahale talep edebilir. Acil destek talepleri, iş yoğunluğu ve teknik imkanlar çerçevesinde en kısa sürede işleme alınacaktır."
+        }
+      ]
     },
     "lastUpdatedLabel": "Son Güncelleme"
   },

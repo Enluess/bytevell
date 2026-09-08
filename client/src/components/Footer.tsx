@@ -13,9 +13,9 @@ export function Footer() {
       <div className="container mx-auto px-5 sm:px-6 lg:px-10 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
 
-          <div className="lg:col-span-5 flex flex-col gap-6 pr-8">
+          <div className="lg:col-span-5 flex flex-col gap-6 lg:pr-8">
             <Link href="/" className="flex items-center">
-              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={120} height={32} className="object-contain" style={{ width: 'auto', height: 'auto' }} />
+              <Image src="/bytevell-beyaz.svg" alt="Bytevell Logo" width={120} height={32} className="object-contain" />
             </Link>
             <p className="text-[15px] text-foreground-secondary leading-relaxed max-w-md">
               {t('desc')}
