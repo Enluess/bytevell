@@ -117,7 +117,7 @@ export default function StorePage() {
       </div>
 
       {groups.length === 0 ? (
-        <div className="px-8 py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+        <div className="px-8 py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
           <Cloud className="w-12 h-12 text-white/20 mb-4" />
           <h3 className="text-white font-semibold text-[16px] tracking-tight mb-2">{t('no_groups')}</h3>
         </div>
@@ -131,13 +131,13 @@ export default function StorePage() {
               <Link
                 key={group.id}
                 href={`/panel/store/${group.slug}`}
-                className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-7 hover:bg-white/[0.04] transition-all duration-500 flex flex-col backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-7 hover:bg-white/[0.04] transition-all duration-500 flex flex-col backdrop-blur-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-2xl ${colors.bg} flex items-center justify-center mb-6 border ${colors.border} transition-transform group-hover:scale-110 duration-500`}>
+                  <div className={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center mb-6 border ${colors.border} transition-transform group-hover:scale-110 duration-500`}>
                     <IconComponent className={`w-6 h-6 ${colors.text}`} />
                   </div>
 

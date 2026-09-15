@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { Link } from '@/i18n/routing';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Eye, EyeOff } from 'lucide-react';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { api, ApiError } from '@/lib/api';
@@ -29,6 +29,8 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -60,7 +62,7 @@ export default function RegisterPage() {
 
       setSuccess(t('success'));
       setTimeout(() => {
-        router.push('/auth/login');
+        router.push(`/auth/verify-email?email=${encodeURIComponent(email)}`);
       }, 1500);
     } catch (err: any) {
       if (err instanceof ApiError) {
@@ -129,6 +131,8 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <label className="text-[13px] text-white/70 flex gap-1">{t('phone')} <span className="text-red-500">*</span></label>
                 <PhoneInput
+                  international
+                  countryCallingCodeEditable={false}
                   defaultCountry="TR"
                   value={phone}
                   onChange={(val) => setPhone(val || "")}
@@ -221,26 +225,44 @@ export default function RegisterPage() {
           <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
             <div className="space-y-2">
               <label className="text-[13px] text-white/70 flex gap-1">{t('password')} <span className="text-red-500">*</span></label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full bg-[#0A0A0A]/50 border border-white/5 hover:border-white/10 focus:border-white/30 rounded-xl px-4 py-3 text-white text-[14px] outline-none transition-all placeholder:text-white/20"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full bg-[#0A0A0A]/50 border border-white/5 hover:border-white/10 focus:border-white/30 rounded-xl px-4 py-3 pr-10 text-white text-[14px] outline-none transition-all placeholder:text-white/20"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             <div className="space-y-2">
               <label className="text-[13px] text-white/70 flex gap-1">{t('confirm_password')} <span className="text-red-500">*</span></label>
-              <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-                className="w-full bg-[#0A0A0A]/50 border border-white/5 hover:border-white/10 focus:border-white/30 rounded-xl px-4 py-3 text-white text-[14px] outline-none transition-all placeholder:text-white/20"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  className="w-full bg-[#0A0A0A]/50 border border-white/5 hover:border-white/10 focus:border-white/30 rounded-xl px-4 py-3 pr-10 text-white text-[14px] outline-none transition-all placeholder:text-white/20"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
+                >
+                  {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
           </div>
         )}

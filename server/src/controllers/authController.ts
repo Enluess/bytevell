@@ -1,8 +1,9 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { eq } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 import * as argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import { sendVerificationEmail } from '../lib/email.js';
 import { db } from '../db/index.js';
 import { users, activityLogs, userSessions } from '../db/schema.js';
 import { AppError, ErrorCodes, sendError } from '../lib/errors.js';
@@ -32,9 +33,12 @@ export const register = async (
         }
 
         const hashedPassword = await argon2.hash(password);
+        const emailVerifyToken = Math.floor(100000 + Math.random() * 900000).toString(); // 6 digit code
+        
         const [user] = await db.insert(users).values({
             email,
             password: hashedPassword,
+            emailVerifyToken,
             name,
             taxId: tc || undefined,
             phone: phone || undefined,
@@ -44,6 +48,9 @@ export const register = async (
             country: country || undefined,
             postalCode: postalCode || undefined,
         }).returning();
+
+        // Send email asynchronously (don't await to not block the response)
+        sendVerificationEmail(user.email, emailVerifyToken);
 
         // Log activity
         await db.insert(activityLogs).values({
@@ -86,6 +93,10 @@ export const login = async (
 
         if (user.status !== 'active') {
             throw new AppError(ErrorCodes.AUTH_ACCOUNT_SUSPENDED, 'Your account has been suspended', 403);
+        }
+
+        if (!user.emailVerified) {
+            throw new AppError(ErrorCodes.AUTH_ACCOUNT_SUSPENDED, 'Lütfen önce e-posta adresinizi doğrulayın', 403);
         }
 
         // Try argon2 first, if it fails format check, it might be an old bcrypt hash from development. 
@@ -182,6 +193,81 @@ export const logout = async (
             await db.delete(userSessions).where(eq(userSessions.id, sessionId));
         }
         reply.send({ success: true, message: 'Logged out successfully' });
+    } catch (error) {
+        sendError(reply, error);
+    }
+};
+
+export const verifyEmail = async (
+    request: FastifyRequest,
+    reply: FastifyReply
+) => {
+    try {
+        const { email, code } = request.body as { email: string; code: string };
+        if (!email || !code) {
+            throw new AppError(ErrorCodes.VALIDATION_ERROR, 'Email and code are required', 400);
+        }
+
+        const user = await db.query.users.findFirst({
+            where: and(eq(users.email, email.toLowerCase()), eq(users.emailVerifyToken, code)),
+        });
+
+        if (!user) {
+            throw new AppError(ErrorCodes.VALIDATION_ERROR, 'Invalid or expired verification token', 400);
+        }
+
+        await db.update(users)
+            .set({ 
+                emailVerified: true,
+                emailVerifyToken: null 
+            })
+            .where(eq(users.id, user.id));
+
+        // Log activity
+        await db.insert(activityLogs).values({
+            userId: user.id,
+            action: 'Email verified',
+            category: 'auth',
+            ipAddress: request.ip || undefined,
+        });
+
+        reply.send({ success: true, message: 'Email verified successfully' });
+    } catch (error) {
+        sendError(reply, error);
+    }
+};
+
+export const resendVerificationEmail = async (
+    request: FastifyRequest,
+    reply: FastifyReply
+) => {
+    try {
+        const { email } = request.body as { email: string };
+        if (!email) {
+            throw new AppError(ErrorCodes.VALIDATION_ERROR, 'Email is required', 400);
+        }
+
+        const user = await db.query.users.findFirst({
+            where: eq(users.email, email.toLowerCase()),
+        });
+
+        if (!user) {
+            throw new AppError(ErrorCodes.NOT_FOUND, 'User not found', 404);
+        }
+
+        if (user.emailVerified) {
+            throw new AppError(ErrorCodes.VALIDATION_ERROR, 'Email is already verified', 400);
+        }
+
+        const newCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+        await db.update(users)
+            .set({ emailVerifyToken: newCode })
+            .where(eq(users.id, user.id));
+
+        sendVerificationEmail(user.email, newCode);
+
+        reply.send({ success: true, message: 'Verification code resent' });
     } catch (error) {
         sendError(reply, error);
     }

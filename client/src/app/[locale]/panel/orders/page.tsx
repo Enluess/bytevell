@@ -46,12 +46,12 @@ export default function OrdersPage() {
             <Link 
               href={`/panel/orders/${order.id}`}
               key={order.id} 
-              className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl"
+              className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="flex items-center gap-6 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
                   <ShoppingCart className="w-6 h-6 text-white/50 group-hover:text-white transition-colors" />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ export default function OrdersPage() {
             </Link>
           ))
         ) : (
-          <div className="px-6 py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+          <div className="px-6 py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
             <ShoppingCart className="w-12 h-12 text-white/20 mb-4" />
             <h3 className="text-white font-medium text-lg tracking-tight mb-2">{t('no_orders') || 'No Orders'}</h3>
             <p className="text-white/40 text-[14px] max-w-sm tracking-wide">You don't have any orders yet.</p>

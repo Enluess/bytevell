@@ -46,7 +46,7 @@ export function PanelHeader() {
         
         {/* Command Palette Trigger */}
         <button 
-          className="hidden sm:flex items-center gap-3 px-4 py-2.5 bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 rounded-2xl text-white/40 hover:text-white/60 transition-all duration-300 w-72 backdrop-blur-xl"
+          className="hidden sm:flex items-center gap-3 px-4 py-2.5 bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 rounded-xl text-white/40 hover:text-white/60 transition-all duration-300 w-72 backdrop-blur-xl"
           onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
         >
           <Search className="w-4 h-4" />

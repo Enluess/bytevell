@@ -110,7 +110,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {recentServices.length > 0 ? (
             recentServices.map((service: any, i: number) => (
-              <Link key={i} href={`/panel/services/${service.id}`} className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between min-h-[160px] backdrop-blur-xl">
+              <Link key={i} href={`/panel/services/${service.id}`} className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between min-h-[160px] backdrop-blur-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="flex items-start justify-between relative z-10">
@@ -137,7 +137,7 @@ export default function DashboardPage() {
               </Link>
             ))
           ) : (
-            <div className="col-span-full py-16 text-center rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center">
+            <div className="col-span-full py-16 text-center rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center">
               <Server className="w-12 h-12 text-white/20 mb-4" />
               <p className="text-white/50 text-[15px]">{t('no_infrastructure')}</p>
             </div>

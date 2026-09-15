@@ -39,7 +39,7 @@ export default function ProfileSettingsPage() {
         </Link>
       </div>
 
-      <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 backdrop-blur-xl shadow-sm">
+      <div className="bg-white/[0.02] border border-white/5 rounded-xl p-8 backdrop-blur-xl shadow-sm">
         <h2 className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-8 flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
             <User className="w-4 h-4 text-white/50" />
@@ -56,7 +56,7 @@ export default function ProfileSettingsPage() {
                 type="text" 
                 readOnly
                 value={mounted && user?.name ? user.name : '-'}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide"
               />
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function ProfileSettingsPage() {
                 type="email" 
                 readOnly
                 value={mounted && user?.email ? user.email : '-'}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function ProfileSettingsPage() {
                 type="text" 
                 readOnly
                 value={mounted && user?.role ? user.role : 'USER'}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide font-mono uppercase"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-[14px] text-white/50 outline-none cursor-not-allowed tracking-wide font-mono uppercase"
               />
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function ProfileSettingsPage() {
                 type="text" 
                 readOnly
                 value={`₺${mounted && user?.balance ? user.balance : '0.00'}`}
-                className="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-3 pl-12 pr-4 text-[14px] text-emerald-400 font-semibold outline-none cursor-not-allowed tracking-wide"
+                className="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-xl py-3 pl-12 pr-4 text-[14px] text-emerald-400 font-semibold outline-none cursor-not-allowed tracking-wide"
               />
             </div>
           </div>

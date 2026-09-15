@@ -110,7 +110,7 @@ export default function TicketDetailPage() {
       </div>
 
       {error && !submitting && (
-        <div className="shrink-0 px-6 py-4 mb-8 rounded-2xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
+        <div className="shrink-0 px-6 py-4 mb-8 rounded-xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
           {error}
         </div>
       )}
@@ -120,10 +120,10 @@ export default function TicketDetailPage() {
         {/* Initial Ticket Message */}
         {ticket.message && (
           <div className="flex gap-6">
-            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 shrink-0 flex items-center justify-center text-white/50 shadow-sm">
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 shrink-0 flex items-center justify-center text-white/50 shadow-sm">
               <User className="w-5 h-5" />
             </div>
-            <div className="flex-1 bg-white/[0.02] border border-white/5 rounded-3xl rounded-tl-sm p-6 text-white backdrop-blur-xl">
+            <div className="flex-1 bg-white/[0.02] border border-white/5 rounded-xl rounded-tl-sm p-6 text-white backdrop-blur-xl">
               <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-4">
                 <span className="font-semibold text-[15px] tracking-tight">{t('you')}</span>
                 <span className="text-[12px] font-mono text-white/30">{new Date(ticket.createdAt).toLocaleString()}</span>
@@ -138,14 +138,14 @@ export default function TicketDetailPage() {
           const isAdmin = msg.senderRole === 'ADMIN';
           return (
             <div key={msg.id} className={`flex gap-6 ${isAdmin ? 'flex-row-reverse' : ''}`}>
-              <div className={`w-12 h-12 rounded-2xl shrink-0 flex items-center justify-center shadow-sm border ${
+              <div className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center shadow-sm border ${
                 isAdmin 
                   ? 'bg-blue-400/10 border-blue-400/20 text-blue-400' 
                   : 'bg-white/5 border-white/10 text-white/50'
               }`}>
                 {isAdmin ? <Server className="w-5 h-5" /> : <User className="w-5 h-5" />}
               </div>
-              <div className={`flex-1 max-w-[85%] border rounded-3xl p-6 text-white backdrop-blur-xl ${
+              <div className={`flex-1 max-w-[85%] border rounded-xl p-6 text-white backdrop-blur-xl ${
                 isAdmin 
                   ? 'bg-blue-400/[0.02] border-blue-400/10 rounded-tr-sm' 
                   : 'bg-white/[0.02] border-white/5 rounded-tl-sm'
@@ -166,7 +166,7 @@ export default function TicketDetailPage() {
 
       {/* Reply Input */}
       {ticket.status !== 'closed' ? (
-        <form onSubmit={handleReply} className="shrink-0 bg-white/[0.02] border border-white/5 rounded-3xl p-6 focus-within:border-white/20 transition-all duration-300 backdrop-blur-xl shadow-lg">
+        <form onSubmit={handleReply} className="shrink-0 bg-white/[0.02] border border-white/5 rounded-xl p-6 focus-within:border-white/20 transition-all duration-300 backdrop-blur-xl shadow-lg">
           <textarea 
             required
             rows={3}
@@ -193,7 +193,7 @@ export default function TicketDetailPage() {
           </div>
         </form>
       ) : (
-        <div className="shrink-0 p-6 rounded-3xl border border-white/5 bg-white/[0.02] text-center text-white/40 text-[14px] font-medium tracking-wide backdrop-blur-xl">
+        <div className="shrink-0 p-6 rounded-xl border border-white/5 bg-white/[0.02] text-center text-white/40 text-[14px] font-medium tracking-wide backdrop-blur-xl">
           {t('closed_warning')}
         </div>
       )}

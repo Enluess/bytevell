@@ -111,22 +111,22 @@ export default function TicketsPage() {
       </div>
 
       {successMsg && (
-        <div className="px-6 py-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm font-medium backdrop-blur-md">
+        <div className="px-6 py-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm font-medium backdrop-blur-md">
           {successMsg}
         </div>
       )}
       
       {error && !showNew && (
-        <div className="px-6 py-4 rounded-2xl border border-red-500/20 bg-red-500/10 text-red-400 text-sm font-medium backdrop-blur-md">
+        <div className="px-6 py-4 rounded-xl border border-red-500/20 bg-red-500/10 text-red-400 text-sm font-medium backdrop-blur-md">
           {error}
         </div>
       )}
 
       {showNew && (
-        <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 backdrop-blur-xl">
+        <div className="bg-white/[0.02] border border-white/5 rounded-xl p-8 backdrop-blur-xl">
           <form onSubmit={handleCreate} className="space-y-6">
             {error && (
-              <div className="px-6 py-4 rounded-2xl border border-red-500/20 bg-red-500/10 text-red-400 text-sm font-medium backdrop-blur-md">
+              <div className="px-6 py-4 rounded-xl border border-red-500/20 bg-red-500/10 text-red-400 text-sm font-medium backdrop-blur-md">
                 {error}
               </div>
             )}
@@ -137,7 +137,7 @@ export default function TicketsPage() {
                 required
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-white/30 transition-all text-[15px]"
+                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-white/30 transition-all text-[15px]"
                 placeholder={t('placeholder_subject')}
               />
             </div>
@@ -148,7 +148,7 @@ export default function TicketsPage() {
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-white/30 transition-all resize-none text-[15px]"
+                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-white/30 transition-all resize-none text-[15px]"
                 placeholder={t('placeholder_message')}
               />
             </div>
@@ -179,12 +179,12 @@ export default function TicketsPage() {
             <Link 
               href={`/panel/tickets/${ticket.id}`}
               key={ticket.id} 
-              className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl"
+              className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="flex items-center gap-6 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
                   <Ticket className="w-6 h-6 text-white/50 group-hover:text-white transition-colors" />
                 </div>
                 <div>
@@ -216,7 +216,7 @@ export default function TicketsPage() {
             </Link>
           ))
         ) : (
-          <div className="px-6 py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+          <div className="px-6 py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
             <MessageSquare className="w-12 h-12 text-white/20 mb-4" />
             <h3 className="text-white font-medium text-lg tracking-tight mb-2">{t('no_tickets')}</h3>
             <p className="text-white/40 text-[14px] tracking-wide">{t('no_tickets_desc')}</p>

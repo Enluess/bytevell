@@ -769,7 +769,7 @@
       "have_account": "Already have an account?",
       "login_link": "Sign In",
       "error": "Registration failed or email already in use.",
-      "success": "Registration successful! Redirecting to login...",
+      "success": "Registration successful! Please click the verification link sent to your email.",
       "tc": "National ID",
       "phone": "Phone Number",
       "address": "Address",

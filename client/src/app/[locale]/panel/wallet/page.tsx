@@ -47,7 +47,7 @@ export default function WalletPage() {
       </div>
 
       {/* Balance Card */}
-      <div className="relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-8 backdrop-blur-xl">
+      <div className="relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-8 backdrop-blur-xl">
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-50"></div>
         <div className="flex items-center justify-between relative z-10">
           <div>
@@ -56,7 +56,7 @@ export default function WalletPage() {
               {parseFloat(balance).toFixed(2)} <span className="text-xl text-white/40 tracking-widest font-medium">{currency}</span>
             </p>
           </div>
-          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-sm">
+          <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-sm">
             <Wallet className="w-8 h-8 text-white/50" />
           </div>
         </div>
@@ -70,11 +70,11 @@ export default function WalletPage() {
             transactions.map((tx) => {
               const isCredit = parseFloat(tx.amount) > 0;
               return (
-                <div key={tx.id} className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl">
+                <div key={tx.id} className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xl">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="flex items-center gap-6 relative z-10">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm border ${isCredit ? 'bg-emerald-400/10 border-emerald-400/20 text-emerald-400' : 'bg-red-400/10 border-red-400/20 text-red-400'}`}>
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 shadow-sm border ${isCredit ? 'bg-emerald-400/10 border-emerald-400/20 text-emerald-400' : 'bg-red-400/10 border-red-400/20 text-red-400'}`}>
                       {isCredit ? <ArrowDownLeft className="w-6 h-6" /> : <ArrowUpRight className="w-6 h-6" />}
                     </div>
                     <div>
@@ -101,7 +101,7 @@ export default function WalletPage() {
               );
             })
           ) : (
-            <div className="px-6 py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+            <div className="px-6 py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
               <Wallet className="w-12 h-12 text-white/20 mb-4" />
               <p className="text-white/40 text-[14px] tracking-wide">{t('no_transactions')}</p>
             </div>

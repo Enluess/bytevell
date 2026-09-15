@@ -32,7 +32,7 @@ export default function SecuritySettingsPage() {
         </Link>
       </div>
 
-      <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 backdrop-blur-xl shadow-sm">
+      <div className="bg-white/[0.02] border border-white/5 rounded-xl p-8 backdrop-blur-xl shadow-sm">
         <h2 className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-8 flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
             <KeyRound className="w-4 h-4 text-white/50" />

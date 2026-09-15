@@ -58,7 +58,7 @@ export default function KnowledgebasePage() {
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder={t('search_placeholder')}
-          className="w-full bg-white/[0.02] border border-white/5 rounded-2xl pl-14 pr-6 py-4 text-white text-[15px] outline-none focus:border-white/20 transition-all backdrop-blur-xl placeholder:text-white/20 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.02)]"
+          className="w-full bg-white/[0.02] border border-white/5 rounded-xl pl-14 pr-6 py-4 text-white text-[15px] outline-none focus:border-white/20 transition-all backdrop-blur-xl placeholder:text-white/20 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.02)]"
         />
       </div>
 
@@ -66,7 +66,7 @@ export default function KnowledgebasePage() {
       {searchResults.length > 0 && (
         <div className="grid grid-cols-1 gap-4">
           {searchResults.map((article) => (
-            <Link key={article.id} href={`/panel/knowledgebase/${article.slug}`} className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex items-center justify-between gap-6 backdrop-blur-xl">
+            <Link key={article.id} href={`/panel/knowledgebase/${article.slug}`} className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 flex items-center justify-between gap-6 backdrop-blur-xl">
               <div className="absolute inset-0 bg-gradient-to-r from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative z-10 flex-1 min-w-0">
@@ -85,11 +85,11 @@ export default function KnowledgebasePage() {
       {searchQuery.length < 2 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {categories.map((cat) => (
-            <Link key={cat.id} href={`/panel/knowledgebase/${cat.slug}`} className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 backdrop-blur-xl min-h-[160px] flex flex-col justify-between">
+            <Link key={cat.id} href={`/panel/knowledgebase/${cat.slug}`} className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-500 backdrop-blur-xl min-h-[160px] flex flex-col justify-between">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="flex items-start gap-4 relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-sm">
                   <BookOpen className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -105,7 +105,7 @@ export default function KnowledgebasePage() {
             </Link>
           ))}
           {categories.length === 0 && (
-            <div className="col-span-full py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+            <div className="col-span-full py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
               <BookOpen className="w-12 h-12 text-white/20 mb-4" />
               <p className="text-white/40 text-[14px] tracking-wide">{t('no_categories')}</p>
             </div>

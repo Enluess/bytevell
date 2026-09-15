@@ -762,7 +762,7 @@
       "have_account": "Haben Sie bereits ein Konto?",
       "login_link": "Anmelden",
       "error": "Registrierung fehlgeschlagen oder E-Mail wird bereits verwendet.",
-      "success": "Registrierung erfolgreich! Weiterleitung zur Anmeldung...",
+      "success": "Registrierung erfolgreich! Bitte klicken Sie auf den Bestätigungslink in Ihrer E-Mail.",
       "tc": "Ausweisnummer",
       "phone": "Telefonnummer",
       "address": "Adresse",

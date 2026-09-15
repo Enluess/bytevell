@@ -111,13 +111,13 @@ export default function StoreGroupPage() {
       </div>
 
       {products.length === 0 ? (
-        <div className="px-8 py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+        <div className="px-8 py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
           <Cloud className="w-12 h-12 text-white/20 mb-4" />
           <h3 className="text-white font-semibold text-[16px] tracking-tight mb-2">{t('no_products')}</h3>
         </div>
       ) : isTableView ? (
         /* TABLE VIEW for VPS/Dedicated style products */
-        <div className="bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-xl overflow-hidden">
+        <div className="bg-white/[0.02] border border-white/5 rounded-xl backdrop-blur-xl overflow-hidden">
           {/* Table Header */}
           <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_auto_auto] gap-4 px-8 py-4 border-b border-white/5">
             <span className="text-[11px] uppercase tracking-widest font-bold text-white/30">{t('package')}</span>
@@ -196,7 +196,7 @@ export default function StoreGroupPage() {
             return (
               <div
                 key={product.id}
-                className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-7 hover:bg-white/[0.04] transition-all duration-500 flex flex-col backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-7 hover:bg-white/[0.04] transition-all duration-500 flex flex-col backdrop-blur-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 

@@ -13,7 +13,7 @@ export default function PanelLayout({
     <div className="flex h-screen bg-background text-foreground overflow-hidden">
       {/* Floating Sidebar hidden on mobile by default, shown on lg */}
       <div className="hidden lg:flex z-40 w-[260px] shrink-0 p-4 lg:p-8 lg:pr-0">
-        <div className="w-full h-full bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden flex flex-col relative before:absolute before:inset-0 before:-z-10 before:backdrop-blur-2xl">
+        <div className="w-full h-full bg-white/[0.02] border border-white/5 rounded-xl overflow-hidden flex flex-col relative before:absolute before:inset-0 before:-z-10 before:backdrop-blur-2xl">
           <PanelSidebar />
         </div>
       </div>

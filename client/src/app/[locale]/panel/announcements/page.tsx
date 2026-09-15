@@ -40,10 +40,10 @@ export default function AnnouncementsPage() {
 
       <div className="grid grid-cols-1 gap-6">
         {announcements.map((ann) => (
-          <div key={ann.id} className="group relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-8 hover:bg-white/[0.04] transition-all duration-500 backdrop-blur-xl flex flex-col sm:flex-row gap-8 items-start">
+          <div key={ann.id} className="group relative overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-8 hover:bg-white/[0.04] transition-all duration-500 backdrop-blur-xl flex flex-col sm:flex-row gap-8 items-start">
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center relative z-10 shadow-sm">
+            <div className="shrink-0 w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center relative z-10 shadow-sm">
               {ann.isPinned ? <Pin className="w-7 h-7 text-white" /> : <Megaphone className="w-7 h-7 text-white/50 group-hover:text-white transition-colors" />}
             </div>
             
@@ -69,7 +69,7 @@ export default function AnnouncementsPage() {
           </div>
         ))}
         {announcements.length === 0 && (
-          <div className="py-20 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
+          <div className="py-20 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center">
             <Megaphone className="w-12 h-12 text-white/20 mb-4" />
             <h3 className="text-white font-medium text-lg tracking-tight mb-2">{t('no_announcements') || 'No Announcements'}</h3>
           </div>

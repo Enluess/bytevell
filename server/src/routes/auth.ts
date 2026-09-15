@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { register, login, me, logout } from '../controllers/authController.js';
+import { register, login, me, logout, verifyEmail, resendVerificationEmail } from '../controllers/authController.js';
 import { requireAuth } from '../middleware/auth.js';
 
 export default async function authRoutes(fastify: FastifyInstance) {
@@ -23,4 +23,6 @@ export default async function authRoutes(fastify: FastifyInstance) {
     
     fastify.get('/me', { preHandler: [requireAuth] }, me);
     fastify.post('/logout', { preHandler: [requireAuth] }, logout);
+  fastify.post('/verify-email', verifyEmail);
+  fastify.post('/resend-verification', resendVerificationEmail);
 }

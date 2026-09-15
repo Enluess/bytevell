@@ -110,7 +110,7 @@ export default function ServiceDetailPage() {
             {t('back_to_services')}
           </Link>
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center shrink-0 shadow-sm backdrop-blur-xl">
+            <div className="w-16 h-16 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center shrink-0 shadow-sm backdrop-blur-xl">
               <Server className="w-8 h-8 text-white/50" />
             </div>
             <div>
@@ -160,13 +160,13 @@ export default function ServiceDetailPage() {
       </div>
 
       {message && (
-        <div className="px-6 py-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-[14px] font-medium tracking-wide">
+        <div className="px-6 py-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-[14px] font-medium tracking-wide">
           {message}
         </div>
       )}
 
       {error && (
-        <div className="px-6 py-4 rounded-2xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
+        <div className="px-6 py-4 rounded-xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
           {error}
         </div>
       )}
@@ -198,12 +198,12 @@ export default function ServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-6">
               {isVps ? (
-                <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-xl flex flex-col items-center justify-center text-center min-h-[350px]">
+                <div className="p-8 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-xl flex flex-col items-center justify-center text-center min-h-[350px]">
                   <Activity className="w-12 h-12 text-white/10 mb-4" />
                   <p className="text-white/40 text-[14px] tracking-wide">{t('monitoring_disabled')}</p>
                 </div>
               ) : (
-                <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-xl flex flex-col items-center justify-center text-center min-h-[350px]">
+                <div className="p-8 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-xl flex flex-col items-center justify-center text-center min-h-[350px]">
                   <Activity className="w-12 h-12 text-white/10 mb-4" />
                   <p className="text-white/40 text-[14px] tracking-wide">{t('no_metrics')}</p>
                 </div>
@@ -211,7 +211,7 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="p-6 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-xl">
+              <div className="p-6 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-xl">
                 <h3 className="text-white/30 font-bold text-[11px] uppercase tracking-widest mb-6">{t('service_details')}</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-[14px]">
@@ -229,7 +229,7 @@ export default function ServiceDetailPage() {
                 </div>
               </div>
 
-              <div className="p-6 rounded-3xl border border-red-500/10 bg-red-500/[0.02] backdrop-blur-xl relative overflow-hidden group">
+              <div className="p-6 rounded-xl border border-red-500/10 bg-red-500/[0.02] backdrop-blur-xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <h3 className="text-red-400/50 font-bold text-[11px] uppercase tracking-widest mb-6 relative z-10">{t('dangerous_actions')}</h3>
                 <button 
@@ -246,13 +246,13 @@ export default function ServiceDetailPage() {
         )}
 
         {activeTab === 'settings' && (
-          <div className="p-12 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-xl text-center">
+          <div className="p-12 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-xl text-center">
             <p className="text-white/40 text-[15px] tracking-wide">{t('settings_coming_soon')}</p>
           </div>
         )}
 
         {activeTab === 'billing' && (
-          <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-xl max-w-lg">
+          <div className="p-8 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-xl max-w-lg">
             <h3 className="text-white/30 font-bold text-[11px] uppercase tracking-widest mb-6">{t('billing_info')}</h3>
             <div className="flex justify-between items-center text-[15px] pb-4 border-b border-white/5">
               <span className="text-white/50 tracking-wide">{t('price')}</span>

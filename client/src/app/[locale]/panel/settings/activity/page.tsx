@@ -54,12 +54,12 @@ export default function ActivityLogPage() {
       </div>
 
       {error && (
-        <div className="px-6 py-4 rounded-2xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
+        <div className="px-6 py-4 rounded-xl border border-red-500/20 bg-red-500/10 text-red-400 text-[14px] font-medium tracking-wide">
           {error}
         </div>
       )}
 
-      <div className="bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-xl shadow-sm overflow-hidden">
+      <div className="bg-white/[0.02] border border-white/5 rounded-xl backdrop-blur-xl shadow-sm overflow-hidden">
         <div className="p-6 border-b border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <h2 className="text-[11px] uppercase tracking-widest font-bold text-white/30 flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
@@ -81,7 +81,7 @@ export default function ActivityLogPage() {
           <div className="divide-y divide-white/5">
             {logs.map((log) => (
               <div key={log.id} className="p-6 flex gap-6 hover:bg-white/[0.02] transition-colors group">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center shrink-0 shadow-sm">
                   <Clock className="w-5 h-5 text-white/30 group-hover:text-white/50 transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -103,7 +103,7 @@ export default function ActivityLogPage() {
           </div>
         ) : (
           <div className="px-8 py-20 flex flex-col items-center justify-center text-center">
-            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+            <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-6">
               <Activity className="w-8 h-8 text-white/20" />
             </div>
             <h3 className="text-white font-semibold text-[16px] tracking-tight mb-2">{t('no_activity')}</h3>

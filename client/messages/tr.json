@@ -769,7 +769,7 @@
       "have_account": "Zaten hesabınız var mı?",
       "login_link": "Giriş Yapın",
       "error": "Kayıt başarısız veya bu e-posta zaten kullanılıyor.",
-      "success": "Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...",
+      "success": "Kayıt başarılı! Lütfen e-posta adresinize gönderilen doğrulama bağlantısına tıklayın.",
       "tc": "T.C. Kimlik No",
       "phone": "Telefon",
       "address": "Adres",

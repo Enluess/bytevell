@@ -15,7 +15,7 @@ export const users = pgTable('users', {
   state: varchar('state', { length: 100 }),
   country: varchar('country', { length: 100 }),
   postalCode: varchar('postal_code', { length: 20 }),
-  
+
   // Account type
   accountType: varchar('account_type', { length: 20 }).notNull().default('individual'), // individual, company
   companyName: varchar('company_name', { length: 255 }),
@@ -79,7 +79,7 @@ export const userAddresses = pgTable('user_addresses', {
   city: varchar('city', { length: 100 }).notNull(),
   state: varchar('state', { length: 100 }),
   postalCode: varchar('postal_code', { length: 20 }),
-  country: varchar('country', { length: 2 }).notNull().default('TR'), // ISO 3166-1 alpha-2
+country: varchar('country', { length: 2 }).notNull().default('TR'), // ISO 3166-1 alpha-2
   isDefault: boolean('is_default').notNull().default(false),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
